@@ -14,7 +14,8 @@ export const Detail = () => {
         title: proyect.Title,
         poster: proyect.Poster,
         identificador: proyect.Codigo,
-        descripcion: proyect.Description
+        descripcion: proyect.Description,
+        generos: proyect.Generos
     }))
 
     const detallePublicado = mappedPublicados.filter(proyect => (proyect.identificador == detalleId))[0]
@@ -29,6 +30,11 @@ export const Detail = () => {
           <div className='contenido'>
             <h2>{detallePublicado.title}</h2>
             <p>{detallePublicado.descripcion}</p>
+            <ul className='listaGeneros'>
+            {detallePublicado.generos.map(genero => 
+                <li className='genero'>{genero}</li>
+              )}
+            </ul>
             <button className='botonPrincipal'>Descargar</button>
           </div>
         </section>

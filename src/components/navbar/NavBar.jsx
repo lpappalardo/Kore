@@ -16,6 +16,36 @@ const Navbar = () => {
                 </nav>
             </div>
         </header>
+
+        // <header>
+        //     <div className="container encabezado">
+        //         <nav>
+        //             <h1>
+        //                 <NavLink to="/" className="title">
+        //                 Kore
+        //                 </NavLink>
+        //             </h1>
+        //             <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
+        //               <span></span>
+        //               <span></span>
+        //               <span></span>
+        //             </div>
+        //             <ul className={menuOpen ? "open" : ""}>
+        //             <li className="navItemList">
+        //                 <NavLink className="navItem" to="/">Inicio</NavLink>
+        //             </li>
+
+        //             <li className="navItemList">
+        //                 <NavLink className="navItem" to="/proyectos">Proyectos</NavLink>
+        //             </li>
+
+        //             <li className="navItemList">
+        //                 <NavLink className="navItem" to="/proyectos">Perfil</NavLink>
+        //             </li>
+        //             </ul>
+        //         </nav>
+        //     </div>
+        // </header>
     )
 }
 

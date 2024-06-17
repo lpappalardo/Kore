@@ -165,6 +165,22 @@ header {
   cursor: pointer;
 }
 
+.listaGeneros {
+  padding: 1rem;
+  border-top: 1px solid var(--clr-black);
+  border-bottom: 1px solid var(--clr-black);
+
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.genero {
+  list-style: none;
+  text-align: center;
+}
+
 /* OBSERVACION */
 
 .formulario {
