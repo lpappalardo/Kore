@@ -6,19 +6,6 @@ const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false)
    
     return (
-        // <header>
-        //     <div className="container encabezado">
-        //         <h1>Kore</h1>
-
-        //         <nav>
-        //             <ul>
-        //                 <li className="navItemList"><NavLink className="navItem" to="/">Inicio</NavLink></li>
-        //                 <li className="navItemList"><NavLink className="navItem" to="/proyectos">Proyectos</NavLink></li>
-        //             </ul>
-        //         </nav>
-        //     </div>
-        // </header>
-
         <header>
             <div className="container encabezado">
                 <nav>
@@ -42,7 +29,7 @@ const Navbar = () => {
                         </li>
 
                         <li className="navItemList">
-                            <NavLink className="navItem" to="/proyectos">Perfil</NavLink>
+                            <NavLink className="navItem" to="/admin">Admin</NavLink>
                         </li>
                     </ul>
                 </nav>
