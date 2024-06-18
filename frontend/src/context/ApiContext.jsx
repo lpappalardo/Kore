@@ -8,6 +8,9 @@ export const ApiConextProvider = ({children}) => {
     const [loading, setLoading] = useState([])
     const [projects, setProjects ] = useState([])
 
+    const [loadingObservation, setLoadingObservation] = useState([])
+    const [observations, setObservations ] = useState([])
+
     useEffect(() => {
     setLoading(true)
     axios.get("http://localhost:3002/proyectos")
@@ -28,8 +31,33 @@ export const ApiConextProvider = ({children}) => {
       // poster: proyect.Poster,
     }))
 
+
+    useEffect(() => {
+    setLoadingObservation(true)
+    axios.get("http://localhost:3002/observaciones")
+    .then(res => {
+      setObservations(res.data)
+      setLoadingObservation(false)
+    })
+    .catch((error) => {
+      setLoadingObservation(false)
+      console.log(error)
+    })
+    }, [])
+
+    const mappedOservaciones = observations?.map(observation => ({
+      id: observation._id,
+      idProject: observation.idProject,
+      name: observation.name,
+      arte: observation.arte,
+      tecnico: observation.tecnico,
+      disenio: observation.disenio,
+      generales: observation.generales,
+      // poster: proyect.Poster,
+    }))
+
     return (
-        <ApiContext.Provider value={{mappedPublicados, setProjects}}>
+        <ApiContext.Provider value={{mappedPublicados, setProjects, mappedOservaciones, setObservations}}>
             {children}
         </ApiContext.Provider>
     )
