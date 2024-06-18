@@ -29,9 +29,16 @@ export const Detail = () => {
         </section>
 
         <section className='observacion container'>
-          <form className='formulario' action="">
+          <form className='formulario' action="" method='POST'>
             <h3>Dejar Observación</h3>
 
+            <div>
+              <label for="nombre">Nombre:*</label>
+              <input type='text' name="nombre" id="nombre" placeholder="Nombre..." required
+              // value={projectData.name}
+              // onChange={(e) => setProjectData({...projectData, name: e.target.value})}
+              ></input>
+            </div>
             <div>
               <label for="disenio">Sobre el diseño:</label>
               <textarea name="disenio" id="disenio" placeholder="Sobre el diseño..." required></textarea>

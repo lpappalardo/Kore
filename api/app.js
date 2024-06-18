@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { projectroutes } from './routes/index.js';
+import { projectroutes, observationroutes } from './routes/index.js';
 import 'dotenv/config';
 import cors from 'cors';
 
@@ -24,6 +24,7 @@ app.get('/',(req, res) => {
 });
 
 app.use('/proyectos', projectroutes);
+app.use('/observaciones', observationroutes);
 
 const port = process.env.PORT || 3002;
 app.listen(port, () => {
