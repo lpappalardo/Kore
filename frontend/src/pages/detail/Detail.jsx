@@ -1,43 +1,33 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import publicadosProyects from "../../assets/mocks/proyectos.json"
-import { Proyects } from "../../components/proyects/Proyects"
+import { ApiContext } from '../../context/ApiContext'
 
 export const Detail = () => {
   const params = useParams()
   const detalleId = params.id
 
-  const publicados = publicadosProyects.Search
+  const {mappedPublicados, setProjects} = useContext(ApiContext)
 
-    const mappedPublicados = publicados?.map(proyect => ({
-        id: proyect.Id,
-        title: proyect.Title,
-        poster: proyect.Poster,
-        identificador: proyect.Codigo,
-        descripcion: proyect.Description,
-        generos: proyect.Generos
-    }))
-
-    const detallePublicado = mappedPublicados.filter(proyect => (proyect.identificador == detalleId))[0]
-
+  const detallePublicado = mappedPublicados.filter(project => (project.id == detalleId))[0]
 
   return (
     <>
     {
       <div>
         <section className='detalle container'>
-          <img src={detallePublicado.poster} alt={detallePublicado.title} />
+          <img src={detallePublicado.title} alt={detallePublicado.title} />
           <div className='contenido'>
             <h2>{detallePublicado.title}</h2>
-            <p>{detallePublicado.descripcion}</p>
-            <ul className='listaGeneros'>
+            <p>{detallePublicado.description}</p>
+            {/* <ul className='listaGeneros'>
             {detallePublicado.generos.map(genero => 
                 <li className='genero'>{genero}</li>
               )}
-            </ul>
+            </ul> */}
             <button className='botonPrincipal'>Descargar</button>
           </div>
         </section>
+
         <section className='observacion container'>
           <form className='formulario' action="">
             <h3>Dejar Observación</h3>

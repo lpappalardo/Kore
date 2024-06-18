@@ -1,16 +1,9 @@
-import React from "react";
-import publicadosProyects from "../../assets/mocks/proyectos.json"
+import React, { useContext } from 'react'
 import { Proyects } from "../../components/proyects/Proyects"
+import { ApiContext } from '../../context/ApiContext'
 
 const Games = () => {
-    const publicados = publicadosProyects.Search
-
-    const mappedPublicados = publicados?.map(proyect => ({
-        id: proyect.Id,
-        title: proyect.Title,
-        poster: proyect.Poster,
-        identificador: proyect.Codigo
-    }))
+  const {mappedPublicados, setProjects} = useContext(ApiContext)
 
     return (
         <section className="publicaciones container">

@@ -9,8 +9,10 @@ const ListOfProyects = ({ proyects }) => {
                     <ul className="proyects">
                         {
                             proyects.map(proyect => (
-                                <Link to={`/detalle/${proyect.identificador}`} className="proyect" key={proyect.id}>
-                                    <img src={proyect.poster} alt={proyect.title} />
+                                // <Link to={`/detalle/${proyect.identificador}`} className="proyect" key={proyect.id}>
+                                <Link to={`/detalle/${proyect.id}`} className="proyect" key={proyect.id}>
+                                    {/* <img src={proyect.poster} alt={proyect.title} /> */}
+                                    <img src={proyect.title} alt={proyect.title} />
                                     <h3>{proyect.title}</h3>
                                 </Link>
                             ))
