@@ -48,23 +48,31 @@ header {
   box-shadow: 0px 2px 40px var(--clr-black);
 }
 
-.encabezado {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  color: var(--clr-main);
+ul li {
+  list-style: none;
 }
 
 .navItem {
   text-decoration: none;
   padding: 1rem;
   color: var(--clr-main);
-  border-radius: 5px;
+  /* max-width: 100%; */
 }
 
 .navItem:hover {
   background-color: var(--clr-main);
   color: var(--clr-white);
+}
+
+.navItemList {
+  padding: 1rem;
+}
+
+/* .encabezado {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  color: var(--clr-main);
 }
 
 .encabezado nav {
@@ -78,12 +86,117 @@ header {
   flex-direction: row;
 }
 
-.encabezado ul li {
-  list-style: none;
-}
-
 .navItemList + .navItemList {
   margin-left: 1rem;
+} */
+
+
+/* --------------------------------- */
+
+/* .active{
+  background-color: var(--clr-main);
+} */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--clr-main);
+  /* background-color: #0f172a; */
+  /* color: white; */
+  position: sticky;
+  top: 0;
+}
+
+nav .title {
+  font-size: 1.5rem;
+  margin: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+/* nav ul {
+  display: flex;
+} */
+
+/* nav ul li {
+ list-style: none; 
+}
+
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
+} */
+
+nav ul li a:not(.active):hover {
+  background-color:var(--clr-main);
+}
+
+nav .menu {
+  display: none;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.25rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+nav .menu span {
+  height: 0.4rem;
+  width: 100%;
+  background-color: var(--clr-main);
+  border-radius: 0.2rem;
+}
+
+.navList {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (min-width: 791px) {
+  nav ul {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 790px) {
+  nav .menu {
+      display: flex;
+  }
+
+  nav {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  nav ul {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 0.25rem;
+  }
+
+  nav ul.open {
+      display: flex;
+  }
+
+  nav ul li {
+      width: 100%;
+      text-align: center;
+  }
+
+  /* nav ul li a {
+      margin: 0.2rem 0.5rem;
+  } */
 }
 
 /* PROYECTS */
