@@ -260,6 +260,7 @@ nav .menu span {
 
 .contenido p {
   line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 .botonPrincipal {
@@ -267,7 +268,7 @@ nav .menu span {
   background-color: var(--clr-main);
   color: var(--clr-white);
   border: 2px solid var(--clr-main);
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 1rem 4rem;
   font-weight: 600;
 }
