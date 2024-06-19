@@ -31,7 +31,8 @@ export const Detail = () => {
     axios.post("http://localhost:3002/observaciones/", observationData)
     .then((res) => {
       console.log(res)
-      navigate(`/detalle/${detalleId}`)
+      navigate('/proyectos')
+      window.location.reload(true)
     })
     .catch((error) => {
       setError(error.respose.data.message)
@@ -48,33 +49,48 @@ export const Detail = () => {
           <div className='contenido'>
             <h2>{detallePublicado.title}</h2>
             <p>{detallePublicado.description}</p>
-            {/* <ul className='listaGeneros'>
-            {detallePublicado.generos.map(genero => 
-                <li className='genero'>{genero}</li>
+            <ul className='listaGeneros'>
+            {detallePublicado.categorias.map(categoria => 
+                <li className='genero'>{categoria}</li>
               )}
-            </ul> */}
+            </ul>
             <button className='botonPrincipal'>Descargar</button>
           </div>
         </section>
 
         <section className='container'>
-          <ul className="proyects">
+          <ul className="observations">
               {
                   detalleOservaciones.map(observation => (
                       // <Link to={`/detalle/${proyect.identificador}`} className="proyect" key={proyect.id}>
-                      <li className="proyect" key={observation.id}>
+                      <li className="observation" key={observation.id}>
                           {/* <img src={proyect.poster} alt={proyect.title} /> */}
                           <h3>{observation.name}</h3>
                           {
-                            observation.arte && <p>{observation.arte}</p>
+                            observation.arte && 
+                            <div>
+                              <h4>Arte</h4>
+                              <p>{observation.arte}</p>
+                            </div>
                           }
                           {
-                            observation.tecnico && <p>{observation.tecnico}</p>
+                            observation.tecnico && 
+                            <div>
+                              <h4>Tecnico</h4>
+                              <p>{observation.tecnico}</p>
+                            </div>
                           }
                           {
-                            observation.disenio && <p>{observation.disenio}</p>
+                            observation.disenio &&
+                            <div>
+                              <h4>Diseñio</h4>
+                              <p>{observation.disenio}</p>
+                            </div>
                           }
-                          <p>{observation.generales}</p>
+                          <div>
+                              <h4>Generales</h4>
+                              <p>{observation.generales}</p>
+                            </div>
                       </li>
                   ))
               }

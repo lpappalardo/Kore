@@ -108,6 +108,10 @@ nav {
   top: 0;
 }
 
+nav h1 .navItem {
+  color: var(--clr-main);
+}
+
 nav .title {
   font-size: 1.5rem;
   margin: 1rem;
@@ -197,6 +201,37 @@ nav .menu span {
   /* nav ul li a {
       margin: 0.2rem 0.5rem;
   } */
+}
+
+/* OBSERVATIONS */
+
+.observations {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.observation {
+  background-color: var(--clr-gray);
+  border-radius: 4px;
+  text-decoration: none;
+  padding: 1rem;
+}
+
+.observation p {
+  padding-top: 0.5rem;
+  background-color: var(--clr-white);
+  border-radius: 2px;
+  padding: .5rem;
+}
+
+.observation div {
+  padding: 0.5rem;
+}
+
+.observation h4 {
+  margin-bottom: 0.5rem;
 }
 
 /* PROYECTS */
@@ -311,6 +346,7 @@ nav .menu span {
   margin-bottom: 1rem;
 }
 
+legend,
 form div label {
 	font-weight: bold;
   color: var(--clr-black);
@@ -327,6 +363,17 @@ textarea {
     width: 100%;
 }
 
+select {
+  border: none;
+  padding: 6px;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  border-radius: 4px;
+  width: 80%;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
 div input {
   border: none;
   padding: 6px;
@@ -336,12 +383,21 @@ div input {
   width: 100%;
 }
 
+fieldset div {
+  padding: 1rem;
+}
+
+fieldset label input {
+  width: 10%;
+}
+
 /* FOOTER */
 
 .footer {
   background-color: var(--clr-strong);
   color: var(--clr-white);
   padding: 2rem;
+  bottom: 0;
 }
 
 .footer p {

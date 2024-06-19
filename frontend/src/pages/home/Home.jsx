@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import recientesProyects from "../../assets/mocks/recientes.json"
 import destacadosProyects from "../../assets/mocks/destacados.json"
 import { Proyects } from "../../components/proyects/Proyects";
+import { ApiContext } from '../../context/ApiContext'
 
 const Home = () => {
+    const {mappedPublicados, setProjects} = useContext(ApiContext)
     const recientes = recientesProyects.Search
 
     const mappedRecientes = recientes?.map(proyect => ({
@@ -32,11 +34,11 @@ const Home = () => {
 
             <section className="publicaciones container">
                 <h2>Destacados</h2>
-                <Proyects proyects={mappedRecientes} />
+                <Proyects proyects={mappedPublicados} />
             </section>
             <section className="publicaciones container">
                 <h2>Mas Recientes</h2>
-                <Proyects proyects={mappedDestacados} />
+                <Proyects proyects={mappedPublicados} />
             </section>
         </main>
     

@@ -8,6 +8,10 @@ const ProjectSchema = new mongoose.Schema({
       description: {
         type: String,
         required: true
+      },
+      categorias: {
+        type: [String],
+        required: true
       }
 })
 

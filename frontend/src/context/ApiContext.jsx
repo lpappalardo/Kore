@@ -24,10 +24,13 @@ export const ApiConextProvider = ({children}) => {
     })
     }, [])
 
-    const mappedPublicados = projects?.map(project => ({
+    let dataProjects = Array.from(projects);
+
+    let mappedPublicados = dataProjects.map(project => ({
       id: project._id,
       title: project.name,
       description: project.description,
+      categorias: project.categorias,
       // poster: proyect.Poster,
     }))
 
