@@ -13,7 +13,7 @@ export const ApiConextProvider = ({children}) => {
 
     useEffect(() => {
     setLoading(true)
-    axios.get("http://localhost:3002/proyectos")
+    axios.get("http://localhost:3000/proyectos")
     .then(res => {
       setProjects(res.data)
       setLoading(false)
@@ -28,16 +28,19 @@ export const ApiConextProvider = ({children}) => {
 
     let mappedPublicados = dataProjects.map(project => ({
       id: project._id,
+      userId: project.userId,
+      userName: project.userName,
       title: project.name,
       description: project.description,
       categorias: project.categorias,
-      // poster: proyect.Poster,
+      tecnologias: project.tecnologias,
+      // imagenProyecto: project.imagenProyecto,
     }))
 
 
     useEffect(() => {
     setLoadingObservation(true)
-    axios.get("http://localhost:3002/observaciones")
+    axios.get("http://localhost:3000/observaciones")
     .then(res => {
       setObservations(res.data)
       setLoadingObservation(false)
@@ -50,6 +53,7 @@ export const ApiConextProvider = ({children}) => {
 
     const mappedOservaciones = observations?.map(observation => ({
       id: observation._id,
+      userId: observation.userId,
       idProject: observation.idProject,
       name: observation.name,
       arte: observation.arte,

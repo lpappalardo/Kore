@@ -1,10 +1,10 @@
 import express from 'express';
 const projectroutes = express.Router();
 import Proyectos from "../models/proyects.js"
+import multer from 'multer';
+// const fs = require('fs')
 
-// import multer from 'multer';
-
-// const upload = multer({ dest: 'uploads' })
+const upload = multer({ dest: 'uploads/' })
 
 projectroutes.get('/', async (req, res) => {
   try {
@@ -15,21 +15,32 @@ projectroutes.get('/', async (req, res) => {
   }
 });
 
+// projectroutes.post('/', upload.single('imagenProyecto'), async (req, res) => {
 projectroutes.post('/', async (req, res) => {
-  console.log(req.body)
   const project = new Proyectos({
     name: req.body.name,
+    userId: req.body.userId,
+    userName: req.body.userName,
     description: req.body.description,
-    categorias: req.body.categorias
+    categorias: req.body.categorias,
+    tecnologias: req.body.tecnologias,
+    // imagenProyecto: req.file.filename 
   });
 
   try {
+    // saveImage(req.file)
     const newProject = await project.save();
     res.status(201).json(newProject);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
 });
+
+// function saveImage(file) {
+//   const newPath = `./uploads/${file.originalname}`;
+//   fs.renameSync(file.path, newPath);
+//   return newPath
+// }
 
 projectroutes.post('/categoria', async (req, res) => {
   try {
@@ -45,6 +56,34 @@ projectroutes.post('/categoria', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
+projectroutes.put('/editarProyecto/:id', async (req, res) =>{
+  let idProyecto = req.params.id
+
+  try {
+    let proyecto = await Proyectos.findByIdAndUpdate({_id: idProyecto}, {
+    name: req.body.name,
+    userId: req.body.userId,
+    userName: req.body.userName,
+    description: req.body.description,
+    categorias: req.body.categorias,
+    tecnologias: req.body.tecnologias,
+    })
+    res.status(201).json(proyecto);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+})
+
+projectroutes.delete('/eliminarProyecto/:id', async (req, res) =>{
+  let idProyecto = req.params.id
+  try {
+    let proyecto = await Proyectos.findByIdAndDelete({_id: idProyecto})
+    res.json(proyecto);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+})
 
 projectroutes.get('/:id', async (req, res) => {
   try {

@@ -33,7 +33,7 @@ const Games = () => {
 
   const handleSearch = (e) => {
     e.preventDefault()
-    axios.post("http://localhost:3002/proyectos/categoria", categoria)
+    axios.post("http://localhost:3000/proyectos/categoria", categoria)
     .then((res) => {
       console.log(res)
       setProjects(res.data)

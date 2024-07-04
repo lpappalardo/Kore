@@ -1,31 +1,51 @@
 import React, { useContext, useState } from 'react'
 import { ApiContext } from '../../context/ApiContext'
-import { Proyects } from "../../components/proyects/Proyects"
+import { PersonalProyects } from "../../components/proyects/PersonalProyects"
+import { Observations } from "../../components/observations/Oservations"
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
+import { AuthContext } from '../../context/AuthContext/'
 
 export const Profile = () => {
 
-  const generos = ["Accion", "Aventura", "Acertijos", "Suspenso", "Terror", "2D", "3D"]
+  const generos = ["Accion", "Aventura", "Acertijos", "Suspenso", "Terror", "Plataformas", "2D", "3D"]
 
-  const {mappedPublicados, setProjects} = useContext(ApiContext)
+  const tecnologias = ["Unity", "Unreal Engine", "Godot", "GameMaker Studio", "Blender", "Autodesk Maya", "ZBrush", "Photoshop", "Aseprite"]
+
+  const {mappedPublicados, mappedOservaciones} = useContext(ApiContext)
 
   const [checkedValues, setCheckedValues] = useState([])
+  const [checkedValuesTecnologias, setCheckedValuesTecnologias] = useState([])
+
+  const {user} = useContext(AuthContext)
+
+  // const [image, setImage] = useState('')
 
   const navigate = useNavigate()
 
   const [projectData, setProjectData] = useState({
     name: "",
+    userId: user.id,
+    userName: user.name,
     description: "",
-    categorias: []
+    categorias: [],
+    tecnologias: [],
   })
 
   const [error, setError] = useState("")
 
+  const publicadosUsuario = mappedPublicados.filter((publicado) => publicado.userId == user.id)
+
+  const observacionesUsuario = mappedOservaciones.filter((observacion) => observacion.userId == user.id)
+
+
+  console.log(user.name)
+  console.log(user.id)
+  console.log(user)
   
 
   const handleUpload = (e) => {
-    setProjectData({...projectData, categorias: checkedValues});
+    console.log(projectData)
     upload(e);
   }
 
@@ -33,10 +53,10 @@ export const Profile = () => {
     e.preventDefault()
     console.log(projectData)
 
-    axios.post("http://localhost:3002/proyectos/", projectData)
+    axios.post("http://localhost:3000/proyectos/", projectData)
     .then((res) => {
       console.log(res)
-      navigate('/admin')
+      navigate('/proyectos')
       window.location.reload(true)
     })
     .catch((error) => {
@@ -47,19 +67,34 @@ export const Profile = () => {
 
   const handleCheck = (e) => {
     const {value, checked} = e.target
+    let newValues = checkedValues;
 
     if(checked){
-      setCheckedValues(pre => [...pre, value])
+      newValues.push(value) 
+      setCheckedValues(newValues)
     } else {
-      setCheckedValues(pre => {
-       return [...pre.filter(category => category !== value)]
-      })
+      newValues = checkedValues.filter(category => category !== value)
+      setCheckedValues(newValues)
     }
+    setProjectData({...projectData, categorias: newValues})
 
-    setProjectData({...projectData, categorias: checkedValues})
   }
-  console.log(projectData)
-  console.log(checkedValues)
+
+  const handleCheckTecnologia = (e) => {
+    const {value, checked} = e.target
+    let newValues = checkedValuesTecnologias;
+
+    if(checked){
+      newValues.push(value) 
+      setCheckedValuesTecnologias(newValues)
+    } else {
+      newValues = checkedValuesTecnologias.filter(tecnology => tecnology !== value)
+      setCheckedValuesTecnologias(newValues)
+    }
+    setProjectData({...projectData, tecnologias: newValues})
+
+  }
+  
 
   return (
     <>
@@ -72,21 +107,14 @@ export const Profile = () => {
               <label for="nombre">Nombre:*</label>
               <input type='text' name="nombre" id="nombre" placeholder="Nombre..." required
               value={projectData.name}
-              onChange={(e) => setProjectData({...projectData, name: e.target.value, categorias: checkedValues})}></input>
+              onChange={(e) => setProjectData({...projectData, name: e.target.value})}></input>
             </div>
-
-            {/* <div>
-              <label for="imagen">Imagen:*</label>
-              <input type='file' name="imagen" id="imagen" required
-              value={projectData.imagen}
-              onChange={(e) => setProjectData({...projectData, imagen: e.target.files[0]})}></input>
-            </div> */}
 
             <div>
               <label for="descripcion">Descripción*:</label>
               <textarea name="descripcion" id="descripcion" placeholder="Descripcion..." required
               value={projectData.description}
-              onChange={(e) => setProjectData({...projectData, description: e.target.value, categorias: checkedValues})}></textarea>
+              onChange={(e) => setProjectData({...projectData, description: e.target.value})}></textarea>
             </div>
 
             <fieldset>
@@ -108,6 +136,24 @@ export const Profile = () => {
                 </div>
             </fieldset>
 
+            <fieldset>
+                <legend>Tecnologías</legend>
+                <div>
+                {
+                tecnologias.map(tecnologia => (
+                  <label>
+                    <input
+                        type="checkbox"
+                        name={tecnologia}
+                        value={tecnologia}
+                        onChange={handleCheckTecnologia}
+                    />
+                    {tecnologia}
+                  </label>
+                ))
+                }
+                </div>
+            </fieldset>
 
             <button className='botonPrincipal' onClick={handleUpload}>Subir</button>
           </form>
@@ -115,7 +161,11 @@ export const Profile = () => {
 
         <section className="publicaciones container">
                 <h2>Proyectos Subidos</h2>
-                <Proyects proyects={mappedPublicados} />
+                <PersonalProyects proyects={publicadosUsuario} />
+        </section>
+        <section className="publicaciones container">
+                <h2>Observaciones Realizadas</h2>
+                <Observations observations={observacionesUsuario} />
         </section>
       </div>
     }

@@ -5,6 +5,14 @@ const ProjectSchema = new mongoose.Schema({
         type: String,
         required: true
       },
+      userId: {
+        type: String,
+        required: true
+      },
+      userName: {
+        type: String,
+        required: true
+      },
       description: {
         type: String,
         required: true
@@ -12,7 +20,15 @@ const ProjectSchema = new mongoose.Schema({
       categorias: {
         type: [String],
         required: true
-      }
+      },
+      tecnologias: {
+        type: [String],
+        required: true
+      },
+      // imagenProyecto: {
+      //   type: String,
+      //   required: false
+      // },
 })
 
 export default mongoose.model('Proyectos', ProjectSchema);

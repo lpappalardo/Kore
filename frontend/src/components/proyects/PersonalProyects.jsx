@@ -9,11 +9,18 @@ const ListOfProyects = ({ proyects }) => {
                     <ul className="proyects">
                         {
                             proyects.map(proyect => (
-                                <Link to={`/detalle/${proyect.id}`} className="proyect" key={proyect.id}>
+                                // <Link to={`/detalle/${proyect.identificador}`} className="proyect" key={proyect.id}>
+                                <div className="proyect" key={proyect.id}>
                                     {/* <img src={proyect.poster} alt={proyect.title} /> */}
                                     <img src="../../../src/assets/img/card.png" alt={proyect.title} />
                                     <h3>{proyect.title}</h3>
-                                </Link>
+                                    {/* <Link to={`/elimiar/${proyect.id}`}>Eliminar</Link> */}
+                                    <div className="contenedor-links">
+                                        <Link className=" botonPrincipal" to={`/detalle/${proyect.id}`}>Ver</Link>
+                                        <Link className=" botonPrincipal" to={`/actualizar/${proyect.id}`}>Editar</Link>
+                                        <Link className="botonPrincipal" to={`/elimiar/${proyect.id}`}>Eliminar</Link>
+                                    </div>
+                                </div>
                             ))
                         }
                     </ul>
@@ -28,7 +35,7 @@ const NoProyectsResults = () => {
     )
 }
 
-export function Proyects ({ proyects }) {
+export function PersonalProyects ({ proyects }) {
     const hasProyects = proyects?.length > 0
 
     return (
