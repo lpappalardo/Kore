@@ -1,4 +1,4 @@
-# React + Vite
+# MERN
 
 Para iniciar el proyector se debe utilizar el comando "npm start" en la carpeta api y se debe utilizar el comando "npm run dev" en la carpeta frontend
 
