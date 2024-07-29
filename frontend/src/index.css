@@ -42,6 +42,17 @@ p {
     margin: auto;
 }
 
+html, body, .site-container {
+  height: 100%;
+  /* max-width: 100%; */
+}
+
+.site-container {
+  display: grid;
+  grid-template-rows: 61px 1fr 84px;
+  grid-template-columns: 1fr;
+}
+
 /* NAVBAR */
 
 header {
@@ -146,6 +157,7 @@ nav .menu span {
 
   nav ul.open {
       display: flex;
+      background-color: var(--clr-white);
   }
 
   nav ul li {
@@ -171,6 +183,7 @@ nav .menu span {
   padding: 1rem;
 }
 
+.observation-content p,
 .observation p {
   padding-top: 0.5rem;
   background-color: var(--clr-white);
@@ -178,14 +191,64 @@ nav .menu span {
   padding: .5rem;
 }
 
+.observation-content div,
 .observation div {
   padding: 0.5rem;
 }
 
+.observation-content h4,
 .observation h4 {
   margin-bottom: 0.5rem;
 }
 
+                      
+.observation-card {
+  /* display: flex;
+  flex-direction: row; */
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  background-color: var(--clr-gray);
+  border-radius: 4px;
+  /* text-decoration: none; */
+  /* padding: 1rem; */
+}
+
+.observation-user {
+  padding: 2rem; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 4px solid var(--clr-main);
+}
+.observation-content {
+  padding: 2rem; 
+  display: grid;
+  grid-template-columns: 1fr;
+} 
+
+
+.observation-user  img {
+  border-radius: 500px;
+  margin-bottom: 1rem;
+  max-width: 200px;
+  
+}
+
+.observation p {
+  height: 100px;
+}
+
+@media screen and (max-width: 991px) {
+  .observation-card {
+    grid-template-columns: 1fr;
+  }
+
+  .observation-user {
+    padding: 1rem; 
+    border-right: 0px;
+    border-bottom: 4px solid var(--clr-main);
+  }
+}
 /* PROYECTS */
 
 .proyects {
@@ -195,12 +258,20 @@ nav .menu span {
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(240px, 300px));
   gap: 16px;
+  margin-top: 2rem;
 }
 
 .proyect {
   background-color: var(--clr-gray);
   border-radius: 4px;
   text-decoration: none;
+  /* border: 2px solid var(--clr-main); */
+}
+
+.proyect-text {
+  padding: 16px 8px;
+  border-top: 4px solid var(--clr-main);
+  border-radius: 0 0px 4px 4px;
 }
 
 .proyect img {
@@ -208,7 +279,8 @@ nav .menu span {
 }
 
 .proyect h3 {
-  margin: 16px 8px;
+  /* margin: 16px 8px; */
+  padding: 1rem;
   color: var(--clr-black);
 }
 
@@ -219,9 +291,11 @@ nav .menu span {
 }
 
 .publicaciones {
-  margin: 3rem auto;
+  /* margin: 3rem auto; */
+  margin: 3rem 10%;
 }
 
+.publicaciones h3,
 .publicaciones h2 {
   margin-bottom: 24px;
 }
@@ -229,8 +303,10 @@ nav .menu span {
 /* DETALLE */
 
 .detalle {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
+  display: grid;
+  grid-template-columns: 1fr;
   margin: 2rem auto;
 }
 
@@ -256,8 +332,11 @@ nav .menu span {
   color: var(--clr-white);
   border: 2px solid var(--clr-main);
   border-radius: 4px;
-  padding: 1rem 4rem;
+  padding: 0.5rem 2rem;
   font-weight: 600;
+  min-width: 132px;
+  text-align: center;
+  max-height: 38px;
 }
 
 .botonPrincipal:hover {
@@ -283,6 +362,10 @@ nav .menu span {
 }
 
 /* OBSERVACION */
+
+.observacion {
+  margin: 3rem 10%;
+}
 
 .formulario {
 	width: 100%;
@@ -397,13 +480,20 @@ fieldset label input {
   margin-top: 4rem;
 }
 
+.detalle img {
+  object-fit: cover;
+  border-radius: 4px;
+}
+
 @media screen and (min-width: 701px) {
   .detalle {
-    flex-direction: row;
+    /* display: grid; */
+    grid-template-columns: 40% 1fr;
   }
 
   .detalle img {
-    max-width: 40%;
+    max-width: 100%;
+
   }
 
   .contenido {
@@ -453,18 +543,24 @@ fieldset label input {
   align-items: center;
 } */
 
-.noLink {
+/* .noLink {
   text-decoration: none;
-}
+} */
 
 .contenedor-links {
   display: flex;
   flex-direction: column;
 }
 
-.contenedor-links Link {
-  text-decoration: none;
+.contenedor-links-horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
+
+/* .contenedor-links Link {
+  text-decoration: none;
+} */
 
 a:-webkit-any-link {
   text-decoration: none;
@@ -532,4 +628,34 @@ h2 {
 
 .listaGeneros {
   margin: 1rem;
+}
+
+/* PERFIL */
+
+.perfil {
+  margin-top: 3rem;
+}
+
+.contenidoPerfil {
+  display: grid;
+  grid-template-columns: 1rf;
+  gap: 16px;
+}
+
+.contenidoPerfil  img {
+  border-radius: 4px;
+  max-width: 100%;
+}
+
+.elementoPerfil {
+  display: grid;
+  grid-template-columns: 1rf;
+  gap: 12spx;
+  margin-bottom: auto;
+}
+
+@media screen and (min-width: 701px) {
+  .contenidoPerfil  img {
+    max-width: 30%;
+  }
 }

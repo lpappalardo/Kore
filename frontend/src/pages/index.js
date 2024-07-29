@@ -8,4 +8,5 @@ export { Update } from "./update/Update.jsx"
 export { UpdateObservation } from "./updateObservation/UpdateObservation.jsx"
 export { DeleteObservation } from "./deleteObservation/DeleteObservation.jsx"
 export { UploadObservation } from "./uploadObservation/UploadObservation.jsx"
+export { UploadProyect } from "./uploadProyect/UploadProyect.jsx"
 export * from './detail/index.js'

@@ -12,6 +12,7 @@ import { Update } from "./pages/update/Update"
 import { UpdateObservation } from "./pages/updateObservation/UpdateObservation"
 import { DeleteObservation } from "./pages/deleteObservation/DeleteObservation"
 import { UploadObservation } from "./pages/uploadObservation/UploadObservation"
+import { UploadProyect } from "./pages/uploadProyect/UploadProyect"
 import Footer from "./components/footer/Footer"
 import ProtectedRoutes from './utils/ProtectedRoutes'
 
@@ -25,16 +26,17 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/proyectos' element={<Games/>} />
           <Route path='/detalle/:id' element={<Detail/>} />
-          <Route path='/actualizar/:id' element={<Update/>} />
+          <Route path='/actualizarProyecto/:id' element={<Update/>} />
           <Route path='/elimiar/:id' element={<Delete/>} />
           <Route path='/actualizarObservacion/:id' element={<UpdateObservation/>} />
           <Route path='/elimiarObservacion/:id' element={<DeleteObservation/>} />
           <Route path='/generarObservacion/:id' element={<UploadObservation/>} />
+          <Route path='/generarProyecto' element={<UploadProyect/>} />
           <Route path='/perfil' element={<Profile/>} />
         </Route>
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
-        <Route path='*' element={<h1>Not found</h1>} />
+        <Route path='*' element={<h1>Página no encontrada</h1>} />
       </Routes>
       <Footer></Footer>
     </>

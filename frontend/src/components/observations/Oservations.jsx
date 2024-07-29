@@ -12,7 +12,7 @@ const ListOfObservations = ({ observations }) => {
                                 // <Link to={`/detalle/${proyect.identificador}`} className="proyect" key={proyect.id}>
                                 <div className="observation" key={observation.id}>
                                     {/* <img src={proyect.poster} alt={proyect.title} /> */}
-                                    <h3>{observation.name}</h3>
+                                    {/* <h3>{observation.name}</h3> */}
                                     <div>
                                         <h4>Generales</h4>
                                         <p>{observation.generales}</p>

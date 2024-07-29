@@ -39,7 +39,7 @@ const Delete = () => {
       <div className='seccion container'>
         <h2>Esta seguro que desea eliminar este proyecto</h2>
         <section className='detalle'>
-          <img src="../../../src/assets/img/card.png" alt={detallePublicado.title} />
+          <img src="../../../src/assets/img/logoGrande.png" alt={detallePublicado.title} />
           <div className='contenido'>
             <h3>{detallePublicado.title}</h3>
             <p>{detallePublicado.description}</p>

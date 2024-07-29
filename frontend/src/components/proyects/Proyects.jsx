@@ -12,7 +12,9 @@ const ListOfProyects = ({ proyects }) => {
                                 <Link to={`/detalle/${proyect.id}`} className="proyect" key={proyect.id}>
                                     {/* <img src={proyect.poster} alt={proyect.title} /> */}
                                     <img src="../../../src/assets/img/card.png" alt={proyect.title} />
-                                    <h3>{proyect.title}</h3>
+                                    <div className="proyect-text">
+                                        <h3>{proyect.title}</h3>
+                                    </div>
                                 </Link>
                             ))
                         }

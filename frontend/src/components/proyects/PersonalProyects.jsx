@@ -17,7 +17,7 @@ const ListOfProyects = ({ proyects }) => {
                                     {/* <Link to={`/elimiar/${proyect.id}`}>Eliminar</Link> */}
                                     <div className="contenedor-links">
                                         <Link className=" botonPrincipal" to={`/detalle/${proyect.id}`}>Ver</Link>
-                                        <Link className=" botonPrincipal" to={`/actualizar/${proyect.id}`}>Editar</Link>
+                                        <Link className=" botonPrincipal" to={`/actualizarProyecto/${proyect.id}`}>Editar</Link>
                                         <Link className="botonPrincipal" to={`/elimiar/${proyect.id}`}>Eliminar</Link>
                                     </div>
                                 </div>
@@ -31,7 +31,7 @@ const ListOfProyects = ({ proyects }) => {
 
 const NoProyectsResults = () => {
     return (
-        <p>No se encontraron Proyectos.</p>
+        <p className='comment'>No se encontraron Proyectos.</p>
     )
 }
 
