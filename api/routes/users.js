@@ -5,7 +5,7 @@ const userRoutes = express.Router();
 
 userRoutes.get('/',verificarToken,  getUsers);
 
-userRoutes.get('/find/:userId', getUser);
+userRoutes.get('/find/:userId', verificarToken, getUser);
 
 userRoutes.post('/register', registerUser);
 

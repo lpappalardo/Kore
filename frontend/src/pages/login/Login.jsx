@@ -6,6 +6,8 @@ import {useNavigate} from "react-router-dom"
 import { TabTitle } from '../../utils/TabTitle'
 
 const Login = () => {
+  const [errorsValidation, setErrorsValidation] = useState({})
+  const [showPassword,setShowPassword] = useState(false)
   
   TabTitle('Ingreso')
 
@@ -22,6 +24,20 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault()
+
+    const validationErrors = {}
+
+    if(!userData.email.trim()) {
+        validationErrors.email = "El correo es requerido"
+    }
+
+    if(!userData.password.trim()) {
+        validationErrors.password = "La contraseña es requerida"
+    }
+
+    setErrorsValidation(validationErrors)
+
+    if(Object.keys(validationErrors).length === 0) {
     axios.post("http://localhost:3000/usuarios/login", userData)
     .then((res) => {
       console.log(res)
@@ -33,7 +49,12 @@ const Login = () => {
       setError(error.respose.data.message)
       console.log(error)
     })
+
+    const credentialsErrors = {}
+    credentialsErrors.credentials = "La credenciales ingresadas no son válidas"
+    setErrorsValidation(credentialsErrors)
   }
+}
 
   return (
     <main className='container formInicio'>
@@ -47,16 +68,29 @@ const Login = () => {
           <label>Correo:</label>
           <input type="email" value={userData.email}
             onChange={(e) => setUserData({...userData, email: e.target.value})} />
+          {errorsValidation.email && <p>{errorsValidation.email}</p>}  
         </div>
         <div>
           <label>Contraseña:</label>
-          <input type="password" value={userData.password}
+          <input type={showPassword ? "text" : "password"}  value={userData.password}
             onChange={(e) => setUserData({...userData, password: e.target.value})} />
+          <div  onClick={()=>setShowPassword((preve)=>!preve)}>
+                <span>
+                    {
+                        showPassword ? (
+                          <img className='iconoInput' src="../src/assets/eye-slash.png" alt="Oculto"/>
+                        )
+                        :
+                        (
+                          <img className='iconoInput' src="../src/assets/eye.png" alt="Descubierto"/>
+                        )
+                    }
+                </span>
+            </div>
+          {errorsValidation.password && <p>{errorsValidation.password}</p>} 
+          {errorsValidation.credentials && <p>{errorsValidation.credentials}</p>}  
         </div>
         <button className="botonPrincipal" onClick={handleLogin}>Login</button>
-        {
-          error && <p>{error}</p>
-        }
       </form>
     </main>
   )

@@ -13,7 +13,7 @@ export const AuthConextProvider = ({children}) => {
     useEffect(() => {
         if(auth){
             const decoded = jwtDecode(auth);
-            setUser({name: decoded.usuario.name, id: decoded.usuario._id})
+            setUser({name: decoded.usuario.username, id: decoded.usuario._id})
         }
 
     },[])

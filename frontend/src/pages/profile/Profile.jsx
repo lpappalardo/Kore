@@ -7,12 +7,16 @@ import {useNavigate} from "react-router-dom"
 import { AuthContext } from '../../context/AuthContext/'
 import { Link } from 'react-router-dom'
 import { TabTitle } from '../../utils/TabTitle'
+import { useProjects } from '../../hooks/useProjects'
+import { useObservations } from '../../hooks/useObservations'
 
 export const Profile = () => {
 
   TabTitle('Perfil')
 
-  const {mappedPublicados, mappedOservaciones} = useContext(ApiContext)
+  const {mappedPublicados, setProjects} = useProjects()
+  const {mappedOservaciones, setObservations} = useObservations()
+  // const {mappedPublicados, mappedOservaciones} = useContext(ApiContext)
 
   const {user} = useContext(AuthContext)
 

@@ -9,6 +9,8 @@ import { TabTitle } from '../../utils/TabTitle'
 
 const UploadObservation = () => {
 
+  const [errorsValidation, setErrorsValidation] = useState({})
+
   TabTitle('Generar Observación')
 
     const params = useParams()
@@ -37,16 +39,27 @@ const UploadObservation = () => {
   
     const handleSubmit = (e) => {
       e.preventDefault()
-      axios.post("http://localhost:3000/observaciones/", observationData)
-      .then((res) => {
-        console.log(res)
-        navigate('/proyectos')
-        window.location.reload(true)
-      })
-      .catch((error) => {
-        setError(error.respose.data.message)
-        console.log(error)
-      })
+
+      const validationErrors = {}
+
+      if(!observationData.generales.trim()) {
+        validationErrors.generales = "Es necesario ingresar una observación general del proyecto"
+      }
+
+      setErrorsValidation(validationErrors)  
+    
+      if(Object.keys(validationErrors).length === 0) {
+        axios.post("http://localhost:3000/observaciones/", observationData)
+          .then((res) => {
+          console.log(res)
+          navigate('/proyectos')
+          window.location.reload(true)
+        })
+        .catch((error) => {
+          setError(error.respose.data.message)
+          console.log(error)
+        }) 
+      }
     }
 
   return (
@@ -76,11 +89,12 @@ const UploadObservation = () => {
               ></textarea>
             </div>
             <div>
-              <label for="generales">Generales*:</label>
+              <label for="generales">Detalles generales*:</label>
               <textarea name="generales" id="generales" placeholder="Generales..." required
               value={observationData.generales}
               onChange={(e) => setObservationData({...observationData, generales: e.target.value})}
               ></textarea>
+              {errorsValidation.generales && <p>{errorsValidation.generales}</p>} 
             </div>
             <button className='botonPrincipal' onClick={handleSubmit}>Enviar</button>
           </form>

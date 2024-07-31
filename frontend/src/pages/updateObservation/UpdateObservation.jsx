@@ -8,6 +8,8 @@ import { TabTitle } from '../../utils/TabTitle'
 
 const UpdateObservation = () => {
 
+  const [errorsValidation, setErrorsValidation] = useState({})
+
   TabTitle('Editar Observación')
 
     const params = useParams()
@@ -35,17 +37,29 @@ const UpdateObservation = () => {
     const [error, setError] = useState("")
   
     const handleUpload = (e, id) => {
+
       e.preventDefault()
-      axios.put(`http://localhost:3000/observaciones/editarObservacion/${id}`, observationData)
-      .then((res) => {
-        console.log(res)
-        navigate('/proyectos')
-        window.location.reload(true)
-      })
-      .catch((error) => {
-        setError(error.respose.data.message)
-        console.log(error)
-      })
+
+      const validationErrors = {}
+
+      if(!observationData.generales.trim()) {
+        validationErrors.generales = "Es necesario ingresar una observación general del proyecto"
+      }
+
+      setErrorsValidation(validationErrors)  
+
+      if(Object.keys(validationErrors).length === 0) {
+        axios.put(`http://localhost:3000/observaciones/editarObservacion/${id}`, observationData)
+        .then((res) => {
+          console.log(res)
+          navigate('/proyectos')
+          window.location.reload(true)
+        })
+        .catch((error) => {
+          setError(error.respose.data.message)
+          console.log(error)
+        })
+      }
     }
   
     return (
@@ -82,6 +96,7 @@ const UpdateObservation = () => {
                 value={observationData.generales}
                 onChange={(e) => setObservationData({...observationData, generales: e.target.value})}
                 ></textarea>
+                {errorsValidation.generales && <p>{errorsValidation.generales}</p>} 
               </div>
               <button className='botonPrincipal' onClick={(e) => handleUpload(e, observationId)}>Actualizar</button>
             </form>

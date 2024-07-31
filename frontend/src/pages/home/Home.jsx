@@ -9,24 +9,24 @@ const Home = () => {
 
     TabTitle('Inicio')
     
-    const {mappedPublicados, setProjects} = useContext(ApiContext)
-    const recientes = recientesProyects.Search
+    // const {mappedPublicados, setProjects} = useContext(ApiContext)
+    // const recientes = recientesProyects.Search
 
-    const mappedRecientes = recientes?.map(proyect => ({
-        id: proyect.Id,
-        title: proyect.Title,
-        poster: proyect.Poster,
-        identificador: proyect.Codigo
-    }))
+    // const mappedRecientes = recientes?.map(proyect => ({
+    //     id: proyect.Id,
+    //     title: proyect.Title,
+    //     poster: proyect.Poster,
+    //     identificador: proyect.Codigo
+    // }))
 
-    const destacados = destacadosProyects.Search
+    // const destacados = destacadosProyects.Search
 
-    const mappedDestacados = destacados?.map(proyect => ({
-        id: proyect.Id,
-        title: proyect.Title,
-        poster: proyect.Poster,
-        identificador: proyect.Codigo
-    }))
+    // const mappedDestacados = destacados?.map(proyect => ({
+    //     id: proyect.Id,
+    //     title: proyect.Title,
+    //     poster: proyect.Poster,
+    //     identificador: proyect.Codigo
+    // }))
 
     return (
         <main>
@@ -45,8 +45,8 @@ const Home = () => {
                 <Proyects proyects={mappedPublicados} />
             </section> */}
             <section id="propuestas" className="seccion container">
-                <div class="articulos">
-                    <div class="articulo">
+                <div className="articulos">
+                    <div className="articulo">
                             <picture className="articulo-img">
                                 <img src="../src/assets/desarrollador.jpg" alt="Desarrollador"/>
                             </picture>

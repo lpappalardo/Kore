@@ -36,7 +36,7 @@ const registerUser = async (req, res) =>{
 
     let usuario = new Usuarios({
         email       : body.email,
-        name      : body.name,
+        // name      : body.name,
         username      : body.username,
         password    :  bcrypt.hashSync( body.password, 10 )
     });
@@ -61,12 +61,12 @@ const loginUser = async (req, res) =>{
                 const passwordValido = bcrypt.compareSync(req.body.password, datos.password);
                 if(!passwordValido) return res.status(400).json({error:'ok', msj:'Usuario o contraseña incorrecta.'})
                 const jwToken = jwt.sign({
-                    usuario: {_id: datos._id, name: datos.name, username: datos.username, email: datos.email}
+                    usuario: {_id: datos._id, username: datos.username, email: datos.email}
                   }, process.env.SEED, { expiresIn: process.env.EXPIRATION });
                 res.json({
                     usuario:{
                         _id:datos._id,
-                        name:datos.name,
+                        // name:datos.name,
                         username:datos.username,
                         email:datos.email
                     },

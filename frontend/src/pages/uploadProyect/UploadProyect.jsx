@@ -6,6 +6,8 @@ import { TabTitle } from '../../utils/TabTitle'
 
 const UploadProyect = () => {
 
+  const [errorsValidation, setErrorsValidation] = useState({})
+
   TabTitle('Generar Proyecto')
 
     const generos = ["Accion", "Aventura", "Acertijos", "Suspenso", "Terror", "Plataformas", "2D", "3D"]
@@ -31,14 +33,36 @@ const UploadProyect = () => {
   const [error, setError] = useState("")
 
     const handleUpload = (e) => {
-        console.log(projectData)
+      console.log(projectData)
+
+      const validationErrors = {}
+
+      if(!projectData.name.trim()) {
+        validationErrors.name = "El nombre del proyecto es requerido"
+      }
+
+      if(!projectData.description.trim()) {
+        validationErrors.description = "La descripción del proyecto es requerida"
+      } 
+
+      if(projectData.categorias.length < 1) {
+          validationErrors.categorias = "Es necesario seleccionar al menos 1 categoría"
+      }  
+    
+      if(projectData.tecnologias.length < 1){
+          validationErrors.tecnologias = "Es necesario seleccionar al menos 1 tecnología"
+      }
+
+      setErrorsValidation(validationErrors)  
+    
+      if(Object.keys(validationErrors).length === 0) {
         upload(e);
       }
+    }
     
       const upload = (e) => {
         e.preventDefault()
-        console.log(projectData)
-    
+
         axios.post("http://localhost:3000/proyectos/", projectData)
         .then((res) => {
           console.log(res)
@@ -90,6 +114,7 @@ const UploadProyect = () => {
               <input type='text' name="nombre" id="nombre" placeholder="Nombre..." required
               value={projectData.name}
               onChange={(e) => setProjectData({...projectData, name: e.target.value})}></input>
+              {errorsValidation.name && <p>{errorsValidation.name}</p>}  
             </div>
 
             <div>
@@ -97,6 +122,7 @@ const UploadProyect = () => {
               <textarea name="descripcion" id="descripcion" placeholder="Descripcion..." required
               value={projectData.description}
               onChange={(e) => setProjectData({...projectData, description: e.target.value})}></textarea>
+              {errorsValidation.description && <p>{errorsValidation.description}</p>}  
             </div>
 
             <fieldset>
@@ -116,6 +142,7 @@ const UploadProyect = () => {
                 ))
                 }
                 </div>
+                {errorsValidation.categorias && <p>{errorsValidation.categorias}</p>} 
             </fieldset>
 
             <fieldset>
@@ -135,6 +162,7 @@ const UploadProyect = () => {
                 ))
                 }
                 </div>
+                {errorsValidation.tecnologias && <p>{errorsValidation.tecnologias}</p>} 
             </fieldset>
 
             <button className='botonPrincipal' onClick={handleUpload}>Subir</button>

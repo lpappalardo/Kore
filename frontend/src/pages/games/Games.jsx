@@ -4,12 +4,13 @@ import { ApiContext } from '../../context/ApiContext'
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import { TabTitle } from '../../utils/TabTitle'
+import { useProjects } from '../../hooks/useProjects'
 
 const Games = () => {
 
   TabTitle('Proyectos')
 
-  const {mappedPublicados, setProjects} = useContext(ApiContext)
+  const {mappedPublicados, setProjects} = useProjects()
 
   const generos = ["Todas", "Accion", "Aventura", "Acertijos", "Suspenso", "Terror", "2D", "3D"]
 

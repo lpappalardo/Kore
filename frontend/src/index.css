@@ -664,3 +664,7 @@ h2 {
     max-width: 30%;
   }
 }
+
+.iconoInput {
+  cursor: pointer;
+}
