@@ -13,7 +13,7 @@ const ListOfProyects = ({ proyects }) => {
                                 <div className="proyect" key={proyect.id}>
                                     {/* <img src={proyect.poster} alt={proyect.title} /> */}
                                     <img src="../../../src/assets/img/card.png" alt={proyect.title} />
-                                    <h3>{proyect.title}</h3>
+                                    <p className="cardTitlte">{proyect.title}</p>
                                     {/* <Link to={`/elimiar/${proyect.id}`}>Eliminar</Link> */}
                                     <div className="contenedor-links">
                                         <Link className=" botonPrincipal" to={`/detalle/${proyect.id}`}>Ver</Link>

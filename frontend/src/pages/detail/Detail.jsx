@@ -36,20 +36,20 @@ export const Detail = () => {
   return (
     <>
     {
-      <div>
+      <main>
         <section className='detalle container'>
           <img src="../../../src/assets/img/logoGrande.png" alt={detallePublicado.title} />
           <div className='contenido'>
-            <h2>{detallePublicado.title}</h2>
+            <h1>{detallePublicado.title}</h1>
             <p>{detallePublicado.description}</p>
 
-            <h3>Géneros</h3>
+            <h2>Géneros</h2>
             <ul className='listaGeneros'>
             {detallePublicado.categorias.map(categoria => 
                 <li className='genero'>{categoria}</li>
               )}
             </ul>
-            <h3>Tecnologías</h3>
+            <h2>Tecnologías</h2>
             <ul className='listaGeneros'>
             {detallePublicado.tecnologias.map(tecnolgia => 
                 <li className='genero'>{tecnolgia}</li>
@@ -60,7 +60,7 @@ export const Detail = () => {
         </section>
 
         <section className='generar-observacion container'>
-          <h3>Observaciones Realizadas</h3>
+          <h2>Observaciones Realizadas</h2>
         {
           detallePublicado.userId != usuarioId ?
           <Link className='botonPrincipal' to={`/generarObservacion/${detalleId}`}>Generar Observación</Link>
@@ -77,33 +77,33 @@ export const Detail = () => {
                        <li className="observation-card" key={observation.id}>
                         <div className='observation-user'>
                           <img src="../src/assets/img/logoGrande.png" alt="Usuario" />
-                          <h3>{observation.name}</h3>
+                          <p className='observation-user-name'>{observation.name}</p>
                         </div>
                         <div className='observation-content'>
                         {
                              observation.arte && 
                              <div>
-                               <h4>Arte</h4>
-                               <p>{observation.arte}</p>
+                               <p className='titleObservation'>Arte</p>
+                               <p className='contentObservation'>{observation.arte}</p>
                              </div>
                            }
                            {
                              observation.tecnico && 
                              <div>
-                               <h4>Técnico</h4>
-                               <p>{observation.tecnico}</p>
+                               <p className='titleObservation'>Técnico</p>
+                               <p className='contentObservation'>{observation.tecnico}</p>
                              </div>
                            }
                            {
                              observation.disenio &&
                              <div>
-                               <h4>Diseñio</h4>
-                               <p>{observation.disenio}</p>
+                               <p className='titleObservation'>Diseñio</p>
+                               <p className='contentObservation'>{observation.disenio}</p>
                              </div>
                            }
                            <div>
-                               <h4>Generales</h4>
-                               <p>{observation.generales}</p>
+                               <p className='titleObservation'>Generales</p>
+                               <p className='contentObservation'>{observation.generales}</p>
                            </div>
                            {
                             observation.userId == usuarioId ?
@@ -122,7 +122,7 @@ export const Detail = () => {
                : <p className='comment'>En este momento no hay observaciones realizadas en este proyecto.</p>
       }
         </section>
-      </div>
+      </main>
     }
     </>
   )

@@ -32,7 +32,7 @@ const Register = () => {
   }
 
   return (
-    <div className='container formInicio'>
+    <main className='container formInicio'>
       <picture className='logoEntrada'>
           <img src="../../../src/assets/img/logoNombre.png" alt="Kore" />
       </picture>
@@ -65,7 +65,7 @@ const Register = () => {
           error && <p>{error}</p>
         }
       </form>
-    </div>
+    </main>
   )
 }
 

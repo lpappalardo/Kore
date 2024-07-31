@@ -50,9 +50,9 @@ const UploadObservation = () => {
     }
 
   return (
-    <section className='observacion container'>
+    <main className='observacion container'>
           <form className='formulario' action="" method='POST'>
-            <h2>Dejar Observación de {detallePublicado.title}</h2>
+            <h1>Generar Observación de {detallePublicado.title}</h1>
 
             <div>
               <label for="disenio">Detalle del diseño:</label>
@@ -84,7 +84,7 @@ const UploadObservation = () => {
             </div>
             <button className='botonPrincipal' onClick={handleSubmit}>Enviar</button>
           </form>
-        </section>
+    </main>
   )
 }
 

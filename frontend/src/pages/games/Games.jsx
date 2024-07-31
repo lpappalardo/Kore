@@ -59,8 +59,8 @@ const Games = () => {
   console.log(mappedPublicados)
 
     return (
-        <section className="publicaciones container">
-                <h2>Proyectos publicados</h2>
+        <main className="publicaciones container">
+                <h1>Proyectos publicados</h1>
                 <form method='POST'>
                       <h3>Filtrar por categoría</h3>
                       <select name="" id="" onChange={handleSelect}>
@@ -73,7 +73,7 @@ const Games = () => {
                   <button className='botonPrincipal' onClick={handleSearch}>Buscar</button>
                 </form>
                 <Proyects proyects={mappedPublicados} />
-        </section>
+        </main>
     )
 }
 

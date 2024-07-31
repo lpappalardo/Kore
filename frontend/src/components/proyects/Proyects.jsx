@@ -13,7 +13,7 @@ const ListOfProyects = ({ proyects }) => {
                                     {/* <img src={proyect.poster} alt={proyect.title} /> */}
                                     <img src="../../../src/assets/img/card.png" alt={proyect.title} />
                                     <div className="proyect-text">
-                                        <h3>{proyect.title}</h3>
+                                        <p className="cardTitlte">{proyect.title}</p>
                                     </div>
                                 </Link>
                             ))

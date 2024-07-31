@@ -82,9 +82,9 @@ const UploadProyect = () => {
       }
 
   return (
-    <section className='observacion container'>
+    <main className='observacion container'>
           <form className='formulario' action="" method='POST'>
-            <h3>Subir Proyecto</h3>
+            <h1>Generar Proyecto</h1>
             <div>
               <label for="nombre">Nombre:*</label>
               <input type='text' name="nombre" id="nombre" placeholder="Nombre..." required
@@ -139,7 +139,7 @@ const UploadProyect = () => {
 
             <button className='botonPrincipal' onClick={handleUpload}>Subir</button>
           </form>
-        </section>
+    </main>
   )
 }
 

@@ -38,9 +38,9 @@ const DeleteObservation = () => {
     }
 
   return (
-    <div>
+    <main>
       <section className='seccion container'>
-        <h2>Esta seguro que desea eliminar esta observación</h2>
+        <h1>¿Está seguro que desea eliminar esta observación?</h1>
 
 
                       <div className="observation">
@@ -80,7 +80,7 @@ const DeleteObservation = () => {
         </button>
 
         </section>
-    </div>
+    </main>
   )
 }
 

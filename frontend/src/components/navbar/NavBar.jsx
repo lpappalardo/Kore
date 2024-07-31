@@ -11,11 +11,11 @@ const Navbar = () => {
         <header>
             <div className="container encabezado">
                 <nav>
-                    <h1 className="navItemList">
+                    <div className="navItemList">
                         <NavLink  to="/" className="title navItem">
                         Kore
                         </NavLink>
-                    </h1>
+                    </div>
                     <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
                       <span></span>
                       <span></span>

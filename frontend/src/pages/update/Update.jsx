@@ -9,7 +9,7 @@ import { TabTitle } from '../../utils/TabTitle'
 const Update = () => {
 
   TabTitle('Editar Proyecto')
-  
+
     const params = useParams()
     const publicadoId = params.id
 
@@ -112,10 +112,10 @@ const Update = () => {
     return (
       <>
       {
-        <div>
+        <main>
           <section className='observacion container'>
             <form className='formulario' action="" method='PUT'>
-              <h3>Actualizar Proyecto</h3>
+              <h1>Actualizar Proyecto</h1>
               <div>
                 <label for="nombre">Nombre:*</label>
                 <input type='text' name="nombre" id="nombre" placeholder="Nombre..." required
@@ -177,7 +177,7 @@ const Update = () => {
             </form>
           </section>
 
-        </div>
+        </main>
       }
       </>
     )

@@ -87,13 +87,13 @@ nav {
   top: 0;
 }
 
-nav h1 .navItem {
+nav div .navItem {
   color: var(--clr-main);
 }
 
-nav h1 img {
+/* nav h1 img {
   max-height: 32px;
-}
+} */
 
 nav .title {
   font-size: 1.5rem;
@@ -183,8 +183,8 @@ nav .menu span {
   padding: 1rem;
 }
 
-.observation-content p,
-.observation p {
+.observation-content .contentObservation,
+.observation .contentObservation {
   padding-top: 0.5rem;
   background-color: var(--clr-white);
   border-radius: 2px;
@@ -196,9 +196,10 @@ nav .menu span {
   padding: 0.5rem;
 }
 
-.observation-content h4,
-.observation h4 {
+.observation-content .titleObservation,
+.observation .titleObservation {
   margin-bottom: 0.5rem;
+  font-weight:bold;
 }
 
                       
@@ -226,6 +227,9 @@ nav .menu span {
   grid-template-columns: 1fr;
 } 
 
+.observation-user-name {
+  font-weight: 600;
+}
 
 .observation-user  img {
   border-radius: 500px;
@@ -278,10 +282,11 @@ nav .menu span {
   border-radius: 4px 4px 0 0;
 }
 
-.proyect h3 {
+.proyect .cardTitlte {
   /* margin: 16px 8px; */
   padding: 1rem;
   color: var(--clr-black);
+  font-weight: 600;
 }
 
 .proyect:hover {

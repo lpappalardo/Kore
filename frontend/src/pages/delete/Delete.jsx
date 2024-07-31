@@ -40,8 +40,8 @@ const Delete = () => {
   return (
     <>
     {
-      <div className='seccion container'>
-        <h2>Esta seguro que desea eliminar este proyecto</h2>
+      <main className='seccion container'>
+        <h1>¿Está seguro que desea eliminar este proyecto?</h1>
         <section className='detalle'>
           <img src="../../../src/assets/img/logoGrande.png" alt={detallePublicado.title} />
           <div className='contenido'>
@@ -67,7 +67,7 @@ const Delete = () => {
         </button>
 
         
-      </div>
+      </main>
     }
     </>
   )

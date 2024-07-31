@@ -25,27 +25,27 @@ export const Profile = () => {
   return (
     <>
     {
-      <div>
+      <main>
         <section className='perfil container'>
-          <h2>Perfil</h2>
+          <h1>Perfil</h1>
           <div className='contenidoPerfil'>
             <img src="../../../src/assets/img/logoGrande.png" alt="Imagen Perfil" />
             <div className='elementoPerfil'>
-              <h3>Nombre de Usuario</h3>
+              <h2>Nombre de Usuario</h2>
               <p>{user.name}</p>
             </div>
           </div>
         </section>
         <section className="publicaciones container">
-                <h3>Proyectos Subidos</h3>
+                <h2>Proyectos Subidos</h2>
                 <Link className='botonPrincipal' to={`/generarProyecto`}>Generar Proyecto</Link>
                 <PersonalProyects proyects={publicadosUsuario} />
         </section>
         <section className="publicaciones container">
-                <h3>Observaciones Realizadas</h3>
+                <h2>Observaciones Realizadas</h2>
                 <Observations observations={observacionesUsuario} />
         </section>
-      </div>
+      </main>
     }
     </>
   )

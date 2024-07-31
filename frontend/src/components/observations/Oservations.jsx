@@ -14,8 +14,8 @@ const ListOfObservations = ({ observations }) => {
                                     {/* <img src={proyect.poster} alt={proyect.title} /> */}
                                     {/* <h3>{observation.name}</h3> */}
                                     <div>
-                                        <h4>Generales</h4>
-                                        <p>{observation.generales}</p>
+                                        <p className="titleObservation">Generales</p>
+                                        <p className="contentObservation">{observation.generales}</p>
                                     </div>
                                     <div className="contenedor-links">
                                         <Link to={`/detalle/${observation.idProject}`} className="noLink botonPrincipal">Ver</Link>

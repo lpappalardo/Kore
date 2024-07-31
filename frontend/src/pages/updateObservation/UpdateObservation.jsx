@@ -51,10 +51,10 @@ const UpdateObservation = () => {
     return (
       <>
       {
-        <div>
+        <main>
           <section className='observacion container'>
             <form className='formulario' action="" method='PUT'>
-              <h3>Dejar Observación</h3>
+              <h1>Actualizar Observación</h1>
               <div>
                 <label for="disenio">Sobre el diseño:</label>
                 <textarea name="disenio" id="disenio" placeholder="Sobre el diseño..." required
@@ -86,7 +86,7 @@ const UpdateObservation = () => {
               <button className='botonPrincipal' onClick={(e) => handleUpload(e, observationId)}>Actualizar</button>
             </form>
           </section>
-        </div>
+        </main>
       }
       </>
     )
