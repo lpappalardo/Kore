@@ -5,8 +5,12 @@ import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
 import { Link } from 'react-router-dom'
+import { TabTitle } from '../../utils/TabTitle'
 
 export const Detail = () => {
+
+  TabTitle('Proyecto')
+
   const params = useParams()
   const detalleId = params.id
 

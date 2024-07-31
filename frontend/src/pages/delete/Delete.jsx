@@ -4,8 +4,12 @@ import { ApiContext } from '../../context/ApiContext'
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
+import { TabTitle } from '../../utils/TabTitle'
 
 const Delete = () => {
+
+  TabTitle('Eliminar Proyecto')
+
   const params = useParams()
   const detalleId = params.id
 

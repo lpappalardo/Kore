@@ -3,8 +3,12 @@ import axios from "axios"
 import { AuthContext } from '../../context/AuthContext'
 import Cookies from "js-cookie"
 import {useNavigate} from "react-router-dom"
+import { TabTitle } from '../../utils/TabTitle'
 
 const Login = () => {
+  
+  TabTitle('Ingreso')
+
   const navigate = useNavigate()
 
   const [userData, setUserData] = useState({

@@ -4,8 +4,12 @@ import { ApiContext } from '../../context/ApiContext'
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
+import { TabTitle } from '../../utils/TabTitle'
 
 const Update = () => {
+
+  TabTitle('Editar Proyecto')
+  
     const params = useParams()
     const publicadoId = params.id
 

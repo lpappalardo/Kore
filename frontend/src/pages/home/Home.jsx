@@ -3,8 +3,12 @@ import recientesProyects from "../../assets/mocks/recientes.json"
 import destacadosProyects from "../../assets/mocks/destacados.json"
 import { Proyects } from "../../components/proyects/Proyects";
 import { ApiContext } from '../../context/ApiContext'
+import { TabTitle } from '../../utils/TabTitle'
 
 const Home = () => {
+
+    TabTitle('Inicio')
+    
     const {mappedPublicados, setProjects} = useContext(ApiContext)
     const recientes = recientesProyects.Search
 
