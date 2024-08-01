@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/AuthContext'
 import Cookies from "js-cookie"
 import {useNavigate} from "react-router-dom"
 import { TabTitle } from '../../utils/TabTitle'
+import {toast} from "sonner";
 
 const Login = () => {
   const [errorsValidation, setErrorsValidation] = useState({})
@@ -43,11 +44,13 @@ const Login = () => {
       console.log(res)
       setUser(res.data.usuario)
       Cookies.set('jwToken', res.data.jwToken, {expires: 3})
+      toast.success("Inicio de sesión exitoso")
       navigate('/')
     })
     .catch((error) => {
       setError(error.respose.data.message)
       console.log(error)
+      toast.error("Error al iniciar sesión")
     })
 
     const credentialsErrors = {}

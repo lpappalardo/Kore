@@ -53,6 +53,10 @@ html, body, .site-container {
   grid-template-columns: 1fr;
 }
 
+.my-toast {
+  padding: 1rem;
+}
+
 /* NAVBAR */
 
 header {

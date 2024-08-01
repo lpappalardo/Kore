@@ -8,6 +8,8 @@ import { TabTitle } from '../../utils/TabTitle'
 
 const Update = () => {
 
+  // const [file, setFile] = useState(null);
+
   TabTitle('Editar Proyecto')
 
     const params = useParams()
@@ -48,7 +50,11 @@ const Update = () => {
     const upload = (e, id) => {
       e.preventDefault()
       console.log(projectData)
-  
+
+      // if (file) {
+      //   projectData.append('image', file);
+      // }
+
       axios.put(`http://localhost:3000/proyectos/editarProyecto/${id}`, projectData)
       .then((res) => {
         console.log(res)
@@ -76,6 +82,10 @@ const Update = () => {
     // setProjectData({...projectData, categorias: newValues})
 
     // }
+
+    const handleFileChange = (e) => {
+      setFile(e.target.files[0]);
+    };
 
     const handleCheck = (e) => {
       const {value, checked} = e.target
@@ -171,9 +181,13 @@ const Update = () => {
                 }
                 </div>
             </fieldset>
+
+              {/* <div>
+                <label htmlFor="image">Imagen:</label>
+                <input type="file" id="image" name="image" onChange={handleFileChange}/>
+              </div> */}
   
-  
-              <button className='botonPrincipal' onClick={(e) => handleUpload(e, publicadoId)}>Subir</button>
+              <button className='botonPrincipal' onClick={(e) => handleUpload(e, publicadoId)}>Editar</button>
             </form>
           </section>
 
