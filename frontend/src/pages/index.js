@@ -1,12 +1,12 @@
 export { Home } from "./home/Home.jsx"
-export { Games } from "./games/Games.jsx" 
+export { AvailableProjects } from "./projects/AvailableProjects.jsx" 
 export { Profile } from "./profile/Profile.jsx"
-export { Register } from "./register/Register";
-export { Login } from "./login/Login.jsx";
-export { Delete } from "./delete/Delete.jsx"
-export { Update } from "./update/Update.jsx"
-export { UpdateObservation } from "./updateObservation/UpdateObservation.jsx"
-export { DeleteObservation } from "./deleteObservation/DeleteObservation.jsx"
-export { UploadObservation } from "./uploadObservation/UploadObservation.jsx"
-export { UploadProyect } from "./uploadProyect/UploadProyect.jsx"
+export { Register } from "./register/Register"
+export { Login } from "./login/Login.jsx"
+export { DeleteProject } from "./projects/DeleteProject.jsx"
+export { UpdateProject } from "./projects/UpdateProject.jsx"
+export { UploadProject } from "./projects/UploadProject.jsx"
+export { UpdateObservation } from "./observations/UpdateObservation.jsx"
+export { DeleteObservation } from "./observations/DeleteObservation.jsx"
+export { UploadObservation } from "./observations/UploadObservation.jsx"
 export * from './detail/index.js'

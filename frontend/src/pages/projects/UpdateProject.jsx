@@ -6,7 +6,7 @@ import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
 import { TabTitle } from '../../utils/TabTitle'
 
-const Update = () => {
+const UpdateProject = () => {
 
   // const [file, setFile] = useState(null);
 
@@ -197,5 +197,4 @@ const Update = () => {
     )
 }
 
-export {Update}
-// export default Update
+export {UpdateProject}

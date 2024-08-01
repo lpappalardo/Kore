@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom"
 import { TabTitle } from '../../utils/TabTitle'
 import { useProjects } from '../../hooks/useProjects'
 
-const Games = () => {
+const AvailableProjects = () => {
 
   TabTitle('Proyectos')
 
@@ -78,4 +78,4 @@ const Games = () => {
     )
 }
 
-export  default Games
+export default AvailableProjects

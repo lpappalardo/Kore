@@ -6,7 +6,7 @@ import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
 import { TabTitle } from '../../utils/TabTitle'
 
-const Delete = () => {
+const DeleteProject = () => {
 
   TabTitle('Eliminar Proyecto')
 
@@ -73,4 +73,4 @@ const Delete = () => {
   )
 }
 
-export {Delete}
+export {DeleteProject}

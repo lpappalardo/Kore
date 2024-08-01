@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/AuthContext/'
 import { TabTitle } from '../../utils/TabTitle'
 import {toast} from "sonner";
 
-const UploadProyect = () => {
+const UploadProject = () => {
 
   const [errorsValidation, setErrorsValidation] = useState({})
 
@@ -219,5 +219,4 @@ const UploadProyect = () => {
   )
 }
 
-export {UploadProyect}
-// export default uploadProyecto
+export {UploadProject}

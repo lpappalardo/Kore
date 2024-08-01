@@ -1,18 +1,21 @@
 import { Routes, Route, NavLink } from "react-router-dom"
 import Navbar from "./components/navbar/NavBar"
-import Home from "./pages/home/Home"
-import Games from "./pages/games/Games"
-import Profile from "./pages/profile/Profile"
-import { Detail } from "./pages/detail/Detail"
-import { Delete } from "./pages/delete/Delete"
+import Footer from "./components/footer/Footer"
 import { Register } from "./pages/register/Register"
 import { Login } from "./pages/login/Login"
-import { Update } from "./pages/update/Update"
-import { UpdateObservation } from "./pages/updateObservation/UpdateObservation"
-import { DeleteObservation } from "./pages/deleteObservation/DeleteObservation"
-import { UploadObservation } from "./pages/uploadObservation/UploadObservation"
-import { UploadProyect } from "./pages/uploadProyect/UploadProyect"
-import Footer from "./components/footer/Footer"
+import Home from "./pages/home/Home"
+import AvailableProjects from "./pages/projects/AvailableProjects"
+import Profile from "./pages/profile/Profile"
+
+import { DetailProject } from "./pages/projects/DetailProject"
+import { DeleteProject } from "./pages/projects/DeleteProject"
+import { UpdateProject } from "./pages/projects/UpdateProject"
+import { UploadProject } from "./pages/projects/UploadProject"
+
+import { UpdateObservation } from "./pages/observations/UpdateObservation"
+import { DeleteObservation } from "./pages/observations/DeleteObservation"
+import { UploadObservation } from "./pages/observations/UploadObservation"
+
 import ProtectedRoutes from './utils/ProtectedRoutes'
 
 function App() {
@@ -23,14 +26,14 @@ function App() {
       <Routes>
         <Route element={<ProtectedRoutes/>}>
           <Route path='/' element={<Home/>} />
-          <Route path='/proyectos' element={<Games/>} />
-          <Route path='/detalle/:id' element={<Detail/>} />
-          <Route path='/actualizarProyecto/:id' element={<Update/>} />
-          <Route path='/elimiar/:id' element={<Delete/>} />
+          <Route path='/proyectos' element={<AvailableProjects/>} />
+          <Route path='/detalle/:id' element={<DetailProject/>} />
+          <Route path='/actualizarProyecto/:id' element={<UpdateProject/>} />
+          <Route path='/elimiar/:id' element={<DeleteProject/>} />
           <Route path='/actualizarObservacion/:id' element={<UpdateObservation/>} />
           <Route path='/elimiarObservacion/:id' element={<DeleteObservation/>} />
           <Route path='/generarObservacion/:id' element={<UploadObservation/>} />
-          <Route path='/generarProyecto' element={<UploadProyect/>} />
+          <Route path='/generarProyecto' element={<UploadProject/>} />
           <Route path='/perfil' element={<Profile/>} />
         </Route>
         <Route path='/register' element={<Register/>} />

@@ -108,4 +108,3 @@ const UpdateObservation = () => {
 }
 
 export {UpdateObservation}
-// export default UpdateObservation

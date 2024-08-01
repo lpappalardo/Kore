@@ -7,7 +7,8 @@ import { AuthContext } from '../../context/AuthContext/'
 import { Link } from 'react-router-dom'
 import { TabTitle } from '../../utils/TabTitle'
 
-export const Detail = () => {
+// export const DetailProject
+const DetailProject = () => {
 
   TabTitle('Proyecto')
 
@@ -127,3 +128,5 @@ export const Detail = () => {
     </>
   )
 }
+
+export {DetailProject}

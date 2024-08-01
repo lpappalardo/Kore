@@ -103,4 +103,3 @@ const UploadObservation = () => {
 }
 
 export {UploadObservation}
-// export default UploadObservation

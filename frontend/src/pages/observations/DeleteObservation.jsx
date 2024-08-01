@@ -85,4 +85,4 @@ const DeleteObservation = () => {
 }
 
 export {DeleteObservation}
-// export default DeleteObservation
+
