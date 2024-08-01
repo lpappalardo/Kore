@@ -21,6 +21,7 @@ export const AuthConextProvider = ({children}) => {
     const logOutUser = () => {
         setUser(null)
         Cookies.remove('jwToken')
+        toast.success('Sesión cerrada');
     }
 
 

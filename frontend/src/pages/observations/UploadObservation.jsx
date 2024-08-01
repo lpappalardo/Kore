@@ -6,6 +6,7 @@ import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
 import { Link } from 'react-router-dom'
 import { TabTitle } from '../../utils/TabTitle'
+import {toast} from "sonner";
 
 const UploadObservation = () => {
 
@@ -54,11 +55,14 @@ const UploadObservation = () => {
           console.log(res)
           navigate('/proyectos')
           window.location.reload(true)
+          toast.success('La observación ha sido creada!');
         })
         .catch((error) => {
           setError(error.respose.data.message)
           console.log(error)
         }) 
+      } else {
+        toast.error('Error al crear la observación');
       }
     }
 

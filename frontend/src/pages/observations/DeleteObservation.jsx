@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
 import { TabTitle } from '../../utils/TabTitle'
+import {toast} from "sonner";
 
 const DeleteObservation = () => {
 
@@ -30,10 +31,12 @@ const DeleteObservation = () => {
         console.log(res)
         navigate('/proyectos')
         window.location.reload(true)
+        toast.success('Se ha eliminado la observación con éxito!');
       })
       .catch((error) => {
         setError(error.respose.data.message)
         console.log(error)
+        toast.error('Error al eliminar la observación');
       })
     }
 

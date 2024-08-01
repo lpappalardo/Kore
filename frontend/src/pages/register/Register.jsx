@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import { TabTitle } from '../../utils/TabTitle'
+import {toast} from "sonner";
 
 const Register = () => {
   const [showPassword,setShowPassword] = useState(false)
@@ -57,11 +58,14 @@ const Register = () => {
       .then((res) => {
         console.log(res)
         navigate('/login')
+        toast.success('Registro exitoso');
       })
       .catch((error) => {
         setError(error.respose.data.message)
         console.log(error)
       })
+    } else {
+      toast.error('Error al registrarse');
     }
   }
 

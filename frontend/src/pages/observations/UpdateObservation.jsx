@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
 import { TabTitle } from '../../utils/TabTitle'
+import {toast} from "sonner";
 
 const UpdateObservation = () => {
 
@@ -54,11 +55,14 @@ const UpdateObservation = () => {
           console.log(res)
           navigate('/proyectos')
           window.location.reload(true)
+          toast.success('La observación ha sido editada con éxito!');
         })
         .catch((error) => {
           setError(error.respose.data.message)
           console.log(error)
         })
+      } else {
+        toast.error('Error al editar la observación');
       }
     }
   

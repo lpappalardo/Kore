@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
 import { TabTitle } from '../../utils/TabTitle'
+import {toast} from "sonner";
 
 const DeleteProject = () => {
 
@@ -29,11 +30,13 @@ const DeleteProject = () => {
     .then((res) => {
       console.log(res)
       navigate('/proyectos')
-      window.location.reload(true)
+      // toast.success('Se ha eliminado el proyecto ' + projectData.name + 'con éxito!');
+      toast.success('Se ha eliminado el proyecto con éxito!');
     })
     .catch((error) => {
       setError(error.respose.data.message)
       console.log(error)
+      toast.error('Error al crear el proyecto');
     })
   }
 

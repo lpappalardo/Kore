@@ -17,7 +17,7 @@ const UploadProject = () => {
 
   const tecnologias = ["Unity", "Unreal Engine", "Godot", "GameMaker Studio", "Blender", "Autodesk Maya", "ZBrush", "Photoshop", "Aseprite"]
 
-    const [checkedValues, setCheckedValues] = useState([])
+  const [checkedValues, setCheckedValues] = useState([])
   const [checkedValuesTecnologias, setCheckedValuesTecnologias] = useState([])
 
   const {user} = useContext(AuthContext)
@@ -75,9 +75,9 @@ const UploadProject = () => {
       axios.post("http://localhost:3000/proyectos/", projectData)
       .then((res) => {
         console.log(res)
-        toast.success('Proyecto creado!');
         navigate('/proyectos')
         window.location.reload(true)
+        toast.success('El Proyecto ' + projectData.name + 'ha sido creado!');
       })
       .catch((error) => {
         setError(error.respose.data.message)

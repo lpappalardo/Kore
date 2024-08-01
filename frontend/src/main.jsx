@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           position='top-right'
           dir='auto'
           visibleToasts={1}
-          duration={2000}
+          duration={1500}
           closeButton
           toastOptions={{
             className: 'my-toast',

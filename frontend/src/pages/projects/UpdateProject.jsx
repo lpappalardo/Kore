@@ -5,10 +5,12 @@ import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
 import { TabTitle } from '../../utils/TabTitle'
+import {toast} from "sonner";
 
 const UpdateProject = () => {
 
   // const [file, setFile] = useState(null);
+  const [errorsValidation, setErrorsValidation] = useState({})
 
   TabTitle('Editar Proyecto')
 
@@ -43,8 +45,33 @@ const UpdateProject = () => {
     const [error, setError] = useState("")
   
     const handleUpload = (e, id) => {
-      setProjectData({...projectData, categorias: checkedValues});
-      upload(e, id);
+
+      // const validationErrors = {}
+
+      // if(!projectData.name.trim()) {
+      //   validationErrors.name = "El nombre del proyecto es requerido"
+      // }
+
+      // if(!projectData.description.trim()) {
+      //   validationErrors.description = "La descripción del proyecto es requerida"
+      // } 
+
+      // if(projectData.categorias.length < 1) {
+      //     validationErrors.categorias = "Es necesario seleccionar al menos 1 categoría"
+      // }  
+    
+      // if(projectData.tecnologias.length < 1){
+      //     validationErrors.tecnologias = "Es necesario seleccionar al menos 1 tecnología"
+      // }
+
+      // setErrorsValidation(validationErrors)  
+    
+      // if(Object.keys(validationErrors).length === 0) {
+        setProjectData({...projectData, categorias: checkedValues});
+        upload(e, id);
+      // } else {
+      //   toast.error('Error al editar el proyecto');
+      // }
     }
   
     const upload = (e, id) => {
@@ -60,10 +87,12 @@ const UpdateProject = () => {
         console.log(res)
         navigate('/proyectos')
         window.location.reload(true)
+        toast.success('Se ha editado el proyecto con éxito!');
       })
       .catch((error) => {
         setError(error.respose.data.message)
         console.log(error)
+        toast.error('Error al editar el proyecto');
       })
     }
   
@@ -131,6 +160,7 @@ const UpdateProject = () => {
                 <input type='text' name="nombre" id="nombre" placeholder="Nombre..." required
                 value={projectData.name}
                 onChange={(e) => setProjectData({...projectData, name: e.target.value, categorias: checkedValues})}></input>
+                {errorsValidation.name && <p>{errorsValidation.name}</p>}  
               </div>
   
               <div>
@@ -138,6 +168,7 @@ const UpdateProject = () => {
                 <textarea name="descripcion" id="descripcion" placeholder="Descripcion..." required
                 value={projectData.description}
                 onChange={(e) => setProjectData({...projectData, description: e.target.value, categorias: checkedValues})}></textarea>
+                {errorsValidation.description && <p>{errorsValidation.description}</p>}  
               </div>
   
               <fieldset>
@@ -158,6 +189,7 @@ const UpdateProject = () => {
                   ))
                   }
                   </div>
+                  {errorsValidation.categorias && <p>{errorsValidation.categorias}</p>} 
               </fieldset>
 
 
@@ -180,12 +212,13 @@ const UpdateProject = () => {
                 ))
                 }
                 </div>
+                {errorsValidation.tecnologias && <p>{errorsValidation.tecnologias}</p>} 
             </fieldset>
 
-              {/* <div>
+              <div>
                 <label htmlFor="image">Imagen:</label>
                 <input type="file" id="image" name="image" onChange={handleFileChange}/>
-              </div> */}
+              </div>
   
               <button className='botonPrincipal' onClick={(e) => handleUpload(e, publicadoId)}>Editar</button>
             </form>
