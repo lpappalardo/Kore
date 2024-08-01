@@ -36,7 +36,7 @@ const DeleteProject = () => {
     .catch((error) => {
       setError(error.respose.data.message)
       console.log(error)
-      toast.error('Error al crear el proyecto');
+      toast.error('Error al eliminar el proyecto');
     })
   }
 

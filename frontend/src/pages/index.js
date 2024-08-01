@@ -9,4 +9,11 @@ export { UploadProject } from "./projects/UploadProject.jsx"
 export { UpdateObservation } from "./observations/UpdateObservation.jsx"
 export { DeleteObservation } from "./observations/DeleteObservation.jsx"
 export { UploadObservation } from "./observations/UploadObservation.jsx"
+
+export { ProjectsTable } from "./admin/projects/ProjectsTable.jsx"
+export { UsersTable } from "./admin/users/UsersTable.jsx"
+export { DeleteUser } from "./admin/users/DeleteUser.jsx"
+export { User } from "./admin/users/User.jsx"
+export { UploadUser } from "./admin/users/UploadUser.jsx"
+
 export * from './detail/index.js'

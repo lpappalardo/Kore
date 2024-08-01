@@ -33,6 +33,11 @@ const Navbar = () => {
                 <li className="navItemList">
                     <NavLink className="navItem" to="/perfil">Perfil</NavLink>
                 </li>
+
+                <li className="navItemList">
+                    <NavLink className="navItem" to="/administracionProyectos">CRUD Proyectos</NavLink>
+                </li>
+
                 <li className="navItemList">
                     <NavLink onClick={() => logOutUser()} className="navItem" to="/login">Salir</NavLink>
                 </li>

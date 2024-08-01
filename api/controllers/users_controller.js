@@ -18,7 +18,7 @@ const getUsers = async (req, res) =>{
 
 const getUser = async (req, res) =>{
     try{
-        let usuario = await Usuarios.find({_id: req.params.userId});
+        let usuario = await Usuarios.find({_id: req.params.id});
         res.json(usuario)
     }catch(error ) {
         res.status(400).json(
@@ -88,9 +88,20 @@ const loginUser = async (req, res) =>{
 }
 
 
+const deleteUser = async (req, res) =>{
+    let idUser = req.params.id
+    try {
+      let usuario = await Usuarios.findByIdAndDelete({_id: idUser})
+      res.json(usuario);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+}
+
 export {
     getUsers,
     getUser,
     registerUser,
-    loginUser
+    loginUser,
+    deleteUser
   };

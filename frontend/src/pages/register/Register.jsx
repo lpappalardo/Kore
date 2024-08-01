@@ -141,9 +141,6 @@ const Register = () => {
         </div>
 
         <button className="botonPrincipal" onClick={handleRegister}>Registrarse</button>
-        {
-          error && <p>{error}</p>
-        }
       </form>
     </main>
   )

@@ -63,8 +63,34 @@ export const ApiConextProvider = ({children}) => {
       // poster: proyect.Poster,
     }))
 
+    const [loadingUsers, setLoadingUsers] = useState([])
+    const [usuarios, setUsuarios ] = useState([])
+
+    useEffect(() => {
+        setLoading(true)
+        axios.get("http://localhost:3000/usuarios")
+        .then(res => {
+            setLoadingUsers(res.data)
+            setLoading(false)
+        })
+        .catch((error) => {
+            setLoadingUsers(false)
+            console.log(error)
+        })
+    }, [])
+
+
+    let dataUsuarios = Array.from(usuarios);
+
+    let usuariosCargados = dataUsuarios.map(usuario => ({
+        id: usuario._id,
+        email: usuario.email,
+        username: usuario.username,
+        password: usuario.password,
+      }))
+
     return (
-        <ApiContext.Provider value={{mappedPublicados, setProjects, mappedOservaciones, setObservations}}>
+        <ApiContext.Provider value={{mappedPublicados, setProjects, mappedOservaciones, setObservations, usuariosCargados, setUsuarios}}>
             {children}
         </ApiContext.Provider>
     )

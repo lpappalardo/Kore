@@ -16,6 +16,12 @@ import { UpdateObservation } from "./pages/observations/UpdateObservation"
 import { DeleteObservation } from "./pages/observations/DeleteObservation"
 import { UploadObservation } from "./pages/observations/UploadObservation"
 
+import { ProjectsTable } from "./pages/admin/projects/ProjectsTable"
+import { UsersTable } from "./pages/admin/users/UsersTable"
+import { DeleteUser } from "./pages/admin/users/DeleteUser"
+import { User } from "./pages/admin/users/User"
+import { UploadUser } from "./pages/admin/users/UploadUser"
+
 import ProtectedRoutes from './utils/ProtectedRoutes'
 
 function App() {
@@ -35,6 +41,12 @@ function App() {
           <Route path='/generarObservacion/:id' element={<UploadObservation/>} />
           <Route path='/generarProyecto' element={<UploadProject/>} />
           <Route path='/perfil' element={<Profile/>} />
+
+          <Route path='/administracionProyectos' element={<ProjectsTable/>} />
+          <Route path='/administracionUsuarios' element={<UsersTable/>} />
+          <Route path='/elimiarUsuario/:id' element={<DeleteUser/>} />
+          <Route path='/detalleUsuario/:id' element={<User/>} />
+          <Route path='/generarUsuario' element={<UploadUser/>} />
         </Route>
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
