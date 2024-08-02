@@ -9,5 +9,3 @@ Funcionalidades implementadas:
 -Se puede acceder al perfil del usuario donde pueden visualizarse todos los proyectos y observaciones creados por este en la plataforma.
 
 Para correr el trabajo primero es necesario instalar las dependencias correspondientes con el comando "npm i" en las carpetas "api" y "frontend", que están dentro de "Kore". Luego para proceder a la ejecución del trabajo se debe utilizar el comando "npm start" en la carpeta "api" y el comando "npm run dev" en la carpeta "frontend". Al iniciar el proyecto se debe registrar un usuario para poder ingresar a la plataforma y así acceder al resto de las funcionalidades. Esto se debe a que la base de datos no viene con valores cargados por defecto cada vez que se inicia el trabajo en una nueva máquina.
-ACLARACION 1: debido a un error en el consumo de los datos desde frontend a api es necesario refrescar el navegador cada vez que se ingresa a la plataforma con un usario para poder realizar todas las funcionalidades. 
-ACLARACION 2: si se está tratando de iniciar el proyecto en una de las computadoras de Da Vinci recodar ejecutar el comando "mongod" en el "cmd". 
