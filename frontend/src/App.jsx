@@ -2,6 +2,7 @@ import { Routes, Route, NavLink } from "react-router-dom"
 import Navbar from "./components/navbar/NavBar"
 import Footer from "./components/footer/Footer"
 import { Register } from "./pages/register/Register"
+import { RegisterAdmin } from "./pages/register/RegisterAdmin"
 import { Login } from "./pages/login/Login"
 import Home from "./pages/home/Home"
 import AvailableProjects from "./pages/projects/AvailableProjects"
@@ -37,33 +38,34 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route element={<ProtectedRoutes/>}>
-          <Route path='/' element={<Home/>} />
-          <Route path='/proyectos' element={<AvailableProjects/>} />
-          <Route path='/detalle/:id' element={<DetailProject/>} />
-          <Route path='/actualizarProyecto/:id' element={<UpdateProject/>} />
-          <Route path='/elimiar/:id' element={<DeleteProject/>} />
-          <Route path='/actualizarObservacion/:id' element={<UpdateObservation/>} />
-          <Route path='/elimiarObservacion/:id' element={<DeleteObservation/>} />
-          <Route path='/generarObservacion/:id' element={<UploadObservation/>} />
-          <Route path='/generarProyecto' element={<UploadProject/>} />
-          <Route path='/perfil' element={<Profile/>} />
-          <Route path='/usuarioPerfilEditar' element={<UpdateUserProfile/>} />
+          <Route path='/'                                       element={<Home/>} />
+          <Route path='/proyectos'                              element={<AvailableProjects/>} />
+          <Route path='/detalle/:id'                            element={<DetailProject/>} />
+          <Route path='/actualizarProyecto/:id'                 element={<UpdateProject/>} />
+          <Route path='/elimiar/:id'                            element={<DeleteProject/>} />
+          <Route path='/actualizarObservacion/:id'              element={<UpdateObservation/>} />
+          <Route path='/elimiarObservacion/:id'                 element={<DeleteObservation/>} />
+          <Route path='/generarObservacion/:id'                 element={<UploadObservation/>} />
+          <Route path='/generarProyecto'                        element={<UploadProject/>} />
+          <Route path='/perfil'                                 element={<Profile/>} />
+          <Route path='/usuarioPerfilEditar'                    element={<UpdateUserProfile/>} />
 
-          <Route path='/administracionProyectos' element={<ProjectsTable/>} />
-          <Route path='/administracionUsuarios' element={<UsersTable/>} />
-          <Route path='/elimiarUsuario/:id' element={<DeleteUser/>} />
-          <Route path='/detalleUsuario/:id' element={<User/>} />
-          <Route path='/editarUsuario/:id' element={<UpdateUser/>} />
-          <Route path='/generarUsuario' element={<UploadUser/>} />
-          <Route path='/elimiarAdministracion/:id' element={<DeleteProjectAdmin/>} />
-          <Route path='/generarProyectoAdministracion' element={<UploadProjectAdmin/>} />
-          <Route path='/detalleAdministracion/:id' element={<DetailProjectAdmin/>} />
-          <Route path='/actualizarProyectoAdministracion/:id' element={<UpdateProjectAdmin/>} />
+          <Route path='/administracionProyectos'                element={<ProjectsTable/>} />
+          <Route path='/administracionUsuarios'                 element={<UsersTable/>} />
+          <Route path='/elimiarUsuario/:id'                     element={<DeleteUser/>} />
+          <Route path='/detalleUsuario/:id'                     element={<User/>} />
+          <Route path='/editarUsuario/:id'                      element={<UpdateUser/>} />
+          <Route path='/generarUsuario'                         element={<UploadUser/>} />
+          <Route path='/elimiarAdministracion/:id'              element={<DeleteProjectAdmin/>} />
+          <Route path='/generarProyectoAdministracion'          element={<UploadProjectAdmin/>} />
+          <Route path='/detalleAdministracion/:id'              element={<DetailProjectAdmin/>} />
+          <Route path='/actualizarProyectoAdministracion/:id'   element={<UpdateProjectAdmin/>} />
 
         </Route>
-        <Route path='/register' element={<Register/>} />
-        <Route path='/login' element={<Login/>} />
-        <Route path='*' element={<h1>Página no encontrada</h1>} />
+        <Route path='/register'       element={<Register/>} />
+        <Route path='/registerAdmin'  element={<RegisterAdmin/>} />
+        <Route path='/login'          element={<Login/>} />
+        <Route path='*'               element={<h1 className="container">Página no encontrada</h1>} />
       </Routes>
       <Footer></Footer>
     </>

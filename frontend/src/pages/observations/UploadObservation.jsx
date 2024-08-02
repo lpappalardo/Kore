@@ -21,7 +21,6 @@ const UploadObservation = () => {
     const navigate = useNavigate()
 
     const {mappedPublicados} = useProjects()
-    // const {mappedPublicados, mappedOservaciones} = useContext(ApiContext)
 
     let detallePublicado = mappedPublicados.filter(project => (project.id == detalleId))[0]
     console.log(detallePublicado)

@@ -16,7 +16,6 @@ export const Profile = () => {
 
   const {mappedPublicados, setProjects} = useProjects()
   const {mappedOservaciones, setObservations} = useObservations()
-  // const {mappedPublicados, mappedOservaciones} = useContext(ApiContext)
 
   const {user} = useContext(AuthContext)
 

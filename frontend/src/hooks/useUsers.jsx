@@ -27,6 +27,7 @@ export function useUsers () {
         email: usuario.email,
         username: usuario.username,
         password: usuario.password,
+        role: usuario.role,
       }))
 
     return { usuariosCargados, setUsuarios, loading }

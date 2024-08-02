@@ -28,12 +28,6 @@ const UpdateUser = () => {
       username: "",
       email: "",
     })
-
-    // console.log("1")
-    // console.log(projectData)
-    // console.log("2")
-
-    // console.log(publicadosUsuario)
   
     const [error, setError] = useState("")
   
@@ -77,7 +71,7 @@ const UpdateUser = () => {
     }
 
   return (
-    <div>
+    <div className="containerTable">
       <h1>Editar Usuario</h1>
       <form>
 

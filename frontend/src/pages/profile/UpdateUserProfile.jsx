@@ -21,19 +21,11 @@ const UpdateUserProfile = () => {
     const {user} = useContext(AuthContext)
   
     const navigate = useNavigate()
-  
-    // const publicadosUsuario = projects.filter((publicado) => publicado.id == publicadoId)[0]
 
     const [userData, setUserData] = useState({
       username: "",
       email: "",
     })
-
-    // console.log("1")
-    // console.log(projectData)
-    // console.log("2")
-
-    // console.log(publicadosUsuario)
   
     const [error, setError] = useState("")
   

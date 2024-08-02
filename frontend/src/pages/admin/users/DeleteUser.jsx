@@ -5,8 +5,6 @@ import axios from "axios"
 import { TabTitle } from '../../../utils/TabTitle'
 import {toast} from "sonner";
 import { useUsers } from '../../../hooks/useUsers'
-// import { ApiContext } from '../../../context/ApiContext'
-
 
 const DeleteUser = () => {
 
@@ -16,7 +14,6 @@ const DeleteUser = () => {
   const usuarioId = params.id
 
   const {usuariosCargados} = useUsers()
-  // const {usuariosCargados} = useContext(ApiContext)
 
 
   console.log(usuariosCargados)

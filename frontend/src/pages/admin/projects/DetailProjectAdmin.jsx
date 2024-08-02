@@ -8,7 +8,6 @@ import { TabTitle } from '../../../utils/TabTitle'
 import { useProjects } from '../../../hooks/useProjects'
 import { useObservations } from '../../../hooks/useObservations'
 
-// export const DetailProject
 const DetailProjectAdmin = () => {
 
   TabTitle('Proyecto')
@@ -25,19 +24,12 @@ const DetailProjectAdmin = () => {
 
   let detallePublicado = mappedPublicados.filter(project => (project.id == detalleId))[0]
   let detalleOservaciones = mappedOservaciones.filter(observacion => (observacion.idProject == detalleId))
-  // console.log("1")
-  // console.log(detalleOservaciones)
-  // console.log("2")
 
   let hasObservations = detalleOservaciones?.length > 0
 
   let observacionUsuario = mappedOservaciones.filter(observacion => (observacion.userId == usuarioId && observacion.idProject == detalleId))
-  // console.log("1")
-  // console.log(observacionUsuario)
-  // console.log("2")
   
   let realizoObservacion = observacionUsuario?.length > 0
-  // console.log(realizoObservacion)
 
   return (
     <>
@@ -66,72 +58,6 @@ const DetailProjectAdmin = () => {
           </div>
         </section>
         )}
-
-        {/* {detalleOservaciones && detallePublicado && (
-        <section className='generar-observacion container'>
-          <h2>Observaciones Realizadas</h2>
-        {
-          (detallePublicado.userId != usuarioId && !realizoObservacion) ?
-          <Link className='botonPrincipal' to={`/adminGenerarObservacion/${detalleId}`}>Generar Observación</Link>
-          : <></>
-        }
-
-
-
-          {    
-            hasObservations
-               ? <ul className="observations">
-               {
-                   detalleOservaciones.map(observation => (
-                       <li className="observation-card" key={observation.id}>
-                        <div className='observation-user'>
-                          <img src="../src/assets/img/logoGrande.png" alt="Usuario" />
-                          <p className='observation-user-name'>{observation.name}</p>
-                        </div>
-                        <div className='observation-content'>
-                        {
-                             observation.arte && 
-                             <div>
-                               <p className='titleObservation'>Arte</p>
-                               <p className='contentObservation'>{observation.arte}</p>
-                             </div>
-                           }
-                           {
-                             observation.tecnico && 
-                             <div>
-                               <p className='titleObservation'>Técnico</p>
-                               <p className='contentObservation'>{observation.tecnico}</p>
-                             </div>
-                           }
-                           {
-                             observation.disenio &&
-                             <div>
-                               <p className='titleObservation'>Diseñio</p>
-                               <p className='contentObservation'>{observation.disenio}</p>
-                             </div>
-                           }
-                           <div>
-                               <p className='titleObservation'>Generales</p>
-                               <p className='contentObservation'>{observation.generales}</p>
-                           </div>
-                           {
-                            observation.userId == usuarioId ?
-                              <div className="contenedor-links-horizontal">
-                              <Link className='botonPrincipal' to={`/adminActualizarObservacion/${observation.id}`}>Editar</Link>
-                              <Link className='botonPrincipal' to={`/adminElimiarObservacion/${observation.id}`}>Eliminar</Link>
-                            </div>
-                            : <></>
-                           }
-                           
-                        </div>
-                       </li>
-                   ))
-               }
-           </ul>
-               : <p className='comment'>En este momento no hay observaciones realizadas en este proyecto.</p>
-      }
-        </section>
-        )} */}
       </main>
     }
     </>

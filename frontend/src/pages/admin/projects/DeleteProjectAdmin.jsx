@@ -30,7 +30,6 @@ const DeleteProjectAdmin = () => {
     .then((res) => {
       console.log(res)
       navigate('/administracionProyectos')
-      // toast.success('Se ha eliminado el proyecto ' + projectData.name + 'con éxito!');
       toast.success('Se ha eliminado el proyecto con éxito!');
     })
     .catch((error) => {

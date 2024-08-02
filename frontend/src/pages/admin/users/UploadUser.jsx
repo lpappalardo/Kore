@@ -60,7 +60,7 @@ const UploadUser = () => {
   }
 
   return (
-    <div>
+    <div className="containerTable">
       <h1>Generar Usuario</h1>
       <form>
 

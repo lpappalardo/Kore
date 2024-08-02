@@ -9,10 +9,7 @@ const ListOfObservations = ({ observations }) => {
                     <ul className="proyects">
                         {
                             observations.map(observation => (
-                                // <Link to={`/detalle/${proyect.identificador}`} className="proyect" key={proyect.id}>
                                 <div className="observation" key={observation.id}>
-                                    {/* <img src={proyect.poster} alt={proyect.title} /> */}
-                                    {/* <h3>{observation.name}</h3> */}
                                     <div>
                                         <p className="titleObservation">Generales</p>
                                         <p className="contentObservation">{observation.generales}</p>

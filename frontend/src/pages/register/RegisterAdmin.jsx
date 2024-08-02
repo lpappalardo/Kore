@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom"
 import { TabTitle } from '../../utils/TabTitle'
 import {toast} from "sonner";
 
-const Register = () => {
+const RegisterAdmin = () => {
   const [showPassword,setShowPassword] = useState(false)
   const [showConfirmPassword,setShowConfirmPassword] = useState(false)
   const [errorsValidation, setErrorsValidation] = useState({})
@@ -17,7 +17,7 @@ const Register = () => {
     username: "",
     email: "",
     password: "",
-    role: "user",
+    role: "admin",
   })
 
   const [confirmData, setConfirmData] = useState({
@@ -76,7 +76,7 @@ const Register = () => {
       </picture>
       
 
-      <h1>Registrarse</h1>
+      <h1>Registrar Administrador</h1>
       <form>
         <div>
           <label>Nombre Usuario:</label>
@@ -144,4 +144,4 @@ const Register = () => {
   )
 }
 
-export {Register}
+export {RegisterAdmin}

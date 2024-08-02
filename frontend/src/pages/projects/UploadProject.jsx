@@ -36,9 +36,6 @@ const UploadProject = () => {
 
   const [error, setError] = useState("")
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
 
     const handleUpload = (e) => {
       console.log(projectData)
@@ -77,8 +74,7 @@ const UploadProject = () => {
       .then((res) => {
         console.log(res)
         navigate('/proyectos')
-        // window.location.reload(true)
-        toast.success('El Proyecto ' + projectData.name + 'ha sido creado!');
+        toast.success('El Proyecto ' + projectData.name + ' ha sido creado!');
       })
       .catch((error) => {
         setError(error.respose.data.message)
@@ -86,39 +82,7 @@ const UploadProject = () => {
         toast.error('Error al crear el proyecto');
       })
     }
-    
-      // const upload = async  (e) => {
-      //   e.preventDefault()
 
-      //   const formData = new FormData();
-      //   Object.keys(projectData).forEach(key => formData.append(key, projectData[key]));
-      //   if (file) {
-      //       formData.append('image', file);
-      //   }
-
-      //   try {
-      //     await axios.post("http://localhost:3000/proyectos/", formData, {
-      //       headers: {
-      //         'Content-Type': 'multipart/form-data',
-      //       },
-      //     });
-      //     toast.success('Proyecto creado!');
-      //     navigate('/proyectos');
-      //   } catch (error) {
-      //     console.error('Error:', error);
-      //     toast.error('Error al crear el proyecto');
-      //   }
-      //   // .then((res) => {
-      //   //   console.log(res)
-      //   //   navigate('/proyectos')
-      //   //   window.location.reload(true)
-      //   // })
-      //   // .catch((error) => {
-      //   //   setError(error.respose.data.message)
-      //   //   console.log(error)
-      //   // })
-      // }
-    
       const handleCheck = (e) => {
         const {value, checked} = e.target
         let newValues = checkedValues;
@@ -208,11 +172,6 @@ const UploadProject = () => {
                 </div>
                 {errorsValidation.tecnologias && <p className='errorValidation'>{errorsValidation.tecnologias}</p>} 
             </fieldset>
-
-            {/* <div className="mb-3">
-              <label htmlFor="image" className="form-label">Imagen:</label>
-              <input type="file" className="form-control" id="image" name="image" onChange={handleFileChange}/>
-            </div> */}
 
             <button className='botonPrincipal' onClick={handleUpload}>Subir</button>
           </form>

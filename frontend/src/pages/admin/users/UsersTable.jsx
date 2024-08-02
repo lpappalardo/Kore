@@ -23,6 +23,7 @@ const UsersTable = () => {
                     <th>ID</th>
                     <th>Nombre usuario</th>
                     <th>Correo usuario</th>
+                    <th>Rol</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -33,6 +34,7 @@ const UsersTable = () => {
                         <td>{ usuario.id }</td>
                         <td>{ usuario.username }</td>
                         <td>{ usuario.email }</td>
+                        <td>{ usuario.role }</td>
 
                         <td>
                             <div>

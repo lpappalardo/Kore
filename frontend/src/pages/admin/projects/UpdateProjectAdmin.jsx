@@ -9,8 +9,6 @@ import { useProjects } from '../../../hooks/useProjects'
 
 const UpdateProjectAdmin = () => {
 
-  // const [file, setFile] = useState(null);
-  // const [loading, setLoading] = useState([])
   const [errorsValidation, setErrorsValidation] = useState({})
 
   TabTitle('Editar Proyecto')
@@ -22,19 +20,6 @@ const UpdateProjectAdmin = () => {
     const tecnologias = ["Unity", "Unreal Engine", "Godot", "GameMaker Studio", "Blender", "Autodesk Maya", "ZBrush", "Photoshop", "Aseprite"]
 
     const [projects, setProjects ] = useState([])
-
-    // useEffect(() => {
-    //     setLoading(true)
-    //     axios.get("http://localhost:3000/proyectos")
-    //     .then(res => {
-    //       setProjects(res.data)
-    //       setLoading(false)
-    //     })
-    //     .catch((error) => {
-    //       setLoading(false)
-    //       console.log(error)
-    //     })
-    // }, [])
   
     const [checkedValues, setCheckedValues] = useState([])
   
@@ -56,12 +41,6 @@ const UpdateProjectAdmin = () => {
       // categorias: publicadosUsuario.categorias,
       // tecnologias: publicadosUsuario.tecnologias,
     })
-
-    // console.log("1")
-    // console.log(projectData)
-    // console.log("2")
-
-    // console.log(publicadosUsuario)
   
     const [error, setError] = useState("")
   
@@ -126,7 +105,6 @@ const UpdateProjectAdmin = () => {
       } else {
         newValues = projectData.categorias.filter(category => category !== value)
         setCheckedValues(newValues)
-        // console.log(newValues)
       }
       setProjectData({...projectData, categorias: newValues})
   
@@ -142,7 +120,6 @@ const UpdateProjectAdmin = () => {
       } else {
         newValues = projectData.tecnologias.filter(tecnology => tecnology !== value)
         setCheckedValues(newValues)
-        // console.log(newValues)
       }
       setProjectData({...projectData, tecnologias: newValues})
   
@@ -150,7 +127,6 @@ const UpdateProjectAdmin = () => {
   
     return (
       <>
-      {/* { publicadosUsuario && ( */}
         <main>
           <section className='observacion container'>
             <form className='formulario' action="" method='PUT'>
@@ -214,18 +190,12 @@ const UpdateProjectAdmin = () => {
                 </div>
                 {errorsValidation.tecnologias && <p className='errorValidation'>{errorsValidation.tecnologias}</p>} 
             </fieldset>
-
-              <div>
-                <label htmlFor="image">Imagen:</label>
-                <input type="file" id="image" name="image" onChange={handleFileChange}/>
-              </div>
   
               <button className='botonPrincipal' onClick={(e) => handleUpload(e, publicadoId)}>Editar Poyecto</button>
             </form>
           </section>
 
         </main>
-      {/* )} */}
       </>
     )
 }

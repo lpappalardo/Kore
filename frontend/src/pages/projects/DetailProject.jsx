@@ -9,7 +9,6 @@ import { TabTitle } from '../../utils/TabTitle'
 import { useProjects } from '../../hooks/useProjects'
 import { useObservations } from '../../hooks/useObservations'
 
-// export const DetailProject
 const DetailProject = () => {
 
   TabTitle('Proyecto')
@@ -26,19 +25,13 @@ const DetailProject = () => {
 
   let detallePublicado = mappedPublicados.filter(project => (project.id == detalleId))[0]
   let detalleOservaciones = mappedOservaciones.filter(observacion => (observacion.idProject == detalleId))
-  // console.log("1")
-  // console.log(detalleOservaciones)
-  // console.log("2")
 
   let hasObservations = detalleOservaciones?.length > 0
 
   let observacionUsuario = mappedOservaciones.filter(observacion => (observacion.userId == usuarioId && observacion.idProject == detalleId))
-  // console.log("1")
-  // console.log(observacionUsuario)
-  // console.log("2")
   
   let realizoObservacion = observacionUsuario?.length > 0
-  // console.log(realizoObservacion)
+
 
   return (
     <>

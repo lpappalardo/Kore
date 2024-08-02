@@ -14,10 +14,6 @@ const AvailableProjects = () => {
 
   const generos = ["Todas", "Accion", "Aventura", "Acertijos", "Suspenso", "Terror", "2D", "3D"]
 
-  // let proyectosBuscados = mappedPublicados;
-
-  // onClick={handleSearch}
-
   const [categoria, setCategoria] = useState({
     categoria: "",
   })
@@ -25,16 +21,10 @@ const AvailableProjects = () => {
   const handleSelect = (e) => {
     setCategoria({categoria: e.target.value})
   }
-  
-  // console.log(categoria)
 
   const navigate = useNavigate()
 
   const [error, setError] = useState("")
-
-  // const cargarProyectos = (proyectosBuscados) => {
-  //   setCategoria({categoria: e.target.value})
-  // }
 
   const handleSearch = (e) => {
     e.preventDefault()
@@ -42,12 +32,6 @@ const AvailableProjects = () => {
     .then((res) => {
       console.log(res)
       setProjects(res.data)
-      // .map(re => ({
-      //   id: re._id,
-      //   title: re.name,
-      //   description: re.description,
-      //   categorias: re.categorias,
-      // }))
       navigate('/proyectos')
 
     })

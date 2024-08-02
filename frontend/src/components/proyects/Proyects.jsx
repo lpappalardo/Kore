@@ -10,7 +10,6 @@ const ListOfProyects = ({ proyects }) => {
                         {
                             proyects.map(proyect => (
                                 <Link to={`/detalle/${proyect.id}`} className="proyect" key={proyect.id}>
-                                    {/* <img src={proyect.poster} alt={proyect.title} /> */}
                                     <img src="../../../src/assets/img/card.png" alt={proyect.title} />
                                     <div className="proyect-text">
                                         <p className="cardTitlte">{proyect.title}</p>

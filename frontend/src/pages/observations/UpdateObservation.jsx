@@ -16,18 +16,13 @@ const UpdateObservation = () => {
 
     const params = useParams()
     const observationId = params.id
-    console.log(observationId)
   
     const {mappedPublicados} = useProjects()
     const {mappedOservaciones} = useObservations()
-    console.log(mappedOservaciones)
-    console.log(mappedPublicados)
   
     const {user} = useContext(AuthContext)
 
     let detalleObservacion = mappedOservaciones.filter(observacion => (observacion.id == observationId))[0]
-    console.log(detalleObservacion)
-    console.log(observationId)
   
     const navigate = useNavigate()
 
@@ -45,17 +40,6 @@ const UpdateObservation = () => {
       // generales: detalleObservacion.generales,
       generales: "",
     })
-
-    // if(detalleObservacion){
-    //   setObservationData({idProject: detalleObservacion.idProject})
-    // }
-
-    console.log("1")
-    console.log(observationData)
-    console.log(detalleObservacion)
-    console.log("2")
-
-    // setObservationData({generales: detalleObservacion.generales})
   
     const [error, setError] = useState("")
   
@@ -119,7 +103,6 @@ const UpdateObservation = () => {
                 <label for="generales">Generales*:</label>
                 <textarea name="generales" id="generales" placeholder="Generales..." required
                 value={observationData.generales}
-                // {detalleObservacion.generales}
                 onChange={(e) => setObservationData({...observationData, generales: e.target.value})}
                 ></textarea>
                 {errorsValidation.generales && <p className='errorValidation'>{errorsValidation.generales}</p>} 

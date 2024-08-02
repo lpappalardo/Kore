@@ -31,7 +31,6 @@ const DeleteProject = () => {
     .then((res) => {
       console.log(res)
       navigate('/proyectos')
-      // toast.success('Se ha eliminado el proyecto ' + projectData.name + 'con éxito!');
       toast.success('Se ha eliminado el proyecto con éxito!');
     })
     .catch((error) => {

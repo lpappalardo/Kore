@@ -27,6 +27,7 @@ export function useUser (id) {
         email: usuario.email,
         username: usuario.username,
         password: usuario.password,
+        role: usuario.role,
       }))
 
       let usuarioCargado = usuariosCargados[0]
