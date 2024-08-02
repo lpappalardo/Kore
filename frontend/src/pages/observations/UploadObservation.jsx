@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
 import { Link } from 'react-router-dom'
-import { TabTitle } from '../../utils/TabTitle'
+import { updateTabTitle } from '../../utils/updateTabTitle'
 import {toast} from "sonner";
 import { useProjects } from '../../hooks/useProjects'
 
@@ -13,7 +13,7 @@ const UploadObservation = () => {
 
   const [errorsValidation, setErrorsValidation] = useState({})
 
-  TabTitle('Generar Observación')
+  updateTabTitle('Generar Observación')
 
     const params = useParams()
     const detalleId = params.id

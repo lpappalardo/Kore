@@ -5,13 +5,13 @@ import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
 import { Link } from 'react-router-dom'
-import { TabTitle } from '../../utils/TabTitle'
+import { updateTabTitle } from '../../utils/updateTabTitle'
 import { useProjects } from '../../hooks/useProjects'
 import { useObservations } from '../../hooks/useObservations'
 
 const DetailProject = () => {
 
-  TabTitle('Proyecto')
+  updateTabTitle('Proyecto')
 
   const params = useParams()
   const detalleId = params.id

@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import { AuthContext } from '../../context/AuthContext/'
-import { TabTitle } from '../../utils/TabTitle'
+import { updateTabTitle } from '../../utils/updateTabTitle'
 import {toast} from "sonner";
 
 const UploadProject = () => {
@@ -11,7 +11,7 @@ const UploadProject = () => {
 
   const [file, setFile] = useState(null);
 
-  TabTitle('Generar Proyecto')
+  updateTabTitle('Generar Proyecto')
 
   const generos = ["Accion", "Aventura", "Acertijos", "Suspenso", "Terror", "Plataformas", "2D", "3D"]
 

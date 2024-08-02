@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { TabTitle } from '../../../utils/TabTitle'
+import { updateTabTitle } from '../../../utils/updateTabTitle'
 import { useProjects } from '../../../hooks/useProjects'
 
 const ProjectsTable = () => {
 
-    TabTitle('CRUD Proyectos')
+    updateTabTitle('CRUD Proyectos')
 
   const {mappedPublicados} = useProjects()
 

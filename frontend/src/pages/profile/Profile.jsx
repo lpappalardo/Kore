@@ -6,13 +6,13 @@ import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import { AuthContext } from '../../context/AuthContext/'
 import { Link } from 'react-router-dom'
-import { TabTitle } from '../../utils/TabTitle'
+import { updateTabTitle } from '../../utils/updateTabTitle'
 import { useProjects } from '../../hooks/useProjects'
 import { useObservations } from '../../hooks/useObservations'
 
 export const Profile = () => {
 
-  TabTitle('Perfil')
+  updateTabTitle('Perfil')
 
   const {mappedPublicados, setProjects} = useProjects()
   const {mappedOservaciones, setObservations} = useObservations()

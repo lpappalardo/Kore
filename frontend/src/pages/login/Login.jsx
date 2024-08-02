@@ -3,14 +3,14 @@ import axios from "axios"
 import { AuthContext } from '../../context/AuthContext'
 import Cookies from "js-cookie"
 import {useNavigate} from "react-router-dom"
-import { TabTitle } from '../../utils/TabTitle'
+import { updateTabTitle } from '../../utils/updateTabTitle'
 import {toast} from "sonner";
 
 const Login = () => {
   const [errorsValidation, setErrorsValidation] = useState({})
   const [showPassword,setShowPassword] = useState(false)
   
-  TabTitle('Ingreso')
+  updateTabTitle('Ingreso')
 
   const navigate = useNavigate()
 

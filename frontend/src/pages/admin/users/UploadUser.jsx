@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
-import { TabTitle } from '../../../utils/TabTitle'
+import { updateTabTitle } from '../../../utils/updateTabTitle'
 import {toast} from "sonner";
 
 const UploadUser = () => {
 
   const [errorsValidation, setErrorsValidation] = useState({})
 
-  TabTitle('CRUD Cargar Usuario')
+  updateTabTitle('CRUD Cargar Usuario')
 
   const navigate = useNavigate()
 

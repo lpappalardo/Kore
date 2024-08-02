@@ -2,13 +2,13 @@ import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
-import { TabTitle } from '../../../utils/TabTitle'
+import { updateTabTitle } from '../../../utils/updateTabTitle'
 import {toast} from "sonner";
 import { useUsers } from '../../../hooks/useUsers'
 
 const DeleteUser = () => {
 
-  TabTitle('CRUD Eliminar Usuario')
+  updateTabTitle('CRUD Eliminar Usuario')
 
   const params = useParams()
   const usuarioId = params.id

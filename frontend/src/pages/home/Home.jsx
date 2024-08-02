@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from '../../context/AuthContext'
-import { TabTitle } from '../../utils/TabTitle'
+import { updateTabTitle } from '../../utils/updateTabTitle'
 
 const Home = () => {
 
@@ -8,7 +8,7 @@ const Home = () => {
 
     console.log(user)
 
-    TabTitle('Inicio')
+    updateTabTitle('Inicio')
 
     return (
         <main>

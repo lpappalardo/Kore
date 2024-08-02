@@ -3,12 +3,12 @@ import { Proyects } from "../../components/proyects/Proyects"
 import { ApiContext } from '../../context/ApiContext'
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
-import { TabTitle } from '../../utils/TabTitle'
+import { updateTabTitle } from '../../utils/updateTabTitle'
 import { useProjects } from '../../hooks/useProjects'
 
 const AvailableProjects = () => {
 
-  TabTitle('Proyectos')
+  updateTabTitle('Proyectos')
 
   const {mappedPublicados, setProjects} = useProjects()
 

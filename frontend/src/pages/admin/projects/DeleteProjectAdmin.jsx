@@ -3,13 +3,13 @@ import { useParams } from 'react-router-dom'
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import { AuthContext } from '../../../context/AuthContext/'
-import { TabTitle } from '../../../utils/TabTitle'
+import { updateTabTitle } from '../../../utils/updateTabTitle'
 import {toast} from "sonner";
 import { useProjects } from '../../../hooks/useProjects'
 
 const DeleteProjectAdmin = () => {
 
-  TabTitle('CRUD Eliminar Proyecto')
+  updateTabTitle('CRUD Eliminar Proyecto')
 
   const params = useParams()
   const detalleId = params.id

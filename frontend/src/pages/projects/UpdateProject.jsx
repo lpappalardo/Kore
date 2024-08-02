@@ -4,7 +4,7 @@ import { ApiContext } from '../../context/ApiContext'
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
-import { TabTitle } from '../../utils/TabTitle'
+import { updateTabTitle } from '../../utils/updateTabTitle'
 import {toast} from "sonner";
 import { useProjects } from '../../hooks/useProjects'
 
@@ -12,7 +12,7 @@ const UpdateProject = () => {
 
   // const [errorsValidation, setErrorsValidation] = useState({})
 
-  TabTitle('Editar Proyecto')
+  updateTabTitle('Editar Proyecto')
 
     const params = useParams()
     const publicadoId = params.id

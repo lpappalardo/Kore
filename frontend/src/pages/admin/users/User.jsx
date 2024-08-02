@@ -1,11 +1,11 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { TabTitle } from '../../../utils/TabTitle'
+import { updateTabTitle } from '../../../utils/updateTabTitle'
 import { useUser } from '../../../hooks/useUser'
 
 const User = () => {
 
-    TabTitle('Eliminar Usuario')
+  updateTabTitle('Eliminar Usuario')
 
   const params = useParams()
   const usuarioId = params.id

@@ -4,13 +4,13 @@ import { ApiContext } from '../../context/ApiContext'
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
-import { TabTitle } from '../../utils/TabTitle'
+import { updateTabTitle } from '../../utils/updateTabTitle'
 import {toast} from "sonner";
 import { useObservations } from '../../hooks/useObservations'
 
 const DeleteObservation = () => {
 
-  TabTitle('Eliminar Observación')
+  updateTabTitle('Eliminar Observación')
 
     const params = useParams()
     const detalleId = params.id

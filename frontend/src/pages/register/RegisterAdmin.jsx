@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
-import { TabTitle } from '../../utils/TabTitle'
+import { updateTabTitle } from '../../utils/updateTabTitle'
 import {toast} from "sonner";
 
 const RegisterAdmin = () => {
@@ -9,7 +9,7 @@ const RegisterAdmin = () => {
   const [showConfirmPassword,setShowConfirmPassword] = useState(false)
   const [errorsValidation, setErrorsValidation] = useState({})
 
-  TabTitle('Registro')
+  updateTabTitle('Registro')
 
   const navigate = useNavigate()
 

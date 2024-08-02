@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { TabTitle } from '../../../utils/TabTitle'
+import { updateTabTitle } from '../../../utils/updateTabTitle'
 import { useUsers } from '../../../hooks/useUsers'
 
 const UsersTable = () => {
 
-  TabTitle('CRUD Usuarios')
+    updateTabTitle('CRUD Usuarios')
 
   const {usuariosCargados} = useUsers()
 
