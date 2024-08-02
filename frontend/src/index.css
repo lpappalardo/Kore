@@ -209,6 +209,7 @@ nav .menu span {
 .observation .titleObservation {
   margin-bottom: 0.5rem;
   font-weight:bold;
+  height: auto;
 }
 
                       
@@ -249,6 +250,14 @@ nav .menu span {
 
 .observation p {
   height: 100px;
+}
+
+.observation h2 {
+  margin-bottom: 1rem;
+}
+
+.seccion h1 {
+  margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 991px) {
@@ -546,6 +555,13 @@ fieldset label input {
   max-width: 50%;
 }
 
+@media screen and (max-width: 991px) {
+
+  .formInicio {
+    max-width: 80%;
+  }
+}
+
 .formInicio h1 {
 
   margin-bottom: 1rem;
@@ -734,4 +750,37 @@ td .botonPrincipal {
 .errorValidation {
   color: var(--clr-red);
   margin-bottom: 1rem;
+}
+
+/* PERFIL */
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+.contenidoPerfil {
+  display: flex;
+  flex-direction: row;
+}
+
+.elementoPerfil h2 {
+  margin-bottom: 0rem;
+}
+
+.elementoPerfil p {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 991px) {
+
+  .contenidoPerfil {
+    flex-direction: column;
+  }
+}
+
+/* INICIO */
+
+.centrar {
+  text-align: center;
 }

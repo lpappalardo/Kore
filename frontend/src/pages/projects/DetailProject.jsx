@@ -119,7 +119,7 @@ const DetailProject = () => {
                             observation.userId == usuarioId ?
                               <div className="contenedor-links-horizontal">
                               <Link className='botonPrincipal' to={`/actualizarObservacion/${observation.id}`}>Editar</Link>
-                              <Link className='botonPrincipal' to={`/elimiarObservacion/${observation.id}`}>Eliminar</Link>
+                              <Link className='botonDanger' to={`/elimiarObservacion/${observation.id}`}>Eliminar</Link>
                             </div>
                             : <></>
                            }

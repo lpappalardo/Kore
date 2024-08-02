@@ -49,31 +49,31 @@ const DeleteObservation = () => {
 
 
                       <div className="observation">
-                          <h3>{observacion.name}</h3>
+                          <h2>{observacion.name}</h2>
                           {
                             observacion.arte && 
                             <div>
-                              <h4>Arte</h4>
-                              <p>{observacion.arte}</p>
+                              <p className='titleObservation'>Arte</p>
+                              <p className='contentObservation'>{observacion.arte}</p>
                             </div>
                           }
                           {
                             observacion.tecnico && 
                             <div>
-                              <h4>Tecnico</h4>
-                              <p>{observacion.tecnico}</p>
+                              <p className='titleObservation'>Tecnico</p>
+                              <p className='contentObservation'>{observacion.tecnico}</p>
                             </div>
                           }
                           {
                             observacion.disenio &&
                             <div>
-                              <h4>Diseñio</h4>
-                              <p>{observacion.disenio}</p>
+                              <p className='titleObservation'>Diseñio</p>
+                              <p className='contentObservation'>{observacion.disenio}</p>
                             </div>
                           }
                           <div>
-                              <h4>Generales</h4>
-                              <p>{observacion.generales}</p>
+                              <p className='titleObservation'>Generales</p>
+                              <p className='contentObservation'>{observacion.generales}</p>
                             </div>
                       </div>
  

@@ -20,10 +20,10 @@ const Home = () => {
 
             <section id="propuestas" className="seccion container">
                 {user && user.role === 'user' && (
-                <h1>¡Bienvenido/a {user.username}!</h1>
+                <h1 className='centrar'>¡Bienvenido/a {user.username}!</h1>
                 )}
                 {user && user.role === 'admin' && (
-                <h1>Bienvenido/a al panel de administración</h1>
+                <h1 className='centrar'>Bienvenido/a al panel de administración</h1>
                 )}
                 <div className="articulos">
                     <div className="articulo">

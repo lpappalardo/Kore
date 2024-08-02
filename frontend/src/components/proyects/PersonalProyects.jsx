@@ -18,7 +18,7 @@ const ListOfProyects = ({ proyects }) => {
                                     <div className="contenedor-links">
                                         <Link className=" botonPrincipal" to={`/detalle/${proyect.id}`}>Ver</Link>
                                         <Link className=" botonPrincipal" to={`/actualizarProyecto/${proyect.id}`}>Editar</Link>
-                                        <Link className="botonPrincipal" to={`/elimiar/${proyect.id}`}>Eliminar</Link>
+                                        <Link className="botonDanger" to={`/elimiar/${proyect.id}`}>Eliminar</Link>
                                     </div>
                                 </div>
                             ))

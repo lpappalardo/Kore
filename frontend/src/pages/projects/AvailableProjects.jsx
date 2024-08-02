@@ -63,7 +63,7 @@ const AvailableProjects = () => {
         <main className="publicaciones container">
                 <h1>Proyectos publicados</h1>
                 <form method='POST'>
-                      <h3>Filtrar por categoría</h3>
+                      <h2>Filtrar por categoría</h2>
                       <select name="" id="" onChange={handleSelect}>
                       {
                         generos.map(genero => (

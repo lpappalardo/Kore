@@ -20,7 +20,7 @@ const ListOfObservations = ({ observations }) => {
                                     <div className="contenedor-links">
                                         <Link to={`/detalle/${observation.idProject}`} className="noLink botonPrincipal">Ver</Link>
                                         <Link to={`/actualizarObservacion/${observation.id}`} className="noLink botonPrincipal">Editar</Link>
-                                        <Link to={`/elimiarObservacion/${observation.id}`} className="noLink botonPrincipal">Eliminar</Link>
+                                        <Link to={`/elimiarObservacion/${observation.id}`} className="noLink botonDanger">Eliminar</Link>
                                     </div>
                                 </div>
                             ))
