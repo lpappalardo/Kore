@@ -70,9 +70,10 @@ const Register = () => {
   }
 
   return (
-    <main className='container formInicio'>
+    <main className='inicio'>
+      <div className='container formInicio'>
       <picture className='logoEntrada'>
-          <img src="../../../src/assets/img/logoNombre.png" alt="Kore" />
+          <img src="../../../src/assets/img/logoSolo.png" alt="Kore" />
       </picture>
       
 
@@ -138,8 +139,9 @@ const Register = () => {
           {errorsValidation.confirmPassword && <p className='errorValidation'>{errorsValidation.confirmPassword}</p>}  
         </div>
 
-        <button className="botonPrincipal" onClick={handleRegister}>Registrarse</button>
+        <button className="botonPrincipal botonFull" onClick={handleRegister}>Registrarse</button>
       </form>
+      </div>
     </main>
   )
 }

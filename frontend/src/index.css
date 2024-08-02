@@ -549,10 +549,12 @@ fieldset label input {
 .formInicio {
   margin-top: 4rem;
   margin-bottom: 4rem;
-  border: 4px solid var(--clr-main);
-  border-radius: 4px;
+  /* border: 4px solid var(--clr-main);
+  border-radius: 4px; */
+  box-shadow: 0 15px 20px rgba(0, 0, 0, .2);
   padding: 4rem;
-  max-width: 50%;
+  max-width: 40%;
+  background-color: var(--clr-white);
 }
 
 @media screen and (max-width: 991px) {
@@ -783,4 +785,12 @@ h1 {
 
 .centrar {
   text-align: center;
+}
+
+.inicio {
+  background-color: var(--clr-ligth);
+}
+
+.botonFull {
+  width: 100%;
 }

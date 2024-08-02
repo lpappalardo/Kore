@@ -62,9 +62,10 @@ const Login = () => {
 }
 
   return (
-    <main className='container formInicio'>
+    <main className='inicio'>
+      <div className='container formInicio'>
       <picture className='logoEntrada'>
-          <img src="../../../src/assets/img/logoNombre.png" alt="Kore" />
+          <img src="../../../src/assets/img/logoSolo.png" alt="Kore" />
       </picture>
       
       <h1>Ingresar</h1>
@@ -97,8 +98,9 @@ const Login = () => {
           {errorsValidation.password && <p className='errorValidation'>{errorsValidation.password}</p>} 
           {errorsValidation.credentials && <p className='errorValidation'>{errorsValidation.credentials}</p>}  
         </div>
-        <button className="botonPrincipal" onClick={handleLogin}>Login</button>
+        <button className="botonPrincipal botonFull" onClick={handleLogin}>Login</button>
       </form>
+      </div>
     </main>
   )
 }
