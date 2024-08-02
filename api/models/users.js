@@ -9,10 +9,6 @@ const usuarioSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    // name: {
-    //     type:String,
-    //     required:true
-    // },
     password: {
         type:String,
         required: true
@@ -20,7 +16,12 @@ const usuarioSchema = new mongoose.Schema({
     imagen: {
         type: String,
         required: false        
-    }
+    },
+    role: {
+        type: String,
+        enum: ['user', 'admin'],
+        default: 'user',
+    },
 });
 
 export default mongoose.model('Usuarios', usuarioSchema);

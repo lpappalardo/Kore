@@ -37,7 +37,7 @@ const UsersTable = () => {
                         <td>
                             <div>
                                 <Link className=" botonPrincipal" to={`/detalleUsuario/${usuario.id}`}>Ver</Link>
-                                <Link className=" botonPrincipal" >Editar</Link>
+                                <Link className=" botonPrincipal" to={`/editarUsuario/${usuario.id}`}>Editar</Link>
                                 <Link className="botonPrincipal" to={`/elimiarUsuario/${usuario.id}`}>Eliminar</Link>
                             </div>
                         </td>

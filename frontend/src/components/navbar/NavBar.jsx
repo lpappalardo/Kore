@@ -21,39 +21,50 @@ const Navbar = () => {
                       <span></span>
                       <span></span>
                     </div>
-          {
-            user ? (
+          {/* {
+            user ? ( */}
               <ul className={menuOpen ? "open" : ""}>
+                {user &&
                 <li className="navItemList">
                     <NavLink className="navItem" to="/">Inicio</NavLink>
                 </li>
+                }
+                {user && user.role === 'user' && (
+                                    <>
                 <li className="navItemList">
                     <NavLink className="navItem" to="/proyectos">Proyectos</NavLink>
                 </li>
                 <li className="navItemList">
                     <NavLink className="navItem" to="/perfil">Perfil</NavLink>
                 </li>
-
+                </>)}
+                
+                {user && user.role === 'admin' && (
+                                    <>
                 <li className="navItemList">
-                    <NavLink className="navItem" to="/administracionProyectos">CRUD Proyectos</NavLink>
+                    <NavLink className="navItem" to="/administracionProyectos">Proyectos</NavLink>
                 </li>
+                <li className="navItemList">
+                    <NavLink className="navItem" to="/administracionUsuarios">Usuarios</NavLink>
+                </li>
+                </>)}
 
+                {user &&
                 <li className="navItemList">
                     <NavLink onClick={() => logOutUser()} className="navItem" to="/login">Salir</NavLink>
                 </li>
-              </ul>
-            ) :
-            (
-              <ul className={menuOpen ? "open" : ""}>
+                }
+
+                {!user && <>
                 <li className="navItemList">
                     <NavLink className="navItem" to="/login">Ingresar</NavLink>
                 </li>
                 <li className="navItemList">
                     <NavLink className="navItem" to="/register">Registrarse</NavLink>
                 </li>
+                </>}
               </ul>
-            )
-          }
+
 
 
                 </nav>

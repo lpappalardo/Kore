@@ -14,10 +14,10 @@ const Register = () => {
   const navigate = useNavigate()
 
   const [userData, setUserData] = useState({
-    // name: "",
     username: "",
     email: "",
-    password: ""
+    password: "",
+    role: "user",
   })
 
   const [confirmData, setConfirmData] = useState({

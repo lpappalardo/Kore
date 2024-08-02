@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { ApiContext } from '../../context/ApiContext'
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
 import { TabTitle } from '../../utils/TabTitle'
 import {toast} from "sonner";
+import { useProjects } from '../../hooks/useProjects'
+import { useObservations } from '../../hooks/useObservations'
 
 const UpdateObservation = () => {
 
@@ -15,25 +16,46 @@ const UpdateObservation = () => {
 
     const params = useParams()
     const observationId = params.id
+    console.log(observationId)
   
-    const { mappedOservaciones} = useContext(ApiContext)
+    const {mappedPublicados} = useProjects()
+    const {mappedOservaciones} = useObservations()
+    console.log(mappedOservaciones)
+    console.log(mappedPublicados)
   
     const {user} = useContext(AuthContext)
 
-    const detalleOservacion = mappedOservaciones.filter(observacion => (observacion.userId == user.id && observacion.id == observationId))[0]
-    console.log(detalleOservacion)
+    let detalleObservacion = mappedOservaciones.filter(observacion => (observacion.id == observationId))[0]
+    console.log(detalleObservacion)
+    console.log(observationId)
   
     const navigate = useNavigate()
-  
+
     const [observationData, setObservationData] = useState({
-      name: user.name,
-      idProject: detalleOservacion.idProject,
-      userId: user.id,
-      arte: detalleOservacion.arte,
-      tecnico: detalleOservacion.tecnico,
-      disenio: detalleOservacion.disenio,
-      generales: detalleOservacion.generales,
+      name: user.username,
+      // idProject: detalleObservacion.idProject,
+      // idProject: "",
+      userId: user._id,
+      // arte: detalleObservacion.arte,
+      arte: "",
+      // tecnico: detalleObservacion.tecnico,
+      tecnico: "",
+      // disenio: detalleObservacion.disenio,
+      disenio: "",
+      // generales: detalleObservacion.generales,
+      generales: "",
     })
+
+    // if(detalleObservacion){
+    //   setObservationData({idProject: detalleObservacion.idProject})
+    // }
+
+    console.log("1")
+    console.log(observationData)
+    console.log(detalleObservacion)
+    console.log("2")
+
+    // setObservationData({generales: detalleObservacion.generales})
   
     const [error, setError] = useState("")
   
@@ -54,7 +76,6 @@ const UpdateObservation = () => {
         .then((res) => {
           console.log(res)
           navigate('/proyectos')
-          window.location.reload(true)
           toast.success('La observación ha sido editada con éxito!');
         })
         .catch((error) => {
@@ -68,7 +89,7 @@ const UpdateObservation = () => {
   
     return (
       <>
-      {
+      {detalleObservacion && (
         <main>
           <section className='observacion container'>
             <form className='formulario' action="" method='PUT'>
@@ -98,6 +119,7 @@ const UpdateObservation = () => {
                 <label for="generales">Generales*:</label>
                 <textarea name="generales" id="generales" placeholder="Generales..." required
                 value={observationData.generales}
+                // {detalleObservacion.generales}
                 onChange={(e) => setObservationData({...observationData, generales: e.target.value})}
                 ></textarea>
                 {errorsValidation.generales && <p>{errorsValidation.generales}</p>} 
@@ -106,7 +128,7 @@ const UpdateObservation = () => {
             </form>
           </section>
         </main>
-      }
+      )}
       </>
     )
 }

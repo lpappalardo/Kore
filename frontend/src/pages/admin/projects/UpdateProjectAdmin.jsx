@@ -1,18 +1,17 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { ApiContext } from '../../context/ApiContext'
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
-import { AuthContext } from '../../context/AuthContext/'
-import { TabTitle } from '../../utils/TabTitle'
+import { AuthContext } from '../../../context/AuthContext/'
+import { TabTitle } from '../../../utils/TabTitle'
 import {toast} from "sonner";
-import { useProjects } from '../../hooks/useProjects'
+import { useProjects } from '../../../hooks/useProjects'
 
-const UpdateProject = () => {
+const UpdateProjectAdmin = () => {
 
   // const [file, setFile] = useState(null);
   // const [loading, setLoading] = useState([])
-  // const [errorsValidation, setErrorsValidation] = useState({})
+  const [errorsValidation, setErrorsValidation] = useState({})
 
   TabTitle('Editar Proyecto')
 
@@ -103,7 +102,7 @@ const UpdateProject = () => {
       axios.put(`http://localhost:3000/proyectos/editarProyecto/${id}`, projectData)
       .then((res) => {
         console.log(res)
-        navigate('/proyectos')
+        navigate('/administracionProyectos')
         toast.success('Se ha editado el proyecto con éxito!');
       })
       .catch((error) => {
@@ -161,7 +160,7 @@ const UpdateProject = () => {
                 <input type='text' name="nombre" id="nombre" placeholder="Nombre..." required
                 value={projectData.name}
                 onChange={(e) => setProjectData({...projectData, name: e.target.value, categorias: checkedValues})}></input>
-                {/* {errorsValidation.name && <p>{errorsValidation.name}</p>}   */}
+                {errorsValidation.name && <p>{errorsValidation.name}</p>}  
               </div>
   
               <div>
@@ -169,7 +168,7 @@ const UpdateProject = () => {
                 <textarea name="descripcion" id="descripcion" placeholder="Descripcion..." required
                 value={projectData.description}
                 onChange={(e) => setProjectData({...projectData, description: e.target.value, categorias: checkedValues})}></textarea>
-                {/* {errorsValidation.description && <p>{errorsValidation.description}</p>}   */}
+                {errorsValidation.description && <p>{errorsValidation.description}</p>}  
               </div>
   
               <fieldset>
@@ -190,7 +189,7 @@ const UpdateProject = () => {
                   ))
                   }
                   </div>
-                  {/* {errorsValidation.categorias && <p>{errorsValidation.categorias}</p>}  */}
+                  {errorsValidation.categorias && <p>{errorsValidation.categorias}</p>} 
               </fieldset>
 
 
@@ -213,7 +212,7 @@ const UpdateProject = () => {
                 ))
                 }
                 </div>
-                {/* {errorsValidation.tecnologias && <p>{errorsValidation.tecnologias}</p>}  */}
+                {errorsValidation.tecnologias && <p>{errorsValidation.tecnologias}</p>} 
             </fieldset>
 
               <div>
@@ -221,7 +220,7 @@ const UpdateProject = () => {
                 <input type="file" id="image" name="image" onChange={handleFileChange}/>
               </div>
   
-              <button className='botonPrincipal' onClick={(e) => handleUpload(e, publicadoId)}>Editar</button>
+              <button className='botonPrincipal' onClick={(e) => handleUpload(e, publicadoId)}>Editar Poyecto</button>
             </form>
           </section>
 
@@ -231,4 +230,4 @@ const UpdateProject = () => {
     )
 }
 
-export {UpdateProject}
+export {UpdateProjectAdmin}

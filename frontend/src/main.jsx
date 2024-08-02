@@ -10,7 +10,7 @@ import { Toaster } from 'sonner';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <ApiConextProvider>
+    {/* <ApiConextProvider> */}
       <AuthConextProvider>
         <App />
         <Toaster 
@@ -18,13 +18,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           position='top-right'
           dir='auto'
           visibleToasts={1}
-          duration={1500}
+          duration={1000}
           closeButton
           toastOptions={{
             className: 'my-toast',
           }}
         />
       </AuthConextProvider>
-    </ApiConextProvider>
+    {/* </ApiConextProvider> */}
   </BrowserRouter>,
 )

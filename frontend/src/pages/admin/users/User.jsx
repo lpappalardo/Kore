@@ -15,6 +15,8 @@ const User = () => {
   console.log(usuarioCargado)
 
   return (
+    <>
+    {usuarioCargado && (
     <main>
       <h1>Perfil usuario</h1>
         <section className='detalle'>
@@ -27,6 +29,8 @@ const User = () => {
           </div>
         </section>
     </main>
+    )}
+    </>
   )
 }
 

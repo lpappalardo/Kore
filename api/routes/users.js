@@ -1,5 +1,5 @@
 import express  from 'express';
-import { getUsers, getUser, registerUser, loginUser, deleteUser } from '../controllers/users_controller.js';
+import { getUsers, getUser, registerUser, loginUser, deleteUser, editUser } from '../controllers/users_controller.js';
 import { verificarToken } from '../middlewares/auth.js';
 const userRoutes = express.Router();
 
@@ -14,5 +14,7 @@ userRoutes.post('/register', registerUser);
 userRoutes.post('/login', loginUser);
 
 userRoutes.delete('/eliminarUsuario/:id', deleteUser);
+
+userRoutes.put('/editarUsuario/:id', editUser);
 
 export {userRoutes};

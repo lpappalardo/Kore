@@ -5,7 +5,7 @@ import axios from "axios"
 import { TabTitle } from '../../../utils/TabTitle'
 import {toast} from "sonner";
 import { useUsers } from '../../../hooks/useUsers'
-import { ApiContext } from '../../../context/ApiContext'
+// import { ApiContext } from '../../../context/ApiContext'
 
 
 const DeleteUser = () => {
@@ -15,8 +15,8 @@ const DeleteUser = () => {
   const params = useParams()
   const usuarioId = params.id
 
-  // const {usuariosCargados} = useUsers()
-  const {usuariosCargados} = useContext(ApiContext)
+  const {usuariosCargados} = useUsers()
+  // const {usuariosCargados} = useContext(ApiContext)
 
 
   console.log(usuariosCargados)
@@ -45,7 +45,7 @@ const DeleteUser = () => {
 
   return (
     <>
-    {
+      {detalleUsuario && (
       <main className='seccion container'>
         <h1>¿Está seguro que desea eliminar este usuario?</h1>
         <section className='detalle'>
@@ -66,7 +66,7 @@ const DeleteUser = () => {
 
         
       </main>
-    }
+    )}
     </>
   )
 }

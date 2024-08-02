@@ -6,6 +6,7 @@ import axios from "axios"
 import { AuthContext } from '../../context/AuthContext/'
 import { TabTitle } from '../../utils/TabTitle'
 import {toast} from "sonner";
+import { useObservations } from '../../hooks/useObservations'
 
 const DeleteObservation = () => {
 
@@ -14,9 +15,10 @@ const DeleteObservation = () => {
     const params = useParams()
     const detalleId = params.id
   
-    const {mappedOservaciones} = useContext(ApiContext)
+    const {mappedOservaciones} = useObservations()
   
-    const observacion = mappedOservaciones.filter(observation => (observation.id == detalleId))[0]
+    let observacion = mappedOservaciones.filter(observation => (observation.id == detalleId))[0]
+    console.log(observacion)
   
     const {user} = useContext(AuthContext)
   
@@ -30,7 +32,6 @@ const DeleteObservation = () => {
       .then((res) => {
         console.log(res)
         navigate('/proyectos')
-        window.location.reload(true)
         toast.success('Se ha eliminado la observación con éxito!');
       })
       .catch((error) => {
@@ -42,6 +43,7 @@ const DeleteObservation = () => {
 
   return (
     <main>
+      {observacion && (
       <section className='seccion container'>
         <h1>¿Está seguro que desea eliminar esta observación?</h1>
 
@@ -83,6 +85,7 @@ const DeleteObservation = () => {
         </button>
 
         </section>
+      )}
     </main>
   )
 }

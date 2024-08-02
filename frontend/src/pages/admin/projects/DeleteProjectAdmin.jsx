@@ -1,16 +1,15 @@
 import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { ApiContext } from '../../context/ApiContext'
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
-import { AuthContext } from '../../context/AuthContext/'
-import { TabTitle } from '../../utils/TabTitle'
+import { AuthContext } from '../../../context/AuthContext/'
+import { TabTitle } from '../../../utils/TabTitle'
 import {toast} from "sonner";
-import { useProjects } from '../../hooks/useProjects'
+import { useProjects } from '../../../hooks/useProjects'
 
-const DeleteProject = () => {
+const DeleteProjectAdmin = () => {
 
-  TabTitle('Eliminar Proyecto')
+  TabTitle('CRUD Eliminar Proyecto')
 
   const params = useParams()
   const detalleId = params.id
@@ -30,7 +29,7 @@ const DeleteProject = () => {
     axios.delete(`http://localhost:3000/proyectos/eliminarProyecto/${id}`)
     .then((res) => {
       console.log(res)
-      navigate('/proyectos')
+      navigate('/administracionProyectos')
       // toast.success('Se ha eliminado el proyecto ' + projectData.name + 'con éxito!');
       toast.success('Se ha eliminado el proyecto con éxito!');
     })
@@ -79,4 +78,4 @@ const DeleteProject = () => {
   )
 }
 
-export {DeleteProject}
+export {DeleteProjectAdmin}

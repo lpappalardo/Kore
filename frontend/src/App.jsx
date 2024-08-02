@@ -17,10 +17,15 @@ import { DeleteObservation } from "./pages/observations/DeleteObservation"
 import { UploadObservation } from "./pages/observations/UploadObservation"
 
 import { ProjectsTable } from "./pages/admin/projects/ProjectsTable"
+import { DeleteProjectAdmin } from "./pages/admin/projects/DeleteProjectAdmin"
+import { UploadProjectAdmin } from "./pages/admin/projects/UploadProjectAdmin"
+import { DetailProjectAdmin } from "./pages/admin/projects/DetailProjectAdmin"
+import { UpdateProjectAdmin } from "./pages/admin/projects/UpdateProjectAdmin"
 import { UsersTable } from "./pages/admin/users/UsersTable"
 import { DeleteUser } from "./pages/admin/users/DeleteUser"
 import { User } from "./pages/admin/users/User"
 import { UploadUser } from "./pages/admin/users/UploadUser"
+import { UpdateUser } from "./pages/admin/users/UpdateUser"
 
 import ProtectedRoutes from './utils/ProtectedRoutes'
 
@@ -46,7 +51,13 @@ function App() {
           <Route path='/administracionUsuarios' element={<UsersTable/>} />
           <Route path='/elimiarUsuario/:id' element={<DeleteUser/>} />
           <Route path='/detalleUsuario/:id' element={<User/>} />
+          <Route path='/editarUsuario/:id' element={<UpdateUser/>} />
           <Route path='/generarUsuario' element={<UploadUser/>} />
+          <Route path='/elimiarAdministracion/:id' element={<DeleteProjectAdmin/>} />
+          <Route path='/generarProyectoAdministracion' element={<UploadProjectAdmin/>} />
+          <Route path='/detalleAdministracion/:id' element={<DetailProjectAdmin/>} />
+          <Route path='/actualizarProyectoAdministracion/:id' element={<UpdateProjectAdmin/>} />
+
         </Route>
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />

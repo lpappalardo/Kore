@@ -13,7 +13,7 @@ const ProjectsTable = () => {
     <main>
         <h1>Listado de proyectos</h1>
 
-        <Link className='botonPrincipal' to={`/generarProyecto`}>Generar Proyecto</Link>
+        <Link className='botonPrincipal' to={`/generarProyectoAdministracion`}>Generar Proyecto</Link>
 
         <table>
             <thead>
@@ -34,9 +34,9 @@ const ProjectsTable = () => {
 
                         <td>
                             <div>
-                                <Link className=" botonPrincipal" to={`/detalle/${prublicado.id}`}>Ver</Link>
-                                <Link className=" botonPrincipal" to={`/actualizarProyecto/${prublicado.id}`}>Editar</Link>
-                                <Link className="botonPrincipal" to={`/elimiar/${prublicado.id}`}>Eliminar</Link>
+                                <Link className=" botonPrincipal" to={`/detalleAdministracion/${prublicado.id}`}>Ver</Link>
+                                <Link className=" botonPrincipal" to={`/actualizarProyectoAdministracion/${prublicado.id}`}>Editar</Link>
+                                <Link className="botonPrincipal" to={`/elimiarAdministracion/${prublicado.id}`}>Eliminar</Link>
                             </div>
                         </td>
                     </tr>

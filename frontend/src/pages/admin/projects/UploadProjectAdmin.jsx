@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react'
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
-import { AuthContext } from '../../context/AuthContext/'
-import { TabTitle } from '../../utils/TabTitle'
+import { AuthContext } from '../../../context/AuthContext/'
+import { TabTitle } from '../../../utils/TabTitle'
 import {toast} from "sonner";
 
-const UploadProject = () => {
+const UploadProjectAdmin = () => {
 
   const [errorsValidation, setErrorsValidation] = useState({})
 
@@ -76,7 +76,7 @@ const UploadProject = () => {
       axios.post("http://localhost:3000/proyectos/", projectData)
       .then((res) => {
         console.log(res)
-        navigate('/proyectos')
+        navigate('/administracionProyectos')
         // window.location.reload(true)
         toast.success('El Proyecto ' + projectData.name + 'ha sido creado!');
       })
@@ -220,4 +220,4 @@ const UploadProject = () => {
   )
 }
 
-export {UploadProject}
+export {UploadProjectAdmin}

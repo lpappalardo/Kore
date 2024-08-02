@@ -1,32 +1,14 @@
 import React, { useContext } from "react";
-import recientesProyects from "../../assets/mocks/recientes.json"
-import destacadosProyects from "../../assets/mocks/destacados.json"
-import { Proyects } from "../../components/proyects/Proyects";
-import { ApiContext } from '../../context/ApiContext'
+import { AuthContext } from '../../context/AuthContext'
 import { TabTitle } from '../../utils/TabTitle'
 
 const Home = () => {
 
+    const {user} = useContext(AuthContext)
+
+    console.log(user)
+
     TabTitle('Inicio')
-    
-    // const {mappedPublicados, setProjects} = useContext(ApiContext)
-    // const recientes = recientesProyects.Search
-
-    // const mappedRecientes = recientes?.map(proyect => ({
-    //     id: proyect.Id,
-    //     title: proyect.Title,
-    //     poster: proyect.Poster,
-    //     identificador: proyect.Codigo
-    // }))
-
-    // const destacados = destacadosProyects.Search
-
-    // const mappedDestacados = destacados?.map(proyect => ({
-    //     id: proyect.Id,
-    //     title: proyect.Title,
-    //     poster: proyect.Poster,
-    //     identificador: proyect.Codigo
-    // }))
 
     return (
         <main>
@@ -36,15 +18,13 @@ const Home = () => {
                 </picture>
             </section>
 
-            {/* <section className="publicaciones container">
-                <h2>Destacados</h2>
-                <Proyects proyects={mappedPublicados} />
-            </section>
-            <section className="publicaciones container">
-                <h2>Mas Recientes</h2>
-                <Proyects proyects={mappedPublicados} />
-            </section> */}
             <section id="propuestas" className="seccion container">
+                {user && user.role === 'user' && (
+                <h1>¡Bienvenido/a {user.username}!</h1>
+                )}
+                {user && user.role === 'admin' && (
+                <h1>Bienvenido/a al panel de administración</h1>
+                )}
                 <div className="articulos">
                     <div className="articulo">
                             <picture className="articulo-img">

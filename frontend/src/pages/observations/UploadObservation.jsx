@@ -7,6 +7,7 @@ import { AuthContext } from '../../context/AuthContext/'
 import { Link } from 'react-router-dom'
 import { TabTitle } from '../../utils/TabTitle'
 import {toast} from "sonner";
+import { useProjects } from '../../hooks/useProjects'
 
 const UploadObservation = () => {
 
@@ -19,17 +20,19 @@ const UploadObservation = () => {
 
     const navigate = useNavigate()
 
-    const {mappedPublicados, mappedOservaciones} = useContext(ApiContext)
+    const {mappedPublicados} = useProjects()
+    // const {mappedPublicados, mappedOservaciones} = useContext(ApiContext)
 
-    const detallePublicado = mappedPublicados.filter(project => (project.id == detalleId))[0]
+    let detallePublicado = mappedPublicados.filter(project => (project.id == detalleId))[0]
     console.log(detallePublicado)
 
     const {user} = useContext(AuthContext)
+    console.log(user)
 
     const [observationData, setObservationData] = useState({
-      name: user.name,
+      name: user.username,
       idProject: detalleId,
-      userId: user.id,
+      userId: user._id,
       arte: "",
       tecnico: "",
       disenio: "",
@@ -54,7 +57,6 @@ const UploadObservation = () => {
           .then((res) => {
           console.log(res)
           navigate('/proyectos')
-          window.location.reload(true)
           toast.success('La observación ha sido creada!');
         })
         .catch((error) => {
@@ -68,6 +70,7 @@ const UploadObservation = () => {
 
   return (
     <main className='observacion container'>
+      {detallePublicado && (
           <form className='formulario' action="" method='POST'>
             <h1>Generar Observación de {detallePublicado.title}</h1>
 
@@ -102,6 +105,7 @@ const UploadObservation = () => {
             </div>
             <button className='botonPrincipal' onClick={handleSubmit}>Enviar</button>
           </form>
+      )}
     </main>
   )
 }

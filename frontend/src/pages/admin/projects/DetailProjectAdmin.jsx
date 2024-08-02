@@ -1,16 +1,15 @@
 import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { ApiContext } from '../../context/ApiContext'
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
-import { AuthContext } from '../../context/AuthContext/'
+import { AuthContext } from '../../../context/AuthContext/'
 import { Link } from 'react-router-dom'
-import { TabTitle } from '../../utils/TabTitle'
-import { useProjects } from '../../hooks/useProjects'
-import { useObservations } from '../../hooks/useObservations'
+import { TabTitle } from '../../../utils/TabTitle'
+import { useProjects } from '../../../hooks/useProjects'
+import { useObservations } from '../../../hooks/useObservations'
 
 // export const DetailProject
-const DetailProject = () => {
+const DetailProjectAdmin = () => {
 
   TabTitle('Proyecto')
 
@@ -68,12 +67,12 @@ const DetailProject = () => {
         </section>
         )}
 
-        {detalleOservaciones && detallePublicado && (
+        {/* {detalleOservaciones && detallePublicado && (
         <section className='generar-observacion container'>
           <h2>Observaciones Realizadas</h2>
         {
           (detallePublicado.userId != usuarioId && !realizoObservacion) ?
-          <Link className='botonPrincipal' to={`/generarObservacion/${detalleId}`}>Generar Observación</Link>
+          <Link className='botonPrincipal' to={`/adminGenerarObservacion/${detalleId}`}>Generar Observación</Link>
           : <></>
         }
 
@@ -118,8 +117,8 @@ const DetailProject = () => {
                            {
                             observation.userId == usuarioId ?
                               <div className="contenedor-links-horizontal">
-                              <Link className='botonPrincipal' to={`/actualizarObservacion/${observation.id}`}>Editar</Link>
-                              <Link className='botonPrincipal' to={`/elimiarObservacion/${observation.id}`}>Eliminar</Link>
+                              <Link className='botonPrincipal' to={`/adminActualizarObservacion/${observation.id}`}>Editar</Link>
+                              <Link className='botonPrincipal' to={`/adminElimiarObservacion/${observation.id}`}>Eliminar</Link>
                             </div>
                             : <></>
                            }
@@ -132,11 +131,11 @@ const DetailProject = () => {
                : <p className='comment'>En este momento no hay observaciones realizadas en este proyecto.</p>
       }
         </section>
-        )}
+        )} */}
       </main>
     }
     </>
   )
 }
 
-export {DetailProject}
+export {DetailProjectAdmin}

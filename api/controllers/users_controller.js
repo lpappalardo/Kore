@@ -35,10 +35,10 @@ const registerUser = async (req, res) =>{
     let body = req.body;
 
     let usuario = new Usuarios({
-        email       : body.email,
-        // name      : body.name,
-        username      : body.username,
-        password    :  bcrypt.hashSync( body.password, 10 )
+        email: body.email,
+        username: body.username,
+        password:  bcrypt.hashSync( body.password, 10 ),
+        role: body.role,
     });
     let savedUser = await usuario.save();
 
@@ -61,12 +61,12 @@ const loginUser = async (req, res) =>{
                 const passwordValido = bcrypt.compareSync(req.body.password, datos.password);
                 if(!passwordValido) return res.status(400).json({error:'ok', msj:'Usuario o contraseña incorrecta.'})
                 const jwToken = jwt.sign({
-                    usuario: {_id: datos._id, username: datos.username, email: datos.email}
+                    usuario: {_id: datos._id, username: datos.username, email: datos.email, role: datos.role}
                   }, process.env.SEED, { expiresIn: process.env.EXPIRATION });
                 res.json({
                     usuario:{
                         _id:datos._id,
-                        // name:datos.name,
+                        role:datos.role,
                         username:datos.username,
                         email:datos.email
                     },
@@ -98,10 +98,25 @@ const deleteUser = async (req, res) =>{
     }
 }
 
+const editUser = async (req, res) =>{
+    let idUser = req.params.id
+  
+    try {
+      let usuario = await Usuarios.findByIdAndUpdate({_id: idUser}, {
+      username:req.body.username,
+        email:req.body.email
+      })
+      res.status(201).json(usuario);
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  }
+
 export {
     getUsers,
     getUser,
     registerUser,
     loginUser,
-    deleteUser
+    deleteUser,
+    editUser
   };

@@ -20,9 +20,9 @@ export const Profile = () => {
 
   const {user} = useContext(AuthContext)
 
-  const publicadosUsuario = mappedPublicados.filter((publicado) => publicado.userId == user.id)
+  const publicadosUsuario = mappedPublicados.filter((publicado) => publicado.userId == user._id)
 
-  const observacionesUsuario = mappedOservaciones.filter((observacion) => observacion.userId == user.id)
+  const observacionesUsuario = mappedOservaciones.filter((observacion) => observacion.userId == user._id)
 
   console.log(user)
 
@@ -36,7 +36,7 @@ export const Profile = () => {
             <img src="../../../src/assets/img/logoGrande.png" alt="Imagen Perfil" />
             <div className='elementoPerfil'>
               <h2>Nombre de Usuario</h2>
-              <p>{user.name}</p>
+              <p>{user.username}</p>
             </div>
           </div>
         </section>
