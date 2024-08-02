@@ -12,8 +12,8 @@ const UsersTable = () => {
   console.log(usuariosCargados)
 
   return (
-    <main>
-        <h1>Listado de usuarios</h1>
+    <main className="containerTable">
+        <h1 className='spacingBot'>Listado de usuarios</h1>
 
         <Link className='botonPrincipal' to={`/generarUsuario`}>Generar Usuario</Link>
 
@@ -38,7 +38,7 @@ const UsersTable = () => {
                             <div>
                                 <Link className=" botonPrincipal" to={`/detalleUsuario/${usuario.id}`}>Ver</Link>
                                 <Link className=" botonPrincipal" to={`/editarUsuario/${usuario.id}`}>Editar</Link>
-                                <Link className="botonPrincipal" to={`/elimiarUsuario/${usuario.id}`}>Eliminar</Link>
+                                <Link className="botonDanger" to={`/elimiarUsuario/${usuario.id}`}>Eliminar</Link>
                             </div>
                         </td>
                     </tr>

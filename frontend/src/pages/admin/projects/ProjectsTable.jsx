@@ -10,10 +10,10 @@ const ProjectsTable = () => {
   const {mappedPublicados} = useProjects()
 
   return (
-    <main>
-        <h1>Listado de proyectos</h1>
+    <main className="containerTable">
+        <h1 className='spacingBot'>Listado de proyectos</h1>
 
-        <Link className='botonPrincipal' to={`/generarProyectoAdministracion`}>Generar Proyecto</Link>
+        <Link className='botonPrincipal spacingBoton' to={`/generarProyectoAdministracion`}>Generar Proyecto</Link>
 
         <table>
             <thead>
@@ -36,7 +36,7 @@ const ProjectsTable = () => {
                             <div>
                                 <Link className=" botonPrincipal" to={`/detalleAdministracion/${prublicado.id}`}>Ver</Link>
                                 <Link className=" botonPrincipal" to={`/actualizarProyectoAdministracion/${prublicado.id}`}>Editar</Link>
-                                <Link className="botonPrincipal" to={`/elimiarAdministracion/${prublicado.id}`}>Eliminar</Link>
+                                <Link className="botonDanger" to={`/elimiarAdministracion/${prublicado.id}`}>Eliminar</Link>
                             </div>
                         </td>
                     </tr>

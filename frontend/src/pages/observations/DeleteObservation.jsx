@@ -79,7 +79,7 @@ const DeleteObservation = () => {
  
           <button
          onClick={(e) => handleDelete(e, detalleId)}
-         className='botonPrincipal'
+         className='botonDanger'
         >
             Eliminar
         </button>

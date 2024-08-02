@@ -59,7 +59,7 @@ const DeleteUser = () => {
         </section>
         <button
          onClick={(e) => handleDelete(e, detalleUsuario.id)}
-              className='botonPrincipal'
+              className='botonDanger'
         >
             Eliminar
         </button>

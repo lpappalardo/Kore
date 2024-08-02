@@ -66,7 +66,7 @@ const DeleteProjectAdmin = () => {
         </section>
         <button
          onClick={(e) => handleDelete(e, detallePublicado.id)}
-              className='botonPrincipal'
+              className='botonDanger'
         >
             Eliminar
         </button>

@@ -17,7 +17,7 @@ const User = () => {
   return (
     <>
     {usuarioCargado && (
-    <main>
+    <main className='container'>
       <h1>Perfil usuario</h1>
         <section className='detalle'>
           <img src="../../../../src/assets/img/logoGrande.png" alt={usuarioCargado.username} />

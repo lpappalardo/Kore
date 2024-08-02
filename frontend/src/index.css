@@ -7,6 +7,7 @@
     --clr-white: rgb(244, 244, 244);
     --clr-black: rgb(23, 23, 23);
     --clr-gray: rgb(229, 228, 228);
+    --clr-red: rgb(186, 7, 7);
 
     --wrapper-max-width: 80%;
     --container-padding: 3rem;
@@ -40,6 +41,10 @@ p {
 .container {
     max-width: var(--wrapper-max-width);
     margin: auto;
+}
+
+.containerTable{
+  margin: 2rem auto;
 }
 
 html, body, .site-container {
@@ -335,6 +340,7 @@ nav .menu span {
   margin-bottom: 1rem;
 }
 
+.botonDanger,
 .botonPrincipal {
   margin: 1rem auto;
   background-color: var(--clr-main);
@@ -346,6 +352,22 @@ nav .menu span {
   min-width: 132px;
   text-align: center;
   max-height: 38px;
+}
+
+.botonDanger {
+  background-color: var(--clr-red);
+  border: 2px solid var(--clr-red);
+}
+
+.botonPrincipal {
+  background-color: var(--clr-main);
+  border: 2px solid var(--clr-main);
+}
+
+.botonDanger:hover {
+  background-color: var(--clr-white);
+  color: var(--clr-red);
+  cursor: pointer;
 }
 
 .botonPrincipal:hover {
@@ -671,4 +693,27 @@ h2 {
 
 .iconoInput {
   cursor: pointer;
+}
+
+/* TABLE */
+
+table {
+  table-layout: fixed;
+  max-width: 100%;
+  border-collapse: collapse;
+  border: 3px solid var(--clr-black);
+  margin-top: 1.5rem;
+}
+
+th,
+td {
+  padding: 1rem;
+}
+
+td .botonPrincipal {
+  margin: 0.2rem;
+}
+
+.spacingBot {
+  margin-bottom: 1.5rem;
 }
