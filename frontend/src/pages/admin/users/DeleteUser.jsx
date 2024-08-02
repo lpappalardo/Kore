@@ -10,7 +10,7 @@ import { useUsers } from '../../../hooks/useUsers'
 
 const DeleteUser = () => {
 
-  TabTitle('Eliminar Usuario')
+  TabTitle('CRUD Eliminar Usuario')
 
   const params = useParams()
   const usuarioId = params.id

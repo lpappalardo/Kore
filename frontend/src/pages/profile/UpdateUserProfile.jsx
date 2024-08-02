@@ -2,14 +2,14 @@ import React, { useContext, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
-import { AuthContext } from '../../../context/AuthContext/'
-import { TabTitle } from '../../../utils/TabTitle'
+import { AuthContext } from '../../context/AuthContext/'
+import { TabTitle } from '../../utils/TabTitle'
 import {toast} from "sonner";
-import { useProjects } from '../../../hooks/useProjects'
+import { useProjects } from '../../hooks/useProjects'
 
-const UpdateUser = () => {
+const UpdateUserProfile = () => {
 
-  TabTitle('CRUD Editar Usuario')
+  TabTitle('Editar Usuario')
 
     const params = useParams()
     const userId = params.id
@@ -66,7 +66,7 @@ const UpdateUser = () => {
       axios.put(`http://localhost:3000/usuarios/editarUsuario/${id}`, userData)
       .then((res) => {
         console.log(res)
-        navigate('/administracionUsuarios')
+        navigate('/perfil')
         toast.success('Se ha editado el usuario con éxito!');
       })
       .catch((error) => {
@@ -101,5 +101,5 @@ const UpdateUser = () => {
   )
 }
 
-export {UpdateUser}
+export {UpdateUserProfile}
 

@@ -34,9 +34,16 @@ export const Profile = () => {
           <h1>Perfil</h1>
           <div className='contenidoPerfil'>
             <img src="../../../src/assets/img/logoGrande.png" alt="Imagen Perfil" />
+            <div>
             <div className='elementoPerfil'>
-              <h2>Nombre de Usuario</h2>
+              <h2>Nombre de usuario</h2>
               <p>{user.username}</p>
+            </div>
+            <div className='elementoPerfil'>
+              <h2>Correo de usuario</h2>
+              <p>{user.email}</p>
+            </div>
+            {/* <Link className='botonPrincipal' to={`/usuarioPerfilEditar`}>Editar Perfil</Link> */}
             </div>
           </div>
         </section>

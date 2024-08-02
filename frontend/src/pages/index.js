@@ -1,6 +1,7 @@
 export { Home } from "./home/Home.jsx"
 export { AvailableProjects } from "./projects/AvailableProjects.jsx" 
 export { Profile } from "./profile/Profile.jsx"
+export { UpdateUserProfile } from "./profile/UpdateUserProfile.jsx"
 export { Register } from "./register/Register"
 export { Login } from "./login/Login.jsx"
 export { DeleteProject } from "./projects/DeleteProject.jsx"

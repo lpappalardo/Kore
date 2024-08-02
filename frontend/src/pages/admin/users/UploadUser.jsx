@@ -8,7 +8,7 @@ const UploadUser = () => {
 
   const [errorsValidation, setErrorsValidation] = useState({})
 
-  TabTitle('Registro')
+  TabTitle('CRUD Cargar Usuario')
 
   const navigate = useNavigate()
 

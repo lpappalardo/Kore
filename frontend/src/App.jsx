@@ -26,6 +26,7 @@ import { DeleteUser } from "./pages/admin/users/DeleteUser"
 import { User } from "./pages/admin/users/User"
 import { UploadUser } from "./pages/admin/users/UploadUser"
 import { UpdateUser } from "./pages/admin/users/UpdateUser"
+import { UpdateUserProfile } from "./pages/profile/UpdateUserProfile"
 
 import ProtectedRoutes from './utils/ProtectedRoutes'
 
@@ -46,6 +47,7 @@ function App() {
           <Route path='/generarObservacion/:id' element={<UploadObservation/>} />
           <Route path='/generarProyecto' element={<UploadProject/>} />
           <Route path='/perfil' element={<Profile/>} />
+          <Route path='/usuarioPerfilEditar' element={<UpdateUserProfile/>} />
 
           <Route path='/administracionProyectos' element={<ProjectsTable/>} />
           <Route path='/administracionUsuarios' element={<UsersTable/>} />
