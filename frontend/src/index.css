@@ -543,6 +543,7 @@ fieldset label input {
   border: 4px solid var(--clr-main);
   border-radius: 4px;
   padding: 4rem;
+  max-width: 50%;
 }
 
 .formInicio h1 {
@@ -716,4 +717,21 @@ td .botonPrincipal {
 
 .spacingBot {
   margin-bottom: 1.5rem;
+}
+
+/* FORMS */
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showPassword {
+  padding: 0.4rem;
+}
+
+.errorValidation {
+  color: var(--clr-red);
+  margin-bottom: 1rem;
 }

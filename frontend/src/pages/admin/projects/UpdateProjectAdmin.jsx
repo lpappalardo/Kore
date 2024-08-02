@@ -160,7 +160,7 @@ const UpdateProjectAdmin = () => {
                 <input type='text' name="nombre" id="nombre" placeholder="Nombre..." required
                 value={projectData.name}
                 onChange={(e) => setProjectData({...projectData, name: e.target.value, categorias: checkedValues})}></input>
-                {errorsValidation.name && <p>{errorsValidation.name}</p>}  
+                {errorsValidation.name && <p className='errorValidation'>{errorsValidation.name}</p>}  
               </div>
   
               <div>
@@ -168,7 +168,7 @@ const UpdateProjectAdmin = () => {
                 <textarea name="descripcion" id="descripcion" placeholder="Descripcion..." required
                 value={projectData.description}
                 onChange={(e) => setProjectData({...projectData, description: e.target.value, categorias: checkedValues})}></textarea>
-                {errorsValidation.description && <p>{errorsValidation.description}</p>}  
+                {errorsValidation.description && <p className='errorValidation'>{errorsValidation.description}</p>}  
               </div>
   
               <fieldset>
@@ -189,7 +189,7 @@ const UpdateProjectAdmin = () => {
                   ))
                   }
                   </div>
-                  {errorsValidation.categorias && <p>{errorsValidation.categorias}</p>} 
+                  {errorsValidation.categorias && <p className='errorValidation'>{errorsValidation.categorias}</p>} 
               </fieldset>
 
 
@@ -212,7 +212,7 @@ const UpdateProjectAdmin = () => {
                 ))
                 }
                 </div>
-                {errorsValidation.tecnologias && <p>{errorsValidation.tecnologias}</p>} 
+                {errorsValidation.tecnologias && <p className='errorValidation'>{errorsValidation.tecnologias}</p>} 
             </fieldset>
 
               <div>

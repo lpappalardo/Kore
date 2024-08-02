@@ -78,31 +78,26 @@ const Register = () => {
 
       <h1>Registrarse</h1>
       <form>
-        {/* <div>
-          <label>Nombre:</label>
-          <input type="text" value={userData.name}
-            onChange={(e) => setUserData({...userData, name: e.target.value})} />
-          {errorsValidation.name && <p>{errorsValidation.name}</p>}  
-        </div> */}
         <div>
           <label>Nombre Usuario:</label>
           <input type="text" value={userData.username}
             onChange={(e) => setUserData({...userData, username: e.target.value})} />
-          {errorsValidation.username && <p>{errorsValidation.username}</p>}  
+          {errorsValidation.username && <p className='errorValidation'>{errorsValidation.username}</p>}  
         </div>
         <div>
           <label>Correo:</label>
           <input type="email" value={userData.email}
             onChange={(e) => setUserData({...userData, email: e.target.value})} />
-          {errorsValidation.email && <p>{errorsValidation.email}</p>}  
+          {errorsValidation.email && <p className='errorValidation'>{errorsValidation.email}</p>}  
         </div>
         <div>
           <label>Contraseña:</label>
+          <div className='row'>
           <input 
             type={showPassword ? "text" : "password"} 
             value={userData.password}
             onChange={(e) => setUserData({...userData, password: e.target.value})} />
-            <div  onClick={()=>setShowPassword((preve)=>!preve)}>
+            <div className='showPassword'  onClick={()=>setShowPassword((preve)=>!preve)}>
                 <span>
                     {
                         showPassword ? (
@@ -115,16 +110,18 @@ const Register = () => {
                     }
                 </span>
             </div>
-            {errorsValidation.password && <p>{errorsValidation.password}</p>}  
+            </div>
+            {errorsValidation.password && <p className='errorValidation'>{errorsValidation.password}</p>}  
         </div>
 
         <div>
           <label>Confirmar Contraseña:</label>
+          <div className='row'>
           <input 
             type={showConfirmPassword ? "text" : "password"} 
             value={confirmData.password}
             onChange={(e) => setConfirmData({...confirmData, password: e.target.value})} />
-            <div  onClick={()=>setShowConfirmPassword((preve)=>!preve)}>
+            <div className='showPassword'  onClick={()=>setShowConfirmPassword((preve)=>!preve)}>
                 <span>
                     {
                         showConfirmPassword ? (
@@ -137,7 +134,8 @@ const Register = () => {
                     }
                 </span>
             </div>
-            {errorsValidation.confirmPassword && <p>{errorsValidation.confirmPassword}</p>}  
+            </div>
+            {errorsValidation.confirmPassword && <p className='errorValidation'>{errorsValidation.confirmPassword}</p>}  
         </div>
 
         <button className="botonPrincipal" onClick={handleRegister}>Registrarse</button>

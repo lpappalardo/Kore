@@ -158,7 +158,7 @@ const UploadProject = () => {
               <input type='text' name="nombre" id="nombre" placeholder="Nombre..." required
               value={projectData.name}
               onChange={(e) => setProjectData({...projectData, name: e.target.value})}></input>
-              {errorsValidation.name && <p>{errorsValidation.name}</p>}  
+              {errorsValidation.name && <p className='errorValidation'>{errorsValidation.name}</p>}  
             </div>
 
             <div>
@@ -166,7 +166,7 @@ const UploadProject = () => {
               <textarea name="descripcion" id="descripcion" placeholder="Descripcion..." required
               value={projectData.description}
               onChange={(e) => setProjectData({...projectData, description: e.target.value})}></textarea>
-              {errorsValidation.description && <p>{errorsValidation.description}</p>}  
+              {errorsValidation.description && <p className='errorValidation'>{errorsValidation.description}</p>}  
             </div>
 
             <fieldset>
@@ -186,7 +186,7 @@ const UploadProject = () => {
                 ))
                 }
                 </div>
-                {errorsValidation.categorias && <p>{errorsValidation.categorias}</p>} 
+                {errorsValidation.categorias && <p className='errorValidation'>{errorsValidation.categorias}</p>} 
             </fieldset>
 
             <fieldset>
@@ -206,13 +206,13 @@ const UploadProject = () => {
                 ))
                 }
                 </div>
-                {errorsValidation.tecnologias && <p>{errorsValidation.tecnologias}</p>} 
+                {errorsValidation.tecnologias && <p className='errorValidation'>{errorsValidation.tecnologias}</p>} 
             </fieldset>
 
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <label htmlFor="image" className="form-label">Imagen:</label>
               <input type="file" className="form-control" id="image" name="image" onChange={handleFileChange}/>
-            </div>
+            </div> */}
 
             <button className='botonPrincipal' onClick={handleUpload}>Subir</button>
           </form>

@@ -122,7 +122,7 @@ const UpdateObservation = () => {
                 // {detalleObservacion.generales}
                 onChange={(e) => setObservationData({...observationData, generales: e.target.value})}
                 ></textarea>
-                {errorsValidation.generales && <p>{errorsValidation.generales}</p>} 
+                {errorsValidation.generales && <p className='errorValidation'>{errorsValidation.generales}</p>} 
               </div>
               <button className='botonPrincipal' onClick={(e) => handleUpload(e, observationId)}>Actualizar</button>
             </form>

@@ -56,6 +56,8 @@ const Login = () => {
     const credentialsErrors = {}
     credentialsErrors.credentials = "La credenciales ingresadas no son válidas"
     setErrorsValidation(credentialsErrors)
+  } else {
+    toast.error('Error al tratar de ingresar');
   }
 }
 
@@ -71,13 +73,14 @@ const Login = () => {
           <label>Correo:</label>
           <input type="email" value={userData.email}
             onChange={(e) => setUserData({...userData, email: e.target.value})} />
-          {errorsValidation.email && <p>{errorsValidation.email}</p>}  
+          {errorsValidation.email && <p className='errorValidation'>{errorsValidation.email}</p>}  
         </div>
         <div>
           <label>Contraseña:</label>
+          <div className='row'>
           <input type={showPassword ? "text" : "password"}  value={userData.password}
             onChange={(e) => setUserData({...userData, password: e.target.value})} />
-          <div  onClick={()=>setShowPassword((preve)=>!preve)}>
+          <div className='showPassword'  onClick={()=>setShowPassword((preve)=>!preve)}>
                 <span>
                     {
                         showPassword ? (
@@ -90,8 +93,9 @@ const Login = () => {
                     }
                 </span>
             </div>
-          {errorsValidation.password && <p>{errorsValidation.password}</p>} 
-          {errorsValidation.credentials && <p>{errorsValidation.credentials}</p>}  
+            </div>
+          {errorsValidation.password && <p className='errorValidation'>{errorsValidation.password}</p>} 
+          {errorsValidation.credentials && <p className='errorValidation'>{errorsValidation.credentials}</p>}  
         </div>
         <button className="botonPrincipal" onClick={handleLogin}>Login</button>
       </form>
