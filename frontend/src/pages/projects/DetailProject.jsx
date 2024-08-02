@@ -32,6 +32,8 @@ const DetailProject = () => {
   
   let realizoObservacion = observacionUsuario?.length > 0
 
+  let sortedOservaciones = detalleOservaciones.slice().sort((a,b)=>Number(a.userId != user._id)-Number(b.userId != user._id))
+
 
   return (
     <>
@@ -76,8 +78,8 @@ const DetailProject = () => {
             hasObservations
                ? <ul className="observations">
                {
-                   detalleOservaciones.map(observation => (
-                       <li className="observation-card" key={observation.id}>
+                   sortedOservaciones.map(observation => (
+                       <li className={observation.userId == user._id ? "observation-card-user" : "observation-card"} key={observation.id}>
                         <div className='observation-user'>
                           <img src="../src/assets/img/logoGrande.png" alt="Usuario" />
                           <p className='observation-user-name'>{observation.name}</p>

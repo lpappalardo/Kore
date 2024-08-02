@@ -9,7 +9,7 @@ const ListOfProyects = ({ proyects }) => {
                     <ul className="proyects">
                         {
                             proyects.map(proyect => (
-                                <div className="proyect" key={proyect.id}>
+                                <div className="proyectPersonal" key={proyect.id}>
                                     <img src="../../../src/assets/img/card.png" alt={proyect.title} />
                                     <p className="cardTitlte">{proyect.title}</p>
                                     <div className="contenedor-links">

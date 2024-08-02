@@ -212,7 +212,7 @@ nav .menu span {
   height: auto;
 }
 
-                      
+.observation-card-user,                      
 .observation-card {
   /* display: flex;
   flex-direction: row; */
@@ -222,6 +222,12 @@ nav .menu span {
   border-radius: 4px;
   /* text-decoration: none; */
   /* padding: 1rem; */
+}
+
+
+.observation-card-user .observation-user {
+  background-color: var(--clr-ligth);
+  color: var(--clr-white);
 }
 
 .observation-user {
@@ -261,6 +267,7 @@ nav .menu span {
 }
 
 @media screen and (max-width: 991px) {
+  .observation-card-user, 
   .observation-card {
     grid-template-columns: 1fr;
   }
@@ -283,6 +290,7 @@ nav .menu span {
   margin-top: 2rem;
 }
 
+.proyectPersonal,
 .proyect {
   background-color: var(--clr-gray);
   border-radius: 4px;
@@ -296,10 +304,12 @@ nav .menu span {
   border-radius: 0 0px 4px 4px;
 }
 
+.proyectPersonal img,
 .proyect img {
   border-radius: 4px 4px 0 0;
 }
 
+.proyectPersonal .cardTitlte,
 .proyect .cardTitlte {
   /* margin: 16px 8px; */
   padding: 1rem;
@@ -352,9 +362,9 @@ nav .menu span {
 .botonDanger,
 .botonPrincipal {
   margin: 1rem auto;
-  background-color: var(--clr-main);
+  /* background-color: var(--clr-main); */
   color: var(--clr-white);
-  border: 2px solid var(--clr-main);
+  /* border: 2px solid var(--clr-main); */
   border-radius: 4px;
   padding: 0.5rem 2rem;
   font-weight: 600;
