@@ -72,32 +72,37 @@ const Register = () => {
   return (
     <main className='inicio'>
       <div className='container formInicio'>
-      <picture className='logoEntrada'>
-          <img src="../../../src/assets/img/logoSolo.png" alt="Kore" />
-      </picture>
+        <div className='row espaciadoTitleForm'>
+          <picture className='logoEntrada'>
+            <img src="../../../src/assets/img/logoSolo.png" alt="Kore" />
+          </picture>
       
+          <h1>Registrarse</h1>
+        </div>
 
-      <h1>Registrarse</h1>
       <form>
         <div>
           <label>Nombre Usuario:</label>
           <input type="text" value={userData.username}
-            onChange={(e) => setUserData({...userData, username: e.target.value})} />
+            onChange={(e) => setUserData({...userData, username: e.target.value})} 
+            className='espaciadoIngreso bordePerfecto' />
           {errorsValidation.username && <p className='errorValidation'>{errorsValidation.username}</p>}  
         </div>
         <div>
           <label>Correo:</label>
           <input type="email" value={userData.email}
-            onChange={(e) => setUserData({...userData, email: e.target.value})} />
+            onChange={(e) => setUserData({...userData, email: e.target.value})} 
+            className='espaciadoIngreso bordePerfecto' />
           {errorsValidation.email && <p className='errorValidation'>{errorsValidation.email}</p>}  
         </div>
         <div>
           <label>Contraseña:</label>
-          <div className='row'>
+          <div className='row valorIngreso espaciadoIngreso'>
             <input 
               type={showPassword ? "text" : "password"} 
               value={userData.password}
-              onChange={(e) => setUserData({...userData, password: e.target.value})} />
+              onChange={(e) => setUserData({...userData, password: e.target.value})} 
+              className='bordeSemiPerfecto'/>
             <div className='showPassword'  onClick={()=>setShowPassword((preve)=>!preve)}>
               <span>
                   {
@@ -117,11 +122,12 @@ const Register = () => {
 
         <div>
           <label>Confirmar Contraseña:</label>
-          <div className='row'>
+          <div className='row valorIngreso espaciadoIngreso'>
             <input 
               type={showConfirmPassword ? "text" : "password"} 
               value={confirmData.password}
-              onChange={(e) => setConfirmData({...confirmData, password: e.target.value})} />
+              onChange={(e) => setConfirmData({...confirmData, password: e.target.value})} 
+              className='bordeSemiPerfecto'/>
             <div className='showPassword'  onClick={()=>setShowConfirmPassword((preve)=>!preve)}>
               <span>
                   {

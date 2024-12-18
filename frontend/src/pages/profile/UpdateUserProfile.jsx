@@ -69,22 +69,19 @@ const UpdateUserProfile = () => {
     }
 
   return (
-    <div>
-      <h1>Editar Usuario</h1>
-      <form>
-
-        <div>
+    <div >
+      <form className='formulario'>
+        <h1>Editar Usuario</h1>
+        <div className='elemEditUser'>
           <label>Nombre Usuario:</label>
           <input type="text" value={userData.username}
             onChange={(e) => setUserData({...userData, username: e.target.value})} />
           {errorsValidation.username && <p>{errorsValidation.username}</p>}  
         </div>
 
-        <div>
-          <label>Correo:</label>
-          <input type="email" value={userData.email}
-            onChange={(e) => setUserData({...userData, email: e.target.value})} />
-          {errorsValidation.email && <p>{errorsValidation.email}</p>}  
+        <div className='elemEditUser'>
+          <label>Imagen:</label>
+          <input type="file"/>
         </div>
 
         <button className="botonPrincipal" onClick={(e) => handleUpdate(e, userId)}>Editar Usuario</button>
@@ -94,4 +91,28 @@ const UpdateUserProfile = () => {
 }
 
 export {UpdateUserProfile}
+
+    // <div>
+    //   <h1>Editar Usuario</h1>
+    //   <form>
+
+    //     <div>
+    //       <label>Nombre Usuario:</label>
+    //       <input type="text" value={userData.username}
+    //         onChange={(e) => setUserData({...userData, username: e.target.value})} />
+    //       {errorsValidation.username && <p>{errorsValidation.username}</p>}  
+    //     </div>
+
+    //     <div>
+    //       <label>Correo:</label>
+    //       <input type="email" value={userData.email}
+    //         onChange={(e) => setUserData({...userData, email: e.target.value})} />
+    //       {errorsValidation.email && <p>{errorsValidation.email}</p>}  
+    //     </div>
+
+    //     <button className="botonPrincipal" onClick={(e) => handleUpdate(e, userId)}>Editar Usuario</button>
+    //   </form>
+    // </div>
+
+
 

@@ -30,31 +30,90 @@ export const Profile = () => {
     {
       <main>
         <section className='perfil container'>
-          <h1>Perfil</h1>
-          <div className='contenidoPerfil'>
-            <img src="../../../src/assets/img/logoGrande.png" alt="Imagen Perfil" />
-            <div>
-            <div className='elementoPerfil'>
-              <h2>Nombre de usuario</h2>
-              <p>{user.username}</p>
+          <h1>Mi Perfil</h1>
+          <div className='perfil-personal'> 
+
+            <div class='perfil-personal-imagen'>
+              <img src="../../../src/assets/img/logoGrande.png" alt="Imagen Perfil" />
             </div>
-            <div className='elementoPerfil'>
-              <h2>Correo de usuario</h2>
-              <p>{user.email}</p>
+        
+              <div class='perfil-personal-datos'>
+
+                <div className='elementoPerfil'>
+                  <h2>Nombre de usuario</h2>
+                  <p className='perfil-personal-datos-contenido'>{user.username}</p>
+                </div>
+
+                <div className='elementoPerfil'>
+                  <h2>Correo de usuario</h2>
+                  <p className='perfil-personal-datos-contenido'>{user.email}</p>
+                </div>
+
+                <Link className='botonPrincipal' to={`/usuarioPerfilEditar`}>Editar Perfil</Link>
+
+              </div>
+
             </div>
-            {/* <Link className='botonPrincipal' to={`/usuarioPerfilEditar`}>Editar Perfil</Link> */}
-            </div>
+        </section>
+
+        <section className='publicaciones container interraccionPerfil'>
+          <h2>Mis notificaciones</h2>
+          <div>
+            <ul>
+                <li>
+                  <div className="solicitud">
+                    <p className="cardTitlte">Solicitud Amistad</p>
+                    <p>Fecha: 15/12/2024</p>
+                    <div div className='row'>
+                    <Link className=" botonPrincipal" to={`/detalle2/`}>Ver</Link>
+                    <Link className="botonDanger" to={``}>Eliminar</Link>
+                    </div>
+                  </div>
+                </li>
+        
+                <li>
+                  <div className="solicitud">
+                    <p className="cardTitlte">Solicitud Testeo Cerrado</p>
+                    <p>Fecha: 15/12/2024</p>
+                    <div className='row'>
+                    <Link className=" botonPrincipal" to={`/detalle2/`}>Ver</Link>
+                    <Link className="botonDanger" to={``}>Eliminar</Link>
+                    </div>       
+                  </div>
+                </li>
+            </ul>
           </div>
         </section>
-        <section className="publicaciones container">
+
+        <section className='publicaciones container interraccionPerfil'>
                 <h2>Proyectos Subidos</h2>
                 <Link className='botonPrincipal' to={`/generarProyecto`}>Generar Proyecto</Link>
                 <PersonalProyects proyects={publicadosUsuario} />
         </section>
-        <section className="publicaciones container">
+
+        <section className='publicaciones container interraccionPerfil'>
+          <h2>Proyectos invitados</h2>
+	          <div>
+              <p>
+                En este momento no te invitaron a ningun proyecto
+              </p>
+	          </div>
+        </section>
+
+        <section className='publicaciones container interraccionPerfil'>
                 <h2>Observaciones Realizadas</h2>
                 <Observations observations={observacionesUsuario} />
         </section>
+
+        <section className='publicaciones container interraccionPerfil'>
+          <h2>Mis amigos</h2>
+	          <div>
+              <p>
+                En este momento no tiene ningun amigo agregado
+              </p>
+	          </div>
+        </section>
+
       </main>
     }
     </>

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from '../../context/AuthContext'
 import { updateTabTitle } from '../../utils/updateTabTitle'
+import {useNavigate, NavLink} from "react-router-dom"
 
 const Home = () => {
 
@@ -12,19 +13,28 @@ const Home = () => {
 
     return (
         <main>
-            <section>
-                <picture>
-                    <img src="../../../src/assets/img/bannerBig.png" alt="Bienvenida al sitio" />
-                </picture>
+            <section className="bienvenida">
+
+                <div className="container">
+                    <div className="contenidoBeinvenida">
+                    <h1>
+                        Testeo  Accesible para Desarrolladores de Videojuegos
+                    </h1>
+                    <p>A travez del desarrollo de una sana comunidad fomentamos que nuestros usuarios colaboren entre sí para hacer crecer sus proyectos.   </p>
+                    <NavLink className="botonPrincipal" to="/proyectitos">Descubre proyectos</NavLink>
+                    </div>
+                </div>
+    
             </section>
 
             <section id="propuestas" className="seccion container">
-                {user && user.role === 'user' && (
+            {user && user.role === 'user' && (
                 <h1 className='centrar'>¡Bienvenido/a {user.username}!</h1>
                 )}
                 {user && user.role === 'admin' && (
                 <h1 className='centrar'>Bienvenido/a al panel de administración</h1>
                 )}
+            
                 <div className="articulos">
                     <div className="articulo">
                             <picture className="articulo-img">
@@ -57,6 +67,39 @@ const Home = () => {
         		    </div>
     		    </div>
 	        </section>
+
+            <section class="container caracteristicas-container">
+
+                <h2>Nuestros servicios</h2>
+                <div class="caracteristicas">
+                    <div class="caracteristica">
+                        <div class="caracteristica-img">
+                            <img src="../../../src/assets/home/upload.png" alt="Subir archivo"/>
+                        </div>    
+                        <div class="caracteristica-texto">
+                            <p>Publica proyectos</p>
+                        </div>
+                    </div>
+
+                    <div class="caracteristica">
+                        <div class="caracteristica-img">
+                            <img src="../../../src/assets/home/game.png" alt="Control de videojuegos"/>
+                        </div>
+                        <div class="caracteristica-texto">
+                            <p>Prueba proyectos</p>
+                        </div>
+                    </div>
+
+                    <div class="caracteristica">
+                        <div class="caracteristica-img">
+                            <img src="../../../src/assets/home/gift.png" alt="Regalo"/>
+                        </div>
+                        <div class="caracteristica-texto">
+                            <p>Recibe recompensas</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     
     )
