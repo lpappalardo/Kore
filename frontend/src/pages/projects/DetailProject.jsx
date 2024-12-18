@@ -85,7 +85,13 @@ const DetailProject = () => {
                        <li className={observation.userId == user._id ? "observation-card-user" : "observation-card"} key={observation.id}>
                         <div className='observation-user'>
                           <img src="../src/assets/img/logoGrande.png" alt="Usuario" />
-                          <p className='observation-user-name'>{observation.name}</p>
+
+                          {
+                            (observation.userId == user._id ) ?
+                              <Link className='observation-user-name' to={`/perfil/`}>{observation.name}</Link>
+                              : <Link className='observation-user-name' to={`/detalleUsuario/${observation.userId}`}>{observation.name}</Link>
+                          }
+
                           <p>Publicación: {observation.fecha}</p>
                         </div>
                         <div className='observation-content'>
