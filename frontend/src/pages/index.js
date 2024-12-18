@@ -21,6 +21,8 @@ export { UsersTable } from "./admin/users/UsersTable.jsx"
 export { DeleteUser } from "./admin/users/DeleteUser.jsx"
 export { User } from "./admin/users/User.jsx"
 export { AddUser } from "./admin/users/AddUser.jsx"
+export { SolicitudAmistadRecibida } from "./profile/SolicitudAmistadRecibida.jsx"
+export { SolicitudAmistadEnviada } from "./profile/SolicitudAmistadEnviada.jsx"
 
 export { UploadUser } from "./admin/users/UploadUser.jsx"
 export { UpdateUser } from "./admin/users/UpdateUser.jsx"

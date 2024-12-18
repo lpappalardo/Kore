@@ -2,6 +2,9 @@ import React, { useContext, useState } from 'react'
 import { ApiContext } from '../../context/ApiContext'
 import { PersonalProyects } from "../../components/proyects/PersonalProyects"
 import { Observations } from "../../components/observations/Oservations"
+import { Solicitudes } from "../../components/solicitudes/Solicitudes"
+import { Friends } from "../../components/friends/Friends"
+
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import { AuthContext } from '../../context/AuthContext/'
@@ -9,6 +12,8 @@ import { Link } from 'react-router-dom'
 import { updateTabTitle } from '../../utils/updateTabTitle'
 import { useProjects } from '../../hooks/useProjects'
 import { useObservations } from '../../hooks/useObservations'
+import { useSolicitudes } from '../../hooks/useSolicitudes'
+import { useUsers } from '../../hooks/useUsers'
 
 export const Profile = () => {
 
@@ -16,14 +21,26 @@ export const Profile = () => {
 
   const {mappedPublicados, setProjects} = useProjects()
   const {mappedOservaciones, setObservations} = useObservations()
+  const {mappedSolicitudes, setSolicitudes} = useSolicitudes()
 
   const {user} = useContext(AuthContext)
+
+  const {usuariosCargados} = useUsers()
+  // console.log(usuariosCargados)
 
   const publicadosUsuario = mappedPublicados.filter((publicado) => publicado.userId == user._id)
 
   const observacionesUsuario = mappedOservaciones.filter((observacion) => observacion.userId == user._id)
 
-  console.log(user)
+  const solicitudesUsuario = mappedSolicitudes.filter((solicitud) => solicitud.userGenerator == user._id || solicitud.userReceptor == user._id)
+
+  const solicitudesAceptadas = solicitudesUsuario.filter((solicitud) => solicitud.estado == "aceptada")
+  console.log(solicitudesAceptadas)
+  const receptoresAceptados = solicitudesAceptadas.map((aceptada) => aceptada.userReceptor)
+  const generadoresAceptados = solicitudesAceptadas.map((aceptada) => aceptada.userGenerator)
+
+  const amigosUsuario = usuariosCargados.filter((usuario) => receptoresAceptados.includes(usuario.id) || generadoresAceptados.includes(usuario.id))
+  const amigosSinUsuario = amigosUsuario.filter((usuario) => usuario.id != user._id)
 
   return (
     <>
@@ -58,31 +75,7 @@ export const Profile = () => {
 
         <section className='publicaciones container interraccionPerfil'>
           <h2>Mis notificaciones</h2>
-          <div>
-            <ul>
-                <li>
-                  <div className="solicitud">
-                    <p className="cardTitlte">Solicitud Amistad</p>
-                    <p>Fecha: 15/12/2024</p>
-                    <div div className='row'>
-                    <Link className=" botonPrincipal" to={`/detalle2/`}>Ver</Link>
-                    <Link className="botonDanger" to={``}>Eliminar</Link>
-                    </div>
-                  </div>
-                </li>
-        
-                <li>
-                  <div className="solicitud">
-                    <p className="cardTitlte">Solicitud Testeo Cerrado</p>
-                    <p>Fecha: 15/12/2024</p>
-                    <div className='row'>
-                    <Link className=" botonPrincipal" to={`/detalle2/`}>Ver</Link>
-                    <Link className="botonDanger" to={``}>Eliminar</Link>
-                    </div>       
-                  </div>
-                </li>
-            </ul>
-          </div>
+          <Solicitudes solicitudes={solicitudesUsuario} />
         </section>
 
         <section className='publicaciones container interraccionPerfil'>
@@ -107,11 +100,7 @@ export const Profile = () => {
 
         <section className='publicaciones container interraccionPerfil'>
           <h2>Mis amigos</h2>
-	          <div>
-              <p>
-                En este momento no tiene ningun amigo agregado
-              </p>
-	          </div>
+          <Friends friends={amigosSinUsuario}/>
         </section>
 
       </main>

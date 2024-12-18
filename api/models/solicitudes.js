@@ -22,6 +22,10 @@ const SolicitudSchema = new mongoose.Schema({
         type: String,
         required: true
       },
+      estado: {
+        type: String,
+        required: true
+      },
 })
 
 export default mongoose.model('Solicitudes', SolicitudSchema);

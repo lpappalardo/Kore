@@ -23,6 +23,7 @@ solicitudRoutes.post('/', async (req, res) => {
     fechaAbsoluta: req.body.fechaAbsoluta,
 
     categoria: req.body.categoria,
+    estado: "pendiente",
 
   });
 
@@ -50,24 +51,35 @@ solicitudRoutes.post('/categoria', async (req, res) => {
   }
 });
 
-// projectroutes.put('/editarProyecto/:id', async (req, res) =>{
-//   let idProyecto = req.params.id
 
-//   try {
-//     let proyecto = await Proyectos.findByIdAndUpdate({_id: idProyecto}, {
-//     name: req.body.name,
-//     userId: req.body.userId,
-//     userName: req.body.userName,
-//     description: req.body.description,
-//     categorias: req.body.categorias,
-//     tecnologias: req.body.tecnologias,
-//     enlace: req.body.enlace,
-//     })
-//     res.status(201).json(proyecto);
-//   } catch (err) {
-//     res.status(400).json({ message: err.message });
-//   }
-// })
+solicitudRoutes.put('/aceptarSolicitud/:id', async (req, res) =>{
+  let idSolicitud = req.params.id
+
+  try {
+    let solicitud = await Solicitudes.findByIdAndUpdate({_id: idSolicitud}, {
+  
+      estado: "aceptada",
+    })
+    res.status(201).json(solicitud);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+})
+
+solicitudRoutes.put('/rechazarSolicitud/:id', async (req, res) =>{
+  let idSolicitud = req.params.id
+
+  try {
+    let solicitud = await Solicitudes.findByIdAndUpdate({_id: idSolicitud}, {
+  
+      estado: "rechazada",
+    })
+    res.status(201).json(solicitud);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+})
+
 
 // projectroutes.delete('/eliminarProyecto/:id', async (req, res) =>{
 //   let idProyecto = req.params.id

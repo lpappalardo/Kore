@@ -7,6 +7,8 @@ import { Login } from "./pages/login/Login"
 import Home from "./pages/home/Home"
 import AvailableProjects from "./pages/projects/AvailableProjects"
 import Profile from "./pages/profile/Profile"
+import SolicitudAmistadRecibida from "./pages/profile/SolicitudAmistadRecibida"
+import SolicitudAmistadEnviada from "./pages/profile/SolicitudAmistadEnviada"
 
 import { DetailProject } from "./pages/projects/DetailProject"
 import { DeleteProject } from "./pages/projects/DeleteProject"
@@ -30,6 +32,7 @@ import { AddUser } from "./pages/admin/users/AddUser"
 import { UploadUser } from "./pages/admin/users/UploadUser"
 import { UpdateUser } from "./pages/admin/users/UpdateUser"
 import { UpdateUserProfile } from "./pages/profile/UpdateUserProfile"
+
 
 import ProtectedRoutes from './utils/ProtectedRoutes'
 
@@ -56,7 +59,9 @@ function App() {
           <Route path='/administracionUsuarios'                 element={<UsersTable/>} />
           <Route path='/elimiarUsuario/:id'                     element={<DeleteUser/>} />
           <Route path='/detalleUsuario/:id'                     element={<User/>} />
-          <Route path='/generarSolicitudAmistad/:id'                     element={<AddUser/>} />
+          <Route path='/generarSolicitudAmistad/:id'            element={<AddUser/>} />
+          <Route path='/solicitudAmistadRecibida/:id'           element={<SolicitudAmistadRecibida/>} />
+          <Route path='/SolicitudAmistadEnviada/:id'            element={<SolicitudAmistadEnviada/>} />
 
           <Route path='/editarUsuario/:id'                      element={<UpdateUser/>} />
           <Route path='/generarUsuario'                         element={<UploadUser/>} />

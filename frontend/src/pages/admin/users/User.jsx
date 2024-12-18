@@ -6,9 +6,14 @@ import { Link } from 'react-router-dom'
 
 import { useProjects } from '../../../hooks/useProjects'
 import { useObservations } from '../../../hooks/useObservations'
+import { useSolicitudes } from '../../../hooks/useSolicitudes'
 
 import { PersonalProyects } from "../../../components/proyects/PersonalProyects"
 import { Observations } from "../../../components/observations/Oservations"
+
+import { useUsers } from '../../../hooks/useUsers'
+import { Friends } from "../../../components/friends/Friends"
+
 
 const User = () => {
 
@@ -21,6 +26,9 @@ const User = () => {
 
   const {mappedPublicados, setProjects} = useProjects()
   const {mappedOservaciones, setObservations} = useObservations()
+  const {mappedSolicitudes, setSolicitudes} = useSolicitudes()
+
+  const {usuariosCargados} = useUsers()
 
   // console.log(usuarioCargado)
 
@@ -30,6 +38,16 @@ const User = () => {
   // console.log(observacionesUsuario)
 
   // usuarioCargado && (console.log(usuarioCargado.id))
+
+  const solicitudesUsuario = mappedSolicitudes.filter((solicitud) => solicitud.userGenerator == usuarioId || solicitud.userReceptor == usuarioId)
+
+  const solicitudesAceptadas = solicitudesUsuario.filter((solicitud) => solicitud.estado == "aceptada")
+  console.log(solicitudesAceptadas)
+  const receptoresAceptados = solicitudesAceptadas.map((aceptada) => aceptada.userReceptor)
+  const generadoresAceptados = solicitudesAceptadas.map((aceptada) => aceptada.userGenerator)
+
+  const amigosUsuario = usuariosCargados.filter((usuario) => receptoresAceptados.includes(usuario.id) || generadoresAceptados.includes(usuario.id))
+  const amigosSinUsuario = amigosUsuario.filter((usuario) => usuario.id != usuarioId)
 
   return (
     <>
@@ -77,11 +95,7 @@ const User = () => {
 
       <section className='publicaciones container interraccionPerfil'>
           <h2>Amigos de {usuarioCargado.username}</h2>
-	          <div>
-              <p>
-                En este momento no tiene ningun amigo agregado
-              </p>
-	          </div>
+	        <Friends friends={amigosSinUsuario}/>
       </section>
 
     </main>
