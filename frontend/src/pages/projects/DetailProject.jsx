@@ -9,6 +9,10 @@ import { updateTabTitle } from '../../utils/updateTabTitle'
 import { useProjects } from '../../hooks/useProjects'
 import { useObservations } from '../../hooks/useObservations'
 
+// import { useUser } from '../../hooks/useUser'
+
+import { useUsers } from '../../hooks/useUsers'
+
 const DetailProject = () => {
 
   updateTabTitle('Proyecto')
@@ -20,10 +24,13 @@ const DetailProject = () => {
 
   const {mappedPublicados} = useProjects()
   const {mappedOservaciones} = useObservations()
+  const {usuariosCargados} = useUsers()
 
   let usuarioId = user._id
 
   let detallePublicado = mappedPublicados.filter(project => (project.id == detalleId))[0]
+
+  console.log(detallePublicado)
   let detalleOservaciones = mappedOservaciones.filter(observacion => (observacion.idProject == detalleId))
 
   let hasObservations = detalleOservaciones?.length > 0
@@ -34,12 +41,15 @@ const DetailProject = () => {
 
   let sortedOservaciones = detalleOservaciones.slice().sort((a,b)=>Number(a.userId != user._id)-Number(b.userId != user._id))
 
+  let detallePublicadoUsuario = usuariosCargados.filter(user => (user.id == detallePublicado.userId))[0]
+  // // detallePublicado && ()
+
 
   return (
     <>
     {
       <main>
-        {detallePublicado && (
+        {(detallePublicado && detallePublicadoUsuario) && (
         <section className='detalle container'>
           <img src="../../../src/assets/img/logoGrande.png" alt={detallePublicado.title} />
           <div className='contenido'>
@@ -60,6 +70,14 @@ const DetailProject = () => {
                 <li className='genero'>{tecnolgia}</li>
               )}
             </ul>
+
+            <h2>Publicado por:</h2>
+            {
+              (detallePublicadoUsuario.id == user._id ) ?
+                <Link to={`/perfil/`}>{detallePublicadoUsuario.username}</Link>
+                : <Link to={`/detalleUsuario/${detallePublicadoUsuario.id}`}>{detallePublicadoUsuario.username}</Link>
+            }
+
             <h2>Enlace de descarga</h2>
             <p className='enlaceDescarga'>{detallePublicado.enlace}</p>
           </div>
