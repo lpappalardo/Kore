@@ -29,6 +29,8 @@ const User = () => {
   const observacionesUsuario = mappedOservaciones.filter((observacion) => observacion.userId == usuarioCargado.id)
   // console.log(observacionesUsuario)
 
+  // usuarioCargado && (console.log(usuarioCargado.id))
+
   return (
     <>
     {usuarioCargado && (
@@ -54,7 +56,8 @@ const User = () => {
                   <p className='perfil-personal-datos-contenido'>{usuarioCargado.email}</p>
                 </div>
 
-                <Link className='botonPrincipal margenInferior'>Enviar solicitud de amistad</Link>
+                <Link className='botonPrincipal margenInferior' to={`/generarSolicitudAmistad/${usuarioCargado.id}`}>Enviar solicitud de amistad</Link>
+
                 {/* <Link className='botonPrincipal' to={`/usuarioPerfilEditar`}>Editar Perfil</Link> */}
 
               </div>

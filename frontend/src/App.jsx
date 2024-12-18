@@ -25,6 +25,8 @@ import { UpdateProjectAdmin } from "./pages/admin/projects/UpdateProjectAdmin"
 import { UsersTable } from "./pages/admin/users/UsersTable"
 import { DeleteUser } from "./pages/admin/users/DeleteUser"
 import { User } from "./pages/admin/users/User"
+import { AddUser } from "./pages/admin/users/AddUser"
+
 import { UploadUser } from "./pages/admin/users/UploadUser"
 import { UpdateUser } from "./pages/admin/users/UpdateUser"
 import { UpdateUserProfile } from "./pages/profile/UpdateUserProfile"
@@ -54,6 +56,8 @@ function App() {
           <Route path='/administracionUsuarios'                 element={<UsersTable/>} />
           <Route path='/elimiarUsuario/:id'                     element={<DeleteUser/>} />
           <Route path='/detalleUsuario/:id'                     element={<User/>} />
+          <Route path='/generarSolicitudAmistad/:id'                     element={<AddUser/>} />
+
           <Route path='/editarUsuario/:id'                      element={<UpdateUser/>} />
           <Route path='/generarUsuario'                         element={<UploadUser/>} />
           <Route path='/elimiarAdministracion/:id'              element={<DeleteProjectAdmin/>} />
