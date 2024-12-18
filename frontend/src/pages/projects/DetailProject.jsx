@@ -44,6 +44,8 @@ const DetailProject = () => {
           <img src="../../../src/assets/img/logoGrande.png" alt={detallePublicado.title} />
           <div className='contenido'>
             <h1>{detallePublicado.title}</h1>
+
+            <p>Publicación: {detallePublicado.fecha}</p>
             <p>{detallePublicado.description}</p>
 
             <h2>Géneros</h2>
@@ -58,7 +60,8 @@ const DetailProject = () => {
                 <li className='genero'>{tecnolgia}</li>
               )}
             </ul>
-            <button className='botonPrincipal'>Descargar</button>
+            <h2>Enlace de descarga</h2>
+            <p className='enlaceDescarga'>{detallePublicado.enlace}</p>
           </div>
         </section>
         )}
@@ -83,6 +86,7 @@ const DetailProject = () => {
                         <div className='observation-user'>
                           <img src="../src/assets/img/logoGrande.png" alt="Usuario" />
                           <p className='observation-user-name'>{observation.name}</p>
+                          <p>Publicación: {observation.fecha}</p>
                         </div>
                         <div className='observation-content'>
                         {

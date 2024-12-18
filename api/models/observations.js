@@ -28,7 +28,15 @@ const ObservationSchema = new mongoose.Schema({
     generales: {
       type: String,
       required: true
-    }
+    },
+    fecha: {
+      type: [String],
+      required: true
+    },
+    fechaAbsoluta: {
+      type: [String],
+      required: true
+    },
 })
 
 export default mongoose.model('Observaciones', ObservationSchema);

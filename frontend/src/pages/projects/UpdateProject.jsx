@@ -38,6 +38,7 @@ const UpdateProject = () => {
       description: "",
       categorias: "",
       tecnologias: "",
+      enlace: "",
       // description: publicadosUsuario.description,
       // categorias: publicadosUsuario.categorias,
       // tecnologias: publicadosUsuario.tecnologias,
@@ -191,6 +192,14 @@ const UpdateProject = () => {
                 </div>
                 {/* {errorsValidation.tecnologias && <p>{errorsValidation.tecnologias}</p>}  */}
             </fieldset>
+
+            <div>
+              <label htmlFor="enlace">Enlace de descarga del Proyecto:*</label>
+              <input type='text' name="enlace" id="enlace" placeholder="Enlace..." required
+              value={projectData.enlace}
+              onChange={(e) => setProjectData({...projectData, enlace: e.target.value, categorias: checkedValues})}></input>
+              {/* {errorsValidation.enlace && <p className='errorValidation'>{errorsValidation.enlace}</p>}   */}
+            </div>
   
               <button className='botonPrincipal' onClick={(e) => handleUpload(e, publicadoId)}>Editar</button>
             </form>

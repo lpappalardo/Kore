@@ -20,7 +20,9 @@ observationroutes.post('/', async (req, res) => {
     arte: req.body.arte,
     tecnico: req.body.tecnico,
     disenio: req.body.disenio,
-    generales: req.body.generales
+    generales: req.body.generales,
+    fecha: req.body.fecha,
+    fechaAbsoluta: req.body.fechaAbsoluta,
   });
 
   try {

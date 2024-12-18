@@ -24,6 +24,10 @@ projectroutes.post('/', async (req, res) => {
     description: req.body.description,
     categorias: req.body.categorias,
     tecnologias: req.body.tecnologias,
+
+    fecha: req.body.fecha,
+    fechaAbsoluta: req.body.fechaAbsoluta,
+    enlace: req.body.enlace,
     // imagenProyecto: req.file.filename 
   });
 
@@ -68,6 +72,7 @@ projectroutes.put('/editarProyecto/:id', async (req, res) =>{
     description: req.body.description,
     categorias: req.body.categorias,
     tecnologias: req.body.tecnologias,
+    enlace: req.body.enlace,
     })
     res.status(201).json(proyecto);
   } catch (err) {

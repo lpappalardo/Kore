@@ -11,6 +11,15 @@ const UploadProject = () => {
 
   const [file, setFile] = useState(null);
 
+  const [time, setTime] = useState(new Date);
+
+  let anio = time.getFullYear();
+  let mes = time.getMonth() + 1;
+  let dia = time.getDate();
+
+  let fecha = dia + "/" + mes + "/" + anio;
+  let fechaAbsoluta = anio * 10000 + mes * 100 + dia;
+
   updateTabTitle('Generar Proyecto')
 
   const generos = ["Accion", "Aventura", "Acertijos", "Suspenso", "Terror", "Plataformas", "2D", "3D"]
@@ -32,6 +41,11 @@ const UploadProject = () => {
     description: "",
     categorias: [],
     tecnologias: [],
+
+    fecha: fecha,
+    fechaAbsoluta: fechaAbsoluta,
+
+    enlace: "",
   })
 
   const [error, setError] = useState("")
@@ -57,6 +71,9 @@ const UploadProject = () => {
       if(projectData.tecnologias.length < 1){
           validationErrors.tecnologias = "Es necesario seleccionar al menos 1 tecnología"
       }
+      if(!projectData.enlace.trim()){
+        validationErrors.enlace = "El enlace del proyecto es requerido"
+    }
 
       setErrorsValidation(validationErrors)  
     
@@ -172,6 +189,15 @@ const UploadProject = () => {
                 </div>
                 {errorsValidation.tecnologias && <p className='errorValidation'>{errorsValidation.tecnologias}</p>} 
             </fieldset>
+
+
+            <div>
+              <label htmlFor="enlace">Enlace de descarga del Proyecto:*</label>
+              <input type='text' name="enlace" id="enlace" placeholder="Enlace..." required
+              value={projectData.enlace}
+              onChange={(e) => setProjectData({...projectData, enlace: e.target.value})}></input>
+              {errorsValidation.enlace && <p className='errorValidation'>{errorsValidation.enlace}</p>}  
+            </div>
 
             <button className='botonPrincipal' onClick={handleUpload}>Subir</button>
           </form>

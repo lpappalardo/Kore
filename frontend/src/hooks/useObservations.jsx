@@ -28,6 +28,9 @@ export function useObservations () {
         tecnico: observation.tecnico,
         disenio: observation.disenio,
         generales: observation.generales,
+
+        fecha: observation.fecha,
+        fechaAbsoluta: observation.fechaAbsoluta,
     }))
 
     return { mappedOservaciones, setObservations, loadingObservation }

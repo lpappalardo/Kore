@@ -25,6 +25,18 @@ const ProjectSchema = new mongoose.Schema({
         type: [String],
         required: true
       },
+      fecha: {
+        type: [String],
+        required: true
+      },
+      fechaAbsoluta: {
+        type: [String],
+        required: true
+      },
+      enlace: {
+        type: [String],
+        required: true
+      },
       // imagenProyecto: {
       //   type: String,
       //   required: false

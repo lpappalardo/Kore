@@ -22,6 +22,15 @@ const UploadObservation = () => {
 
     const {mappedPublicados} = useProjects()
 
+    const [time, setTime] = useState(new Date);
+    
+    let anio = time.getFullYear();
+    let mes = time.getMonth() + 1;
+    let dia = time.getDate();
+    
+    let fecha = dia + "/" + mes + "/" + anio;
+    let fechaAbsoluta = anio * 10000 + mes * 100 + dia;
+
     let detallePublicado = mappedPublicados.filter(project => (project.id == detalleId))[0]
     console.log(detallePublicado)
 
@@ -36,6 +45,9 @@ const UploadObservation = () => {
       tecnico: "",
       disenio: "",
       generales: "",
+
+      fecha: fecha,
+      fechaAbsoluta: fechaAbsoluta,
     })
   
     const [error, setError] = useState("")

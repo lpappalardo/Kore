@@ -30,6 +30,11 @@ export function useProjects () {
         description: project.description,
         categorias: project.categorias,
         tecnologias: project.tecnologias,
+
+        fecha: project.fecha,
+        fechaAbsoluta: project.fechaAbsoluta,
+
+        enlace: project.enlace,
       }))
 
     return { mappedPublicados, setProjects, loading }
