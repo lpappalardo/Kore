@@ -4,7 +4,7 @@ import { projectroutes, observationroutes, userRoutes, solicitudRoutes, reviewRo
 import 'dotenv/config';
 import cors from 'cors';
 
-mongoose.connect("mongodb://127.0.0.1:27017/kore", {
+mongoose.connect("mongodb+srv://lpappalardo:mongodb@cluster0.qvqv1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -15,7 +15,13 @@ mongoose.connect("mongodb://127.0.0.1:27017/kore", {
 
 const app = express();
 
-app.use(cors());
+app.use(cors(
+    {
+        origin: [],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
