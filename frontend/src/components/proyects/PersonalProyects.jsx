@@ -12,12 +12,28 @@ const ListOfProyects = ({ proyects }) => {
                                 <div className="proyectPersonal" key={proyect.id}>
                                     <img src="../../../src/assets/img/card.png" alt={proyect.title} />
                                     <p className="cardTitlte">{proyect.title}</p>
-                                    <div className="contenedor-links">
-                                        <Link className=" botonPrincipal" to={`/detalle/${proyect.id}`}>Ver</Link>
-                                        <Link className=" botonPrincipal" to={`/actualizarProyecto/${proyect.id}`}>Editar</Link>
-                                        <Link className="botonDanger" to={`/elimiar/${proyect.id}`}>Eliminar</Link>
+                                    <p>{proyect.tipoProyecto}</p>
+
+                                        {
+                                            (proyect.tipoProyecto == "abierto") ?
+                                                
+                                                <div className="contenedor-links">
+                                                <Link className=" botonPrincipal" to={`/detalle/${proyect.id}`}>Ver</Link>
+                                                <Link className=" botonPrincipal" to={`/actualizarProyecto/${proyect.id}`}>Editar</Link>
+                                                <Link className="botonDanger" to={`/elimiar/${proyect.id}`}>Eliminar</Link>
+                                                </div>
+
+                                                : (proyect.tipoProyecto == "cerrado") ?
+
+                                                <div className="contenedor-links">
+                                                <Link className=" botonPrincipal" to={`/cerradoDetalle/${proyect.id}`}>Ver</Link>
+                                                <Link className=" botonPrincipal" to={`/actualizarProyecto/${proyect.id}`}>Editar</Link>
+                                                <Link className="botonDanger" to={`/elimiar/${proyect.id}`}>Eliminar</Link>
+                                                </div>
+                                                 : <p>Proyecto Remunerado</p>
+
+                                        }
                                     </div>
-                                </div>
                             ))
                         }
                     </ul>

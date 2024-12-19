@@ -24,6 +24,7 @@ solicitudRoutes.post('/', async (req, res) => {
 
     categoria: req.body.categoria,
     estado: "pendiente",
+    idProyecto: req.body.idProyecto,
 
   });
 

@@ -9,11 +9,15 @@ import AvailableProjects from "./pages/projects/AvailableProjects"
 import Profile from "./pages/profile/Profile"
 import SolicitudAmistadRecibida from "./pages/profile/SolicitudAmistadRecibida"
 import SolicitudAmistadEnviada from "./pages/profile/SolicitudAmistadEnviada"
+import SolicitudColaboracionRecibida from "./pages/profile/SolicitudColaboracionRecibida"
+import SolicitudColaboracionEnviada from "./pages/profile/SolicitudColaboracionEnviada"
 
 import { DetailProject } from "./pages/projects/DetailProject"
 import { DeleteProject } from "./pages/projects/DeleteProject"
 import { UpdateProject } from "./pages/projects/UpdateProject"
 import { UploadProject } from "./pages/projects/UploadProject"
+
+import { DetailProjectCerrado } from "./pages/projects/DetailProjectCerrado"
 
 import { UpdateObservation } from "./pages/observations/UpdateObservation"
 import { DeleteObservation } from "./pages/observations/DeleteObservation"
@@ -33,6 +37,7 @@ import { UploadUser } from "./pages/admin/users/UploadUser"
 import { UpdateUser } from "./pages/admin/users/UpdateUser"
 import { UpdateUserProfile } from "./pages/profile/UpdateUserProfile"
 
+import { SolicitudProyectoCerrado } from "./pages/projects/SolicitudProyectoCerrado"
 
 import ProtectedRoutes from './utils/ProtectedRoutes'
 
@@ -46,6 +51,9 @@ function App() {
           <Route path='/'                                       element={<Home/>} />
           <Route path='/proyectos'                              element={<AvailableProjects/>} />
           <Route path='/detalle/:id'                            element={<DetailProject/>} />
+          <Route path='/cerradoDetalle/:id'                     element={<DetailProjectCerrado/>} />
+          <Route path='/agregarCerrado/:id/:proyecto'           element={<SolicitudProyectoCerrado/>} />
+
           <Route path='/actualizarProyecto/:id'                 element={<UpdateProject/>} />
           <Route path='/elimiar/:id'                            element={<DeleteProject/>} />
           <Route path='/actualizarObservacion/:id'              element={<UpdateObservation/>} />
@@ -53,7 +61,7 @@ function App() {
           <Route path='/generarObservacion/:id'                 element={<UploadObservation/>} />
           <Route path='/generarProyecto'                        element={<UploadProject/>} />
           <Route path='/perfil'                                 element={<Profile/>} />
-          <Route path='/usuarioPerfilEditar'                    element={<UpdateUserProfile/>} />
+          <Route path='/usuarioPerfilEditar'                element={<UpdateUserProfile/>} />
 
           <Route path='/administracionProyectos'                element={<ProjectsTable/>} />
           <Route path='/administracionUsuarios'                 element={<UsersTable/>} />
@@ -62,6 +70,10 @@ function App() {
           <Route path='/generarSolicitudAmistad/:id'            element={<AddUser/>} />
           <Route path='/solicitudAmistadRecibida/:id'           element={<SolicitudAmistadRecibida/>} />
           <Route path='/SolicitudAmistadEnviada/:id'            element={<SolicitudAmistadEnviada/>} />
+          <Route path='/solicitudAmistadRecibida/:id'           element={<SolicitudAmistadRecibida/>} />
+          <Route path='/SolicitudAmistadEnviada/:id'            element={<SolicitudAmistadEnviada/>} />
+          <Route path='/SolicitudColaboracionRecibida/:id'      element={<SolicitudColaboracionRecibida/>} />
+          <Route path='/SolicitudColaboracionEnviada/:id'       element={<SolicitudColaboracionEnviada/>} />
 
           <Route path='/editarUsuario/:id'                      element={<UpdateUser/>} />
           <Route path='/generarUsuario'                         element={<UploadUser/>} />

@@ -45,6 +45,7 @@ const UploadProject = () => {
     fecha: fecha,
     fechaAbsoluta: fechaAbsoluta,
 
+    tipoProyecto: "",
     enlace: "",
   })
 
@@ -71,9 +72,14 @@ const UploadProject = () => {
       if(projectData.tecnologias.length < 1){
           validationErrors.tecnologias = "Es necesario seleccionar al menos 1 tecnología"
       }
+
+      if(!projectData.tipoProyecto.trim()){
+        validationErrors.tipoProyecto = "Es necesario seleccionar la categoría del proyecto"
+    }
+
       if(!projectData.enlace.trim()){
         validationErrors.enlace = "El enlace del proyecto es requerido"
-    }
+      }
 
       setErrorsValidation(validationErrors)  
     
@@ -128,6 +134,10 @@ const UploadProject = () => {
         }
         setProjectData({...projectData, tecnologias: newValues})
     
+      }
+
+      const handleChangeRadio = (e) => {
+        setProjectData({...projectData, tipoProyecto: e.target.value})
       }
 
   return (
@@ -197,6 +207,29 @@ const UploadProject = () => {
               value={projectData.enlace}
               onChange={(e) => setProjectData({...projectData, enlace: e.target.value})}></input>
               {errorsValidation.enlace && <p className='errorValidation'>{errorsValidation.enlace}</p>}  
+            </div>
+
+            
+            <div className='elemFormulario'>
+                <legend className='titleFormulario'>Seleccionar categoría de proyecto*:</legend>
+                <p>Al momento de crear un proyecto debe selecionarse una categoria para el mismo. Puedo ser "abierto" caso en el cual cualquier persona tendra acceso a tu proyecto. También puede ser "cerrado", en este caso solo se podran acceder las personas que hayan recibido una invitacion, estas se envian a travez del proyecto generado en el perfil del usuario. Y finalmente remunerado, en este caso un administrador de la prataforma se pondra en contacto contigo para poder el perfil de los posibles testers y acordar el monto a abonar, una vez resuelto esto el administrador activara el proyecto en la plataforma para que se pueda acceder al mismo.</p>
+
+                <div className='radioFormulario'>
+                  <input type="radio" id="abierto" name="tipoProyecto" value="abierto" onChange={handleChangeRadio}/>
+                  <label for="abierto">Abierto</label>
+                </div>
+
+                <div className='radioFormulario'>
+                  <input type="radio" id="cerrado" name="tipoProyecto" value="cerrado" onChange={handleChangeRadio}/>
+                  <label for="cerrado">Cerrado</label>
+                </div>
+
+                <div className='radioFormulario'>
+                  <input type="radio" id="remunerado" name="tipoProyecto" value="remunerado" onChange={handleChangeRadio}/>
+                  <label for="remunerado">Remunerado</label>
+                </div>
+
+                {errorsValidation.tipoProyecto && <p className='errorValidation'>{errorsValidation.tipoProyecto}</p>} 
             </div>
 
             <button className='botonPrincipal' onClick={handleUpload}>Subir</button>

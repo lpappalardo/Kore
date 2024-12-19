@@ -35,6 +35,7 @@ export function useProjects () {
         fechaAbsoluta: project.fechaAbsoluta,
 
         enlace: project.enlace,
+        tipoProyecto: project.tipoProyecto,
       }))
 
     return { mappedPublicados, setProjects, loading }

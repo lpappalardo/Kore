@@ -12,6 +12,8 @@ const AvailableProjects = () => {
 
   const {mappedPublicados, setProjects} = useProjects()
 
+  const proyectosAbiertos = mappedPublicados.filter((proyecto) => proyecto.tipoProyecto == "abierto")
+
   const generos = ["Todas", "Accion", "Aventura", "Acertijos", "Suspenso", "Terror", "2D", "3D"]
 
   const [categoria, setCategoria] = useState({
@@ -41,7 +43,7 @@ const AvailableProjects = () => {
     })
   }
 
-  console.log(mappedPublicados)
+  // console.log(mappedPublicados)
 
     return (
         <main className="publicaciones container">
@@ -57,7 +59,7 @@ const AvailableProjects = () => {
                       </select>
                   <button className='botonPrincipal' onClick={handleSearch}>Buscar</button>
                 </form>
-                <Proyects proyects={mappedPublicados} />
+                <Proyects proyects={proyectosAbiertos} />
         </main>
     )
 }

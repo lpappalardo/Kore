@@ -28,6 +28,7 @@ projectroutes.post('/', async (req, res) => {
     fecha: req.body.fecha,
     fechaAbsoluta: req.body.fechaAbsoluta,
     enlace: req.body.enlace,
+    tipoProyecto: req.body.tipoProyecto,
     // imagenProyecto: req.file.filename 
   });
 

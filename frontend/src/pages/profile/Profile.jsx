@@ -14,6 +14,7 @@ import { useProjects } from '../../hooks/useProjects'
 import { useObservations } from '../../hooks/useObservations'
 import { useSolicitudes } from '../../hooks/useSolicitudes'
 import { useUsers } from '../../hooks/useUsers'
+import { ColaboracionProyects } from '../../components/proyects/ColaboracionProyects'
 
 export const Profile = () => {
 
@@ -32,15 +33,23 @@ export const Profile = () => {
 
   const observacionesUsuario = mappedOservaciones.filter((observacion) => observacion.userId == user._id)
 
+  // const solicitudesAmistad = mappedSolicitudes.filter((solicitud) => solicitud.categoria == "Amistad")
+
   const solicitudesUsuario = mappedSolicitudes.filter((solicitud) => solicitud.userGenerator == user._id || solicitud.userReceptor == user._id)
 
   const solicitudesAceptadas = solicitudesUsuario.filter((solicitud) => solicitud.estado == "aceptada")
-  console.log(solicitudesAceptadas)
   const receptoresAceptados = solicitudesAceptadas.map((aceptada) => aceptada.userReceptor)
   const generadoresAceptados = solicitudesAceptadas.map((aceptada) => aceptada.userGenerator)
 
   const amigosUsuario = usuariosCargados.filter((usuario) => receptoresAceptados.includes(usuario.id) || generadoresAceptados.includes(usuario.id))
   const amigosSinUsuario = amigosUsuario.filter((usuario) => usuario.id != user._id)
+
+
+  const solicitudesColaboracion = mappedSolicitudes.filter((solicitud) => solicitud.categoria != "Amistad")
+
+  const publicadosInvitado = solicitudesColaboracion.filter((solicitud) => solicitud.userReceptor == user._id)
+  console.log(publicadosInvitado)
+  // publicadosInvitado
 
   return (
     <>
@@ -86,11 +95,7 @@ export const Profile = () => {
 
         <section className='publicaciones container interraccionPerfil'>
           <h2>Proyectos invitados</h2>
-	          <div>
-              <p>
-                En este momento no te invitaron a ningun proyecto
-              </p>
-	          </div>
+	        <ColaboracionProyects proyects={publicadosInvitado}/>
         </section>
 
         <section className='publicaciones container interraccionPerfil'>

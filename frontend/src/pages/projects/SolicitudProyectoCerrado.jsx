@@ -1,20 +1,21 @@
 import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { updateTabTitle } from '../../../utils/updateTabTitle'
-import { useUser } from '../../../hooks/useUser'
+import { updateTabTitle } from '../../utils/updateTabTitle'
+import { useUser } from '../../hooks/useUser'
 import {useNavigate} from "react-router-dom"
-import { useUsers } from '../../../hooks/useUsers'
+import { useUsers } from '../../hooks/useUsers'
 
 import axios from "axios"
 
-import { AuthContext } from '../../../context/AuthContext/'
+import { AuthContext } from '../../context/AuthContext/'
 
-const AddUser = () => {
+const SolicitudProyectoCerrado = () => {
 
-  updateTabTitle('Eliminar Usuario')
+  updateTabTitle('Solicitud Proyecto Cerrado')
 
   const params = useParams()
   const usuarioDestino = params.id
+  const proyecto = params.proyecto
 
   const {usuarioCargado} = useUser(usuarioDestino)
 
@@ -36,8 +37,8 @@ const AddUser = () => {
     userReceptor: usuarioDestino,
     fecha: fecha,
     fechaAbsoluta: fechaAbsoluta,
-    categoria: "Amistad",
-    idProyecto: "",
+    categoria: "Cerrado",
+    idProyecto: proyecto,
   })
 
   console.log(requestData)
@@ -47,13 +48,11 @@ const AddUser = () => {
   const navigate = useNavigate()
 
   const generateRequest = (e) => {
-    // usuarioReceptor = usuarioCargado.id
-    // setRequestData({...requestData, userReceptor: usuarioCargado.id})
 
-    handleAdd(e)
+    handleSend(e)
   }
 
-  const handleAdd = (e) => {
+  const handleSend = (e) => {
     e.preventDefault()
 
     axios.post("http://localhost:3000/solicitudes/", requestData)
@@ -72,7 +71,7 @@ const AddUser = () => {
     <>
     {usuarioCargado && (
       <main className='seccion container'>
-        <h1>¿Está seguro que desea enviar una solicitud de amistad a {usuarioCargado.username}?</h1>
+        <h1>¿Está seguro que desea enviar una solicitud a {usuarioCargado.username} para colaborar en el proyecto?</h1>
          <section className='perfil-personal'> 
         
             <div class='perfil-personal-imagen'>
@@ -98,7 +97,7 @@ const AddUser = () => {
             onClick={(e) => generateRequest(e)}
             className='botonPrincipal'
         >
-            Confirmar envío de solicitud de amistad
+            Confirmar envío de solicitud de colaboración
         </button>
 
         
@@ -108,4 +107,4 @@ const AddUser = () => {
   )
 }
 
-export {AddUser}
+export {SolicitudProyectoCerrado}

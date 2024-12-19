@@ -26,6 +26,10 @@ const SolicitudSchema = new mongoose.Schema({
         type: String,
         required: true
       },
+      idProyecto: {
+        type: String,
+        required: false
+      },
 })
 
 export default mongoose.model('Solicitudes', SolicitudSchema);

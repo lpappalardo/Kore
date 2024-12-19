@@ -17,17 +17,25 @@ const ListOfSolicitudes = ({ solicitudes }) => {
                                     <div className="solicitud" key={solicitud.id}>
 
                                         {
+                                            (solicitud.categoria == "Amistad" ) ?
                                             (solicitud.userGenerator == user._id ) ?
                                             <p className="cardTitlte">Solicitud de Amistad Enviada</p>
                                             : <p className="cardTitlte">Solicitud de Amistad Recibida</p>
+                                            : (solicitud.userGenerator == user._id ) ?
+                                            <p className="cardTitlte">Solicitud de Colaboración Enviada</p>
+                                            : <p className="cardTitlte">Solicitud de Colaboración Recibida</p>
                                         }
-                                      {/* <p className="cardTitlte">Solicitud de Amistad</p> */}
+
                                         <p>Fecha: {solicitud.fecha}</p>
                                         <div className='row'>
                                         {
+                                            (solicitud.categoria == "Amistad" ) ?
                                             (solicitud.userGenerator == user._id ) ?
                                             <Link className=" botonPrincipal" to={`/SolicitudAmistadEnviada/${solicitud.id}`}>Ver</Link>
                                             : <Link className=" botonPrincipal" to={`/solicitudAmistadRecibida/${solicitud.id}`}>Ver</Link>
+                                            : (solicitud.userGenerator == user._id ) ?
+                                            <Link className=" botonPrincipal" to={`/SolicitudColaboracionEnviada/${solicitud.id}`}>Ver</Link>
+                                            : <Link className=" botonPrincipal" to={`/SolicitudColaboracionRecibida/${solicitud.id}`}>Ver</Link>
                                         }
                                       <Link className="botonDanger" to={``}>Eliminar</Link>
                                       </div>       

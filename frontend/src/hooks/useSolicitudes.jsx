@@ -31,6 +31,7 @@ export function useSolicitudes () {
         categoria: solicitud.categoria,
 
         estado: solicitud.estado,
+        idProyecto: solicitud.idProyecto,
     }))
 
     return { mappedSolicitudes, setSolicitudes, loadingSolicitud }

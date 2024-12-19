@@ -37,6 +37,10 @@ const ProjectSchema = new mongoose.Schema({
         type: [String],
         required: true
       },
+      tipoProyecto: {
+        type: String,
+        required: true
+      },
       // imagenProyecto: {
       //   type: String,
       //   required: false

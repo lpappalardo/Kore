@@ -9,12 +9,15 @@ import { updateTabTitle } from '../../utils/updateTabTitle'
 import { useProjects } from '../../hooks/useProjects'
 import { useObservations } from '../../hooks/useObservations'
 import { OnservationProject } from './ObservationProject'
+import { useSolicitudes } from '../../hooks/useSolicitudes'
+import { Friends } from "../../components/friends/Friends"
+import { PosiblesParticipantes } from "../../components/friends/PosiblesParticipantes"
 
 // import { useUser } from '../../hooks/useUser'
 
 import { useUsers } from '../../hooks/useUsers'
 
-const DetailProject = () => {
+const DetailProjectCerrado = () => {
 
   updateTabTitle('Proyecto')
 
@@ -26,10 +29,13 @@ const DetailProject = () => {
   const {mappedPublicados} = useProjects()
   const {mappedOservaciones} = useObservations()
   const {usuariosCargados} = useUsers()
+  const {mappedSolicitudes, setSolicitudes} = useSolicitudes()
 
   let usuarioId = user._id
 
   let detallePublicado = mappedPublicados.filter(project => (project.id == detalleId))[0]
+
+//   let idPublicado = detallePublicado.id
 
   console.log(detallePublicado)
   let detalleOservaciones = mappedOservaciones.filter(observacion => (observacion.idProject == detalleId))
@@ -43,6 +49,32 @@ const DetailProject = () => {
   let sortedOservaciones = detalleOservaciones.slice().sort((a,b)=>Number(a.userId != user._id)-Number(b.userId != user._id))
 
   let detallePublicadoUsuario = usuariosCargados.filter(user => (user.id == detallePublicado.userId))[0]
+
+
+  const solicitudesCerrado = mappedSolicitudes.filter((solicitud) => solicitud.categoria == "Cerrado")
+  const cerradasAceptadas = solicitudesCerrado.filter((solicitud) => solicitud.estado == "aceptada")
+  const cerradasAceptadasProyecto = cerradasAceptadas.filter((solicitud) => solicitud.idProyecto == detalleId)
+
+  const receptoresCerradoAceptados = cerradasAceptadasProyecto.map((aceptada) => aceptada.userReceptor)
+  const colaboradoresUsuario = usuariosCargados.filter((usuario) => receptoresCerradoAceptados.includes(usuario.id))
+
+
+
+
+  const solicitudesAmistad = mappedSolicitudes.filter((solicitud) => solicitud.categoria == "Amistad")
+
+  const solicitudesUsuario = solicitudesAmistad.filter((solicitud) => solicitud.userGenerator == user._id || solicitud.userReceptor == user._id)
+
+  const solicitudesAceptadas = solicitudesUsuario.filter((solicitud) => solicitud.estado == "aceptada")
+
+  const receptoresAceptados = solicitudesAceptadas.map((aceptada) => aceptada.userReceptor)
+  const generadoresAceptados = solicitudesAceptadas.map((aceptada) => aceptada.userGenerator)
+
+  const amigosUsuario = usuariosCargados.filter((usuario) => receptoresAceptados.includes(usuario.id) || generadoresAceptados.includes(usuario.id))
+
+  const solamenteAmigos = amigosUsuario.filter((usuario) => usuario.id != user._id)
+
+  const amigosSinUsuario = solamenteAmigos.filter((usuario) => !(colaboradoresUsuario.includes(usuario.id)))
 
   return (
     <>
@@ -83,6 +115,16 @@ const DetailProject = () => {
         </section>
         )}
 
+        <section className='publicaciones container interraccionPerfil'>
+            <h2>Mis amigos</h2>
+            <PosiblesParticipantes friends={amigosSinUsuario} proyecto={detallePublicado}/>
+        </section>
+
+        <section className='publicaciones container interraccionPerfil'>
+            <h2>Participantes del proyecto</h2>
+            <Friends friends={colaboradoresUsuario}/>
+        </section>
+
         {detalleOservaciones && detallePublicado && (
         <section className='generar-observacion container'>
           <h2>Observaciones Realizadas</h2>
@@ -113,4 +155,4 @@ const DetailProject = () => {
   )
 }
 
-export {DetailProject}
+export {DetailProjectCerrado}
