@@ -38,8 +38,9 @@ const User = () => {
   // console.log(observacionesUsuario)
 
   // usuarioCargado && (console.log(usuarioCargado.id))
+  const solicitudesAmistad = mappedOservaciones.filter((solicitud) => solicitud.categoria == "Amistad")
 
-  const solicitudesUsuario = mappedSolicitudes.filter((solicitud) => solicitud.userGenerator == usuarioId || solicitud.userReceptor == usuarioId)
+  const solicitudesUsuario = solicitudesAmistad.filter((solicitud) => solicitud.userGenerator == usuarioId || solicitud.userReceptor == usuarioId)
 
   const solicitudesAceptadas = solicitudesUsuario.filter((solicitud) => solicitud.estado == "aceptada")
   console.log(solicitudesAceptadas)

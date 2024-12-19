@@ -12,7 +12,7 @@ const UpdateUserProfile = () => {
   updateTabTitle('Editar Usuario')
 
     const params = useParams()
-    // const userId = params.id
+    const userId = params.id
 
     const [errorsValidation, setErrorsValidation] = useState({})
 
@@ -20,7 +20,7 @@ const UpdateUserProfile = () => {
   
     const {user} = useContext(AuthContext)
 
-    const userId  = user._id
+    // const userId  = user._id
     console.log(userId)
   
     const navigate = useNavigate()
@@ -31,8 +31,47 @@ const UpdateUserProfile = () => {
     })
   
     const [error, setError] = useState("")
+
+
+
+    const handleUpdate = (e) => {
+      console.log(projectData)
+
+      const validationErrors = {}
+
+      if(!userData.username.trim()) {
+        validationErrors.name = "El nombre del usuario es requerido"
+      }
+
+      setErrorsValidation(validationErrors)  
+    
+      if(Object.keys(validationErrors).length === 0) {
+        upload(e);
+      } else {
+        toast.error('Error al editar el usuario');
+      }
+    }
+
+    const update= (e) => {
+      e.preventDefault()
+
+      axios.put(`http://localhost:3000/usuarios/editarUsuario/${userId}`, userData)
+      .then((res) => {
+        console.log(res)
+        navigate('/proyectos')
+        toast.success('Se ha editado el usuario con éxito!');
+      })
+      .catch((error) => {
+        setError(error.respose.data.message)
+        console.log('Error:', error)
+        toast.error('Error al crear el proyecto');
+      })
+    }
+
+
+
   
-    const handleUpdate = (e, id) => {
+    const handleUpdate2 = (e, id) => {
 
       const validationErrors = {}
 
@@ -49,7 +88,7 @@ const UpdateUserProfile = () => {
       }
     }
   
-    const update = (e, id) => {
+    const update2 = (e, id) => {
       e.preventDefault()
 
       // axios.put(`http://localhost:3000/usuarios/editarUsuario/${id}`, userData)
@@ -84,6 +123,7 @@ const UpdateUserProfile = () => {
         <button className="botonPrincipal" onClick={(e) => handleUpdate(e, userId)}>Editar Usuario</button>
       </form>
     </div>
+    
   )
 }
 

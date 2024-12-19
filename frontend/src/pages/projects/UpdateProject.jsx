@@ -28,7 +28,7 @@ const UpdateProject = () => {
   
     const navigate = useNavigate()
   
-    // const publicadosUsuario = projects.filter((publicado) => publicado.id == publicadoId)[0]
+    const publicadosUsuario = projects.filter((publicado) => publicado.id == publicadoId)[0]
 
     const [projectData, setProjectData] = useState({
       // name: publicadosUsuario.title,

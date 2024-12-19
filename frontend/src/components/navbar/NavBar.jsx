@@ -29,7 +29,7 @@ const Navbar = () => {
                     <NavLink className="navItem" to="/">Inicio</NavLink>
                 </li>
                 }
-                {user && user.role === 'user' && (
+                {user && (user.role === 'user' ||  user.role === 'tester' ) && (
                                     <>
                 <li className="navItemList">
                     <NavLink className="navItem" to="/proyectos">Proyectos</NavLink>
@@ -46,6 +46,9 @@ const Navbar = () => {
                 </li>
                 <li className="navItemList">
                     <NavLink className="navItem" to="/administracionUsuarios">Usuarios</NavLink>
+                </li>
+                <li className="navItemList">
+                    <NavLink className="navItem" to="/proyectosRemunerados">Remunerados</NavLink>
                 </li>
                 </>)}
 

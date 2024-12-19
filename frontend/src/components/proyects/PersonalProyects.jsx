@@ -30,7 +30,7 @@ const ListOfProyects = ({ proyects }) => {
                                                 <Link className=" botonPrincipal" to={`/actualizarProyecto/${proyect.id}`}>Editar</Link>
                                                 <Link className="botonDanger" to={`/elimiar/${proyect.id}`}>Eliminar</Link>
                                                 </div>
-                                                 : <p>Proyecto Remunerado</p>
+                                                 : <Link className=" botonPrincipal" to={`/proyectoRemuneradoDetalle/${proyect.id}`}>Ver</Link>
 
                                         }
                                     </div>

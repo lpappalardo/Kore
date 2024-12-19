@@ -38,6 +38,7 @@ const AddUser = () => {
     fechaAbsoluta: fechaAbsoluta,
     categoria: "Amistad",
     idProyecto: "",
+    estado: "pendiente",
   })
 
   console.log(requestData)

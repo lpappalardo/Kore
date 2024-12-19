@@ -23,7 +23,7 @@ solicitudRoutes.post('/', async (req, res) => {
     fechaAbsoluta: req.body.fechaAbsoluta,
 
     categoria: req.body.categoria,
-    estado: "pendiente",
+    estado: req.body.estado,
     idProyecto: req.body.idProyecto,
 
   });

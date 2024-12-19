@@ -39,6 +39,7 @@ const SolicitudProyectoCerrado = () => {
     fechaAbsoluta: fechaAbsoluta,
     categoria: "Cerrado",
     idProyecto: proyecto,
+    estado: "pendiente",
   })
 
   console.log(requestData)

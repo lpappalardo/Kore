@@ -29,6 +29,7 @@ projectroutes.post('/', async (req, res) => {
     fechaAbsoluta: req.body.fechaAbsoluta,
     enlace: req.body.enlace,
     tipoProyecto: req.body.tipoProyecto,
+    estado: req.body.estado, 
     // imagenProyecto: req.file.filename 
   });
 
@@ -102,5 +103,35 @@ projectroutes.get('/:id', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
+
+
+projectroutes.put('/aceptarRemunerado/:id', async (req, res) =>{
+  let id = req.params.id
+
+  try {
+    let proyecto = await Proyectos.findByIdAndUpdate({_id: id}, {
+  
+      estado: "aceptado",
+    })
+    res.status(201).json(proyecto);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+})
+
+projectroutes.put('/rechazarRemunerado/:id', async (req, res) =>{
+  let id = req.params.id
+
+  try {
+    let proyecto = await Proyectos.findByIdAndUpdate({_id: id}, {
+  
+      estado: "rechazado",
+    })
+    res.status(201).json(proyecto);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+})
 
 export { projectroutes };

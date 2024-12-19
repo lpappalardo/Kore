@@ -18,6 +18,9 @@ import { UpdateProject } from "./pages/projects/UpdateProject"
 import { UploadProject } from "./pages/projects/UploadProject"
 
 import { DetailProjectCerrado } from "./pages/projects/DetailProjectCerrado"
+import { DetailProjectRemunerado } from "./pages/admin/projects/DetailProjectRemunerado"
+import { ListTesters } from "./pages/admin/projects/ListTesters"
+import { DetalleSolicitudTesteo } from "./pages/admin/projects/DetalleSolicitudTesteo.jsx"
 
 import { UpdateObservation } from "./pages/observations/UpdateObservation"
 import { DeleteObservation } from "./pages/observations/DeleteObservation"
@@ -28,6 +31,7 @@ import { DeleteProjectAdmin } from "./pages/admin/projects/DeleteProjectAdmin"
 import { UploadProjectAdmin } from "./pages/admin/projects/UploadProjectAdmin"
 import { DetailProjectAdmin } from "./pages/admin/projects/DetailProjectAdmin"
 import { UpdateProjectAdmin } from "./pages/admin/projects/UpdateProjectAdmin"
+import { Remunerados } from "./pages/admin/projects/Remunerados"
 import { UsersTable } from "./pages/admin/users/UsersTable"
 import { DeleteUser } from "./pages/admin/users/DeleteUser"
 import { User } from "./pages/admin/users/User"
@@ -38,6 +42,9 @@ import { UpdateUser } from "./pages/admin/users/UpdateUser"
 import { UpdateUserProfile } from "./pages/profile/UpdateUserProfile"
 
 import { SolicitudProyectoCerrado } from "./pages/projects/SolicitudProyectoCerrado"
+import { AsignacionTesteo } from "./pages/admin/projects/AsignacionTesteo"
+
+import { DetailProjectRemuneradoUser } from "./pages/projects/DetailProjectRemuneradoUser.jsx"
 
 import ProtectedRoutes from './utils/ProtectedRoutes'
 
@@ -52,6 +59,7 @@ function App() {
           <Route path='/proyectos'                              element={<AvailableProjects/>} />
           <Route path='/detalle/:id'                            element={<DetailProject/>} />
           <Route path='/cerradoDetalle/:id'                     element={<DetailProjectCerrado/>} />
+          <Route path='/proyectoRemuneradoDetalle/:id'          element={<DetailProjectRemuneradoUser/>} />
           <Route path='/agregarCerrado/:id/:proyecto'           element={<SolicitudProyectoCerrado/>} />
 
           <Route path='/actualizarProyecto/:id'                 element={<UpdateProject/>} />
@@ -61,7 +69,13 @@ function App() {
           <Route path='/generarObservacion/:id'                 element={<UploadObservation/>} />
           <Route path='/generarProyecto'                        element={<UploadProject/>} />
           <Route path='/perfil'                                 element={<Profile/>} />
-          <Route path='/usuarioPerfilEditar'                element={<UpdateUserProfile/>} />
+          <Route path='/usuarioPerfilEditar/:id'                element={<UpdateUserProfile/>} />
+
+          <Route path='/proyectosRemunerados'                   element={<Remunerados/>} />
+          <Route path='/detalleRemunerado/:id'                  element={<DetailProjectRemunerado/>} />
+          <Route path='/testersDisponibles/:id'                 element={<ListTesters/>} />
+          <Route path='/asignarTesteo/:id/:proyecto'            element={<AsignacionTesteo/>} />
+          <Route path='/detalleSolicitudTesteo/:id'            element={<DetalleSolicitudTesteo/>} />
 
           <Route path='/administracionProyectos'                element={<ProjectsTable/>} />
           <Route path='/administracionUsuarios'                 element={<UsersTable/>} />

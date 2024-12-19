@@ -36,6 +36,7 @@ export function useProjects () {
 
         enlace: project.enlace,
         tipoProyecto: project.tipoProyecto,
+        estado: project.estado,
       }))
 
     return { mappedPublicados, setProjects, loading }

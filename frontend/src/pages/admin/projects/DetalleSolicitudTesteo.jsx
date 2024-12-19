@@ -1,18 +1,14 @@
-import React, { useContext, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { ApiContext } from '../../context/ApiContext'
-import {useNavigate} from "react-router-dom"
-import axios from "axios"
-import { AuthContext } from '../../context/AuthContext/'
-import { updateTabTitle } from '../../utils/updateTabTitle'
+import { AuthContext } from '../../../context/AuthContext/'
+import { updateTabTitle } from '../../../utils/updateTabTitle'
 import {toast} from "sonner";
-import { useSolicitudes } from '../../hooks/useSolicitudes'
+import { useSolicitudes } from '../../../hooks/useSolicitudes'
 
-import { useUsers } from '../../hooks/useUsers'
+import { useUsers } from '../../../hooks/useUsers'
+import { useParams } from 'react-router-dom'
 
-export const SolicitudAmistadEnviada = () => {
+export const DetalleSolicitudTesteo = () => {
 
-  updateTabTitle('Solicitud Amistad Recibida')
+  updateTabTitle('Solicitud Colaboración Enviada')
 
   const params = useParams()
   const detalleId = params.id
@@ -22,7 +18,7 @@ export const SolicitudAmistadEnviada = () => {
   let detalleSolicitud = mappedSolicitudes.filter(solicitud => (solicitud.id == detalleId))[0]
   console.log(detalleSolicitud)
 
-  const {user} = useContext(AuthContext)
+//   const {user} = useContext(AuthContext)
 
   const {usuariosCargados} = useUsers()
 
@@ -36,7 +32,7 @@ export const SolicitudAmistadEnviada = () => {
       <main className='seccion container'>
    
         <section className='perfil container'>
-            <h1>Solicitud de amistada enviada a {usuarioCargado.username}</h1>
+            <h1>Solicitud para realizar testeo remunerado</h1>
 
             <p>Enviada en: {detalleSolicitud.fecha}</p>
             <div className='perfil-personal'> 
@@ -70,4 +66,4 @@ export const SolicitudAmistadEnviada = () => {
   )
 }
 
-export default SolicitudAmistadEnviada
+export default DetalleSolicitudTesteo

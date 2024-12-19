@@ -47,6 +47,7 @@ const UploadProject = () => {
 
     tipoProyecto: "",
     enlace: "",
+    estado: "inactivo",
   })
 
   const [error, setError] = useState("")

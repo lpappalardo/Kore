@@ -13,6 +13,13 @@ export { DeleteObservation } from "./observations/DeleteObservation.jsx"
 export { UploadObservation } from "./observations/UploadObservation.jsx"
 
 export { ProjectsTable } from "./admin/projects/ProjectsTable.jsx"
+export { Remunerados } from "./admin/projects/Remunerados.jsx"
+export { DetailProjectRemunerado } from "./admin/projects/DetailProjectRemunerado.jsx"
+export { ListTesters } from "./admin/projects/ListTesters.jsx"
+export { AsignacionTesteo } from "./admin/projects/AsignacionTesteo.jsx"
+export { DetalleSolicitudTesteo } from "./admin/projects/DetalleSolicitudTesteo.jsx"
+
+
 export { DeleteProjectAdmin } from "./admin/projects/DeleteProjectAdmin.jsx"
 export { UploadProjectAdmin } from "./admin/projects/UploadProjectAdmin.jsx"
 export { DetailProjectAdmin } from "./admin/projects/DetailProjectAdmin.jsx"

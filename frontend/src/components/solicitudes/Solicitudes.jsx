@@ -21,9 +21,13 @@ const ListOfSolicitudes = ({ solicitudes }) => {
                                             (solicitud.userGenerator == user._id ) ?
                                             <p className="cardTitlte">Solicitud de Amistad Enviada</p>
                                             : <p className="cardTitlte">Solicitud de Amistad Recibida</p>
-                                            : (solicitud.userGenerator == user._id ) ?
+                                            : (solicitud.categoria == "Cerrado" ) ? 
+                                            
+                                            (solicitud.userGenerator == user._id ) ?
                                             <p className="cardTitlte">Solicitud de Colaboración Enviada</p>
                                             : <p className="cardTitlte">Solicitud de Colaboración Recibida</p>
+
+                                            : <p className="cardTitlte">Solicitud de Testeo Remunerado</p>
                                         }
 
                                         <p>Fecha: {solicitud.fecha}</p>
@@ -33,14 +37,20 @@ const ListOfSolicitudes = ({ solicitudes }) => {
                                             (solicitud.userGenerator == user._id ) ?
                                             <Link className=" botonPrincipal" to={`/SolicitudAmistadEnviada/${solicitud.id}`}>Ver</Link>
                                             : <Link className=" botonPrincipal" to={`/solicitudAmistadRecibida/${solicitud.id}`}>Ver</Link>
-                                            : (solicitud.userGenerator == user._id ) ?
+                                            : (solicitud.categoria == "Cerrado" ) ? 
+
+                                            (solicitud.userGenerator == user._id ) ?
                                             <Link className=" botonPrincipal" to={`/SolicitudColaboracionEnviada/${solicitud.id}`}>Ver</Link>
                                             : <Link className=" botonPrincipal" to={`/SolicitudColaboracionRecibida/${solicitud.id}`}>Ver</Link>
+
+                                            : <Link className=" botonPrincipal" to={`/detalleSolicitudTesteo/${solicitud.id}`}>Ver</Link>
                                         }
                                       <Link className="botonDanger" to={``}>Eliminar</Link>
                                       </div>       
                                     </div>
                                 </li>
+                                // : <></>
+                                //         } 
 
                             ))
                         }

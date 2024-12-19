@@ -51,6 +51,8 @@ export const Profile = () => {
   console.log(publicadosInvitado)
   // publicadosInvitado
 
+  const solicitudesAmistad = amigosSinUsuario.filter((solicitud) => solicitud.categoria == "Amistad")
+
   return (
     <>
     {
@@ -75,7 +77,7 @@ export const Profile = () => {
                   <p className='perfil-personal-datos-contenido'>{user.email}</p>
                 </div>
 
-                <Link className='botonPrincipal' to={`/usuarioPerfilEditar`}>Editar Perfil</Link>
+                <Link className='botonPrincipal' to={`/usuarioPerfilEditar/${user._id}`}>Editar Perfil</Link>
 
               </div>
 
@@ -105,7 +107,7 @@ export const Profile = () => {
 
         <section className='publicaciones container interraccionPerfil'>
           <h2>Mis amigos</h2>
-          <Friends friends={amigosSinUsuario}/>
+          <Friends friends={solicitudesAmistad}/>
         </section>
 
       </main>
